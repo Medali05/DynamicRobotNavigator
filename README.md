@@ -1,3 +1,6 @@
+# DynamicRobotNavigator
+Intelligent robot navigation in a dynamic environment
+
 # Banc d'essai - navigation de robot (thème 2)
 
 ## Lancer
