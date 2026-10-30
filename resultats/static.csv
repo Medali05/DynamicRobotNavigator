@@ -1,0 +1,1651 @@
+experience,environnement,taille,densite,diagonales,instance,algorithme,temps_ms,cout,explorees,trouve,ecart_optimal_pct
+taille,aléatoire,20,0.25,False,0,BFS,1.6619666666883859,38.0,303,True,0.0
+taille,aléatoire,20,0.25,False,0,Dijkstra,2.1853999999924176,38.0,303,True,0.0
+taille,aléatoire,20,0.25,False,0,A*,0.39773333325380616,38.0,59,True,0.0
+taille,aléatoire,20,0.25,False,0,A* pondéré (w=2),0.33223333336233435,42.0,50,True,10.526316
+taille,aléatoire,20,0.25,False,0,Anytime (50 ms),1.846666666551755,38.0,211,True,0.0
+taille,aléatoire,20,0.25,False,1,BFS,1.4420000002246525,38.0,314,True,0.0
+taille,aléatoire,20,0.25,False,1,Dijkstra,2.0163333333584887,38.0,314,True,0.0
+taille,aléatoire,20,0.25,False,1,A*,0.4181666668046091,38.0,48,True,0.0
+taille,aléatoire,20,0.25,False,1,A* pondéré (w=2),0.38446666667368845,40.0,43,True,5.263158
+taille,aléatoire,20,0.25,False,1,Anytime (50 ms),1.6301333331891026,38.0,177,True,0.0
+taille,aléatoire,20,0.25,False,2,BFS,4.2215666665773215,38.0,320,True,0.0
+taille,aléatoire,20,0.25,False,2,Dijkstra,2.04986666676632,38.0,320,True,0.0
+taille,aléatoire,20,0.25,False,2,A*,0.7418333332983215,38.0,94,True,0.0
+taille,aléatoire,20,0.25,False,2,A* pondéré (w=2),0.4675333332973726,42.0,68,True,10.526316
+taille,aléatoire,20,0.25,False,2,Anytime (50 ms),2.2836333334150063,38.0,288,True,0.0
+taille,aléatoire,20,0.25,False,3,BFS,0.9144999999080028,48.0,232,True,0.0
+taille,aléatoire,20,0.25,False,3,Dijkstra,1.8881333333714185,48.0,232,True,0.0
+taille,aléatoire,20,0.25,False,3,A*,1.7324666669082944,48.0,91,True,0.0
+taille,aléatoire,20,0.25,False,3,A* pondéré (w=2),1.3700666666712398,50.0,88,True,4.166667
+taille,aléatoire,20,0.25,False,3,Anytime (50 ms),2.5095666668069803,48.0,357,True,0.0
+taille,aléatoire,20,0.25,False,4,BFS,1.2922333333638865,44.0,297,True,0.0
+taille,aléatoire,20,0.25,False,4,Dijkstra,1.7090333334029613,44.0,297,True,0.0
+taille,aléatoire,20,0.25,False,4,A*,0.5011000001407714,44.0,69,True,0.0
+taille,aléatoire,20,0.25,False,4,A* pondéré (w=2),0.43380000003404956,48.0,63,True,9.090909
+taille,aléatoire,20,0.25,False,4,Anytime (50 ms),2.085900000110996,44.0,261,True,0.0
+taille,aléatoire,20,0.25,False,5,BFS,1.426133333400988,38.0,284,True,0.0
+taille,aléatoire,20,0.25,False,5,Dijkstra,2.2603666666327626,38.0,284,True,0.0
+taille,aléatoire,20,0.25,False,5,A*,0.39573333348622936,38.0,53,True,0.0
+taille,aléatoire,20,0.25,False,5,A* pondéré (w=2),0.37666666670096066,40.0,50,True,5.263158
+taille,aléatoire,20,0.25,False,5,Anytime (50 ms),1.8851000001329037,38.0,206,True,0.0
+taille,aléatoire,20,0.25,False,6,BFS,0.978533333636733,40.0,276,True,0.0
+taille,aléatoire,20,0.25,False,6,Dijkstra,1.9562000000708697,40.0,276,True,0.0
+taille,aléatoire,20,0.25,False,6,A*,0.8273666667264479,40.0,100,True,0.0
+taille,aléatoire,20,0.25,False,6,A* pondéré (w=2),0.4690999997668162,42.0,56,True,5.0
+taille,aléatoire,20,0.25,False,6,Anytime (50 ms),2.516366666744337,40.0,270,True,0.0
+taille,aléatoire,20,0.25,False,7,BFS,1.4318000000154523,40.0,267,True,0.0
+taille,aléatoire,20,0.25,False,7,Dijkstra,2.183933333526511,40.0,267,True,0.0
+taille,aléatoire,20,0.25,False,7,A*,0.9113999999499356,40.0,100,True,0.0
+taille,aléatoire,20,0.25,False,7,A* pondéré (w=2),0.43726666657069774,44.0,54,True,10.0
+taille,aléatoire,20,0.25,False,7,Anytime (50 ms),3.091766666784679,40.0,267,True,0.0
+taille,aléatoire,20,0.25,False,8,BFS,1.0671999998521642,38.0,301,True,0.0
+taille,aléatoire,20,0.25,False,8,Dijkstra,3.745833333293073,38.0,301,True,0.0
+taille,aléatoire,20,0.25,False,8,A*,0.3257333332840062,38.0,40,True,0.0
+taille,aléatoire,20,0.25,False,8,A* pondéré (w=2),0.28809999988273677,38.0,40,True,0.0
+taille,aléatoire,20,0.25,False,8,Anytime (50 ms),1.4990333334026218,38.0,160,True,0.0
+taille,aléatoire,20,0.25,False,9,BFS,1.0654666666596313,38.0,291,True,0.0
+taille,aléatoire,20,0.25,False,9,Dijkstra,2.207533333300186,38.0,291,True,0.0
+taille,aléatoire,20,0.25,False,9,A*,0.8439000001393046,38.0,64,True,0.0
+taille,aléatoire,20,0.25,False,9,A* pondéré (w=2),0.4112333334281478,46.0,49,True,21.052632
+taille,aléatoire,20,0.25,False,9,Anytime (50 ms),1.9777333333574159,38.0,211,True,0.0
+taille,aléatoire,20,0.25,False,10,BFS,1.1504666667860874,38.0,297,True,0.0
+taille,aléatoire,20,0.25,False,10,Dijkstra,2.12669999988672,38.0,297,True,0.0
+taille,aléatoire,20,0.25,False,10,A*,0.3454333333744823,38.0,39,True,0.0
+taille,aléatoire,20,0.25,False,10,A* pondéré (w=2),0.29776666679026675,38.0,39,True,0.0
+taille,aléatoire,20,0.25,False,10,Anytime (50 ms),1.2011000000408483,38.0,156,True,0.0
+taille,aléatoire,20,0.25,False,11,BFS,1.5242333332328901,38.0,281,True,0.0
+taille,aléatoire,20,0.25,False,11,Dijkstra,3.5876666665899393,38.0,281,True,0.0
+taille,aléatoire,20,0.25,False,11,A*,0.565066666695202,38.0,70,True,0.0
+taille,aléatoire,20,0.25,False,11,A* pondéré (w=2),0.6049666665906747,44.0,65,True,15.789474
+taille,aléatoire,20,0.25,False,11,Anytime (50 ms),3.1948333332062853,38.0,272,True,0.0
+taille,aléatoire,20,0.25,False,12,BFS,1.1597666668118716,38.0,317,True,0.0
+taille,aléatoire,20,0.25,False,12,Dijkstra,2.20720000000559,38.0,317,True,0.0
+taille,aléatoire,20,0.25,False,12,A*,0.5394666665476203,38.0,58,True,0.0
+taille,aléatoire,20,0.25,False,12,A* pondéré (w=2),0.37959999993593857,40.0,50,True,5.263158
+taille,aléatoire,20,0.25,False,12,Anytime (50 ms),1.9038333333204112,38.0,209,True,0.0
+taille,aléatoire,20,0.25,False,13,BFS,1.079366666696539,38.0,279,True,0.0
+taille,aléatoire,20,0.25,False,13,Dijkstra,1.8494000000828237,38.0,279,True,0.0
+taille,aléatoire,20,0.25,False,13,A*,0.45563333317962434,38.0,62,True,0.0
+taille,aléatoire,20,0.25,False,13,A* pondéré (w=2),0.4154666667091078,40.0,57,True,5.263158
+taille,aléatoire,20,0.25,False,13,Anytime (50 ms),2.4265666665996832,38.0,234,True,0.0
+taille,aléatoire,20,0.25,False,14,BFS,1.523400000072191,38.0,293,True,0.0
+taille,aléatoire,20,0.25,False,14,Dijkstra,2.1607333334638192,38.0,293,True,0.0
+taille,aléatoire,20,0.25,False,14,A*,0.5653666667058133,38.0,74,True,0.0
+taille,aléatoire,20,0.25,False,14,A* pondéré (w=2),0.5929999999049566,40.0,83,True,5.263158
+taille,aléatoire,20,0.25,False,14,Anytime (50 ms),2.925966666528742,38.0,329,True,0.0
+taille,aléatoire,20,0.25,False,15,BFS,2.255600000201715,38.0,307,True,0.0
+taille,aléatoire,20,0.25,False,15,Dijkstra,2.2124333334735033,38.0,307,True,0.0
+taille,aléatoire,20,0.25,False,15,A*,0.46403333317357465,38.0,65,True,0.0
+taille,aléatoire,20,0.25,False,15,A* pondéré (w=2),0.43873333333976916,42.0,59,True,10.526316
+taille,aléatoire,20,0.25,False,15,Anytime (50 ms),1.9917999999658302,38.0,248,True,0.0
+taille,aléatoire,20,0.25,False,16,BFS,1.487733333306096,38.0,248,True,0.0
+taille,aléatoire,20,0.25,False,16,Dijkstra,1.720600000074531,38.0,248,True,0.0
+taille,aléatoire,20,0.25,False,16,A*,0.6678000001253773,38.0,52,True,0.0
+taille,aléatoire,20,0.25,False,16,A* pondéré (w=2),0.3782666666059716,38.0,52,True,0.0
+taille,aléatoire,20,0.25,False,16,Anytime (50 ms),3.939066666741079,38.0,208,True,0.0
+taille,aléatoire,20,0.25,False,17,BFS,2.3266333332685463,38.0,310,True,0.0
+taille,aléatoire,20,0.25,False,17,Dijkstra,5.27316666648403,38.0,310,True,0.0
+taille,aléatoire,20,0.25,False,17,A*,1.8326666666628928,38.0,67,True,0.0
+taille,aléatoire,20,0.25,False,17,A* pondéré (w=2),0.7325999998405072,40.0,58,True,5.263158
+taille,aléatoire,20,0.25,False,17,Anytime (50 ms),2.0284666664641313,38.0,241,True,0.0
+taille,aléatoire,20,0.25,False,18,BFS,1.0854000001927488,38.0,306,True,0.0
+taille,aléatoire,20,0.25,False,18,Dijkstra,2.3189000000153706,38.0,306,True,0.0
+taille,aléatoire,20,0.25,False,18,A*,0.5214999999528421,38.0,64,True,0.0
+taille,aléatoire,20,0.25,False,18,A* pondéré (w=2),1.3009000000844633,40.0,63,True,5.263158
+taille,aléatoire,20,0.25,False,18,Anytime (50 ms),4.34663333332234,38.0,249,True,0.0
+taille,aléatoire,20,0.25,False,19,BFS,1.133266666632456,38.0,310,True,0.0
+taille,aléatoire,20,0.25,False,19,Dijkstra,2.3735666666956,38.0,310,True,0.0
+taille,aléatoire,20,0.25,False,19,A*,0.4092333333574061,38.0,46,True,0.0
+taille,aléatoire,20,0.25,False,19,A* pondéré (w=2),0.36499999987427145,38.0,46,True,0.0
+taille,aléatoire,20,0.25,False,19,Anytime (50 ms),2.021666666829939,38.0,186,True,0.0
+taille,aléatoire,20,0.25,False,20,BFS,1.5977333332557464,38.0,299,True,0.0
+taille,aléatoire,20,0.25,False,20,Dijkstra,2.0991666665395314,38.0,299,True,0.0
+taille,aléatoire,20,0.25,False,20,A*,0.5764333332081151,38.0,77,True,0.0
+taille,aléatoire,20,0.25,False,20,A* pondéré (w=2),0.3885999999511114,44.0,56,True,15.789474
+taille,aléatoire,20,0.25,False,20,Anytime (50 ms),1.8663666666422312,38.0,246,True,0.0
+taille,aléatoire,20,0.25,False,21,BFS,1.61260000004404,38.0,311,True,0.0
+taille,aléatoire,20,0.25,False,21,Dijkstra,3.324766666689053,38.0,311,True,0.0
+taille,aléatoire,20,0.25,False,21,A*,0.7348000000699054,38.0,39,True,0.0
+taille,aléatoire,20,0.25,False,21,A* pondéré (w=2),0.3626999999445009,38.0,39,True,0.0
+taille,aléatoire,20,0.25,False,21,Anytime (50 ms),4.647900000084822,38.0,156,True,0.0
+taille,aléatoire,20,0.25,False,22,BFS,1.1069000000437275,38.0,316,True,0.0
+taille,aléatoire,20,0.25,False,22,Dijkstra,2.45213333346328,38.0,316,True,0.0
+taille,aléatoire,20,0.25,False,22,A*,0.3560000000106811,38.0,49,True,0.0
+taille,aléatoire,20,0.25,False,22,A* pondéré (w=2),0.44453333339333767,38.0,49,True,0.0
+taille,aléatoire,20,0.25,False,22,Anytime (50 ms),1.410066666721832,38.0,196,True,0.0
+taille,aléatoire,20,0.25,False,23,BFS,1.5613000000485044,38.0,287,True,0.0
+taille,aléatoire,20,0.25,False,23,Dijkstra,3.1380000001869726,38.0,287,True,0.0
+taille,aléatoire,20,0.25,False,23,A*,0.4720999998729288,38.0,48,True,0.0
+taille,aléatoire,20,0.25,False,23,A* pondéré (w=2),0.5530999998579015,38.0,48,True,0.0
+taille,aléatoire,20,0.25,False,23,Anytime (50 ms),1.7768333335273685,38.0,190,True,0.0
+taille,aléatoire,20,0.25,False,24,BFS,1.454233333333832,38.0,301,True,0.0
+taille,aléatoire,20,0.25,False,24,Dijkstra,2.219766666560948,38.0,301,True,0.0
+taille,aléatoire,20,0.25,False,24,A*,0.3588333332421219,38.0,45,True,0.0
+taille,aléatoire,20,0.25,False,24,A* pondéré (w=2),0.32296666662053514,38.0,45,True,0.0
+taille,aléatoire,20,0.25,False,24,Anytime (50 ms),1.5293333334132815,38.0,180,True,0.0
+taille,aléatoire,20,0.25,False,25,BFS,2.4473999998614695,38.0,294,True,0.0
+taille,aléatoire,20,0.25,False,25,Dijkstra,2.115499999945314,38.0,294,True,0.0
+taille,aléatoire,20,0.25,False,25,A*,0.9767666667054679,38.0,123,True,0.0
+taille,aléatoire,20,0.25,False,25,A* pondéré (w=2),0.2889333333466008,40.0,43,True,5.263158
+taille,aléatoire,20,0.25,False,25,Anytime (50 ms),2.2886333332886957,38.0,252,True,0.0
+taille,aléatoire,20,0.25,False,26,BFS,0.9456666668180939,38.0,253,True,0.0
+taille,aléatoire,20,0.25,False,26,Dijkstra,2.005233333572202,38.0,253,True,0.0
+taille,aléatoire,20,0.25,False,26,A*,0.3939666665549642,38.0,53,True,0.0
+taille,aléatoire,20,0.25,False,26,A* pondéré (w=2),0.5632000000635647,40.0,44,True,5.263158
+taille,aléatoire,20,0.25,False,26,Anytime (50 ms),2.145933333395078,38.0,185,True,0.0
+taille,aléatoire,20,0.25,False,27,BFS,1.2582666665063396,38.0,314,True,0.0
+taille,aléatoire,20,0.25,False,27,Dijkstra,2.107866666847258,38.0,314,True,0.0
+taille,aléatoire,20,0.25,False,27,A*,0.5523999999847243,38.0,77,True,0.0
+taille,aléatoire,20,0.25,False,27,A* pondéré (w=2),0.36973333332449937,44.0,48,True,15.789474
+taille,aléatoire,20,0.25,False,27,Anytime (50 ms),1.8110333333728097,38.0,224,True,0.0
+taille,aléatoire,20,0.25,False,28,BFS,1.2485333333340047,40.0,303,True,0.0
+taille,aléatoire,20,0.25,False,28,Dijkstra,2.200766666646814,40.0,303,True,0.0
+taille,aléatoire,20,0.25,False,28,A*,0.4966666667011547,40.0,54,True,0.0
+taille,aléatoire,20,0.25,False,28,A* pondéré (w=2),0.359533333418464,42.0,50,True,5.0
+taille,aléatoire,20,0.25,False,28,Anytime (50 ms),2.2187999999611443,40.0,208,True,0.0
+taille,aléatoire,20,0.25,False,29,BFS,1.549099999920145,38.0,274,True,0.0
+taille,aléatoire,20,0.25,False,29,Dijkstra,3.230833333418559,38.0,274,True,0.0
+taille,aléatoire,20,0.25,False,29,A*,1.0683666666106244,38.0,121,True,0.0
+taille,aléatoire,20,0.25,False,29,A* pondéré (w=2),0.367266666823222,42.0,47,True,10.526316
+taille,aléatoire,20,0.25,False,29,Anytime (50 ms),2.473600000030274,38.0,263,True,0.0
+taille,aléatoire,50,0.25,False,0,BFS,8.626733333130687,100.0,1850,True,0.0
+taille,aléatoire,50,0.25,False,0,Dijkstra,15.117800000098214,100.0,1850,True,0.0
+taille,aléatoire,50,0.25,False,0,A*,11.54256666677611,100.0,834,True,0.0
+taille,aléatoire,50,0.25,False,0,A* pondéré (w=2),0.9753999999399335,104.0,116,True,4.0
+taille,aléatoire,50,0.25,False,0,Anytime (50 ms),11.736033333212012,100.0,1182,True,0.0
+taille,aléatoire,50,0.25,False,1,BFS,8.349000000028658,100.0,1852,True,0.0
+taille,aléatoire,50,0.25,False,1,Dijkstra,13.712533333242996,100.0,1852,True,0.0
+taille,aléatoire,50,0.25,False,1,A*,2.6851666666516394,100.0,214,True,0.0
+taille,aléatoire,50,0.25,False,1,A* pondéré (w=2),1.3121999997262417,108.0,140,True,8.0
+taille,aléatoire,50,0.25,False,1,Anytime (50 ms),7.0811000000503554,100.0,641,True,0.0
+taille,aléatoire,50,0.25,False,2,BFS,9.196633333279655,98.0,1868,True,0.0
+taille,aléatoire,50,0.25,False,2,Dijkstra,17.09100000016406,98.0,1868,True,0.0
+taille,aléatoire,50,0.25,False,2,A*,1.796000000164592,98.0,208,True,0.0
+taille,aléatoire,50,0.25,False,2,A* pondéré (w=2),1.2332666666831453,108.0,121,True,10.204082
+taille,aléatoire,50,0.25,False,2,Anytime (50 ms),6.128733333298442,98.0,574,True,0.0
+taille,aléatoire,50,0.25,False,3,BFS,7.655366666616222,100.0,1817,True,0.0
+taille,aléatoire,50,0.25,False,3,Dijkstra,13.967733333326274,100.0,1817,True,0.0
+taille,aléatoire,50,0.25,False,3,A*,5.074500000015784,100.0,607,True,0.0
+taille,aléatoire,50,0.25,False,3,A* pondéré (w=2),1.9461666665847588,108.0,168,True,8.0
+taille,aléatoire,50,0.25,False,3,Anytime (50 ms),10.856599999897298,100.0,1127,True,0.0
+taille,aléatoire,50,0.25,False,4,BFS,7.433766666508745,98.0,1825,True,0.0
+taille,aléatoire,50,0.25,False,4,Dijkstra,16.504166666739668,98.0,1825,True,0.0
+taille,aléatoire,50,0.25,False,4,A*,2.359666666810275,98.0,212,True,0.0
+taille,aléatoire,50,0.25,False,4,A* pondéré (w=2),1.762966666774446,106.0,141,True,8.163265
+taille,aléatoire,50,0.25,False,4,Anytime (50 ms),5.7122666667055455,98.0,663,True,0.0
+taille,aléatoire,50,0.25,False,5,BFS,7.106533333323266,98.0,1849,True,0.0
+taille,aléatoire,50,0.25,False,5,Dijkstra,15.3957333333589,98.0,1849,True,0.0
+taille,aléatoire,50,0.25,False,5,A*,1.7788333334465278,98.0,143,True,0.0
+taille,aléatoire,50,0.25,False,5,A* pondéré (w=2),2.145966666679063,104.0,131,True,6.122449
+taille,aléatoire,50,0.25,False,5,Anytime (50 ms),6.559566666661946,98.0,536,True,0.0
+taille,aléatoire,50,0.25,False,6,BFS,4.647333333347585,98.0,1812,True,0.0
+taille,aléatoire,50,0.25,False,6,Dijkstra,6.944100000055187,98.0,1812,True,0.0
+taille,aléatoire,50,0.25,False,6,A*,1.1714666669225455,98.0,260,True,0.0
+taille,aléatoire,50,0.25,False,6,A* pondéré (w=2),0.9547999999692062,118.0,223,True,20.408163
+taille,aléatoire,50,0.25,False,6,Anytime (50 ms),7.156733333431475,98.0,904,True,0.0
+taille,aléatoire,50,0.25,False,7,BFS,4.950199999863496,98.0,1852,True,0.0
+taille,aléatoire,50,0.25,False,7,Dijkstra,7.162566666617447,98.0,1852,True,0.0
+taille,aléatoire,50,0.25,False,7,A*,0.8896333333723305,98.0,190,True,0.0
+taille,aléatoire,50,0.25,False,7,A* pondéré (w=2),1.0402333333937956,110.0,238,True,12.244898
+taille,aléatoire,50,0.25,False,7,Anytime (50 ms),8.463900000151625,98.0,917,True,0.0
+taille,aléatoire,50,0.25,False,8,BFS,8.266366666551525,98.0,1837,True,0.0
+taille,aléatoire,50,0.25,False,8,Dijkstra,13.407466666800852,98.0,1837,True,0.0
+taille,aléatoire,50,0.25,False,8,A*,3.8753333333261253,98.0,405,True,0.0
+taille,aléatoire,50,0.25,False,8,A* pondéré (w=2),1.0671666665681794,106.0,134,True,8.163265
+taille,aléatoire,50,0.25,False,8,Anytime (50 ms),7.783666666758411,98.0,807,True,0.0
+taille,aléatoire,50,0.25,False,9,BFS,6.574633333305731,98.0,1880,True,0.0
+taille,aléatoire,50,0.25,False,9,Dijkstra,11.610533333320442,98.0,1880,True,0.0
+taille,aléatoire,50,0.25,False,9,A*,1.557666666485602,98.0,282,True,0.0
+taille,aléatoire,50,0.25,False,9,A* pondéré (w=2),1.1352666665516153,108.0,159,True,10.204082
+taille,aléatoire,50,0.25,False,9,Anytime (50 ms),5.212600000049861,98.0,756,True,0.0
+taille,aléatoire,50,0.25,False,10,BFS,4.228699999960857,100.0,1858,True,0.0
+taille,aléatoire,50,0.25,False,10,Dijkstra,7.270999999946071,100.0,1858,True,0.0
+taille,aléatoire,50,0.25,False,10,A*,12.077100000018012,100.0,872,True,0.0
+taille,aléatoire,50,0.25,False,10,A* pondéré (w=2),1.0244999998576532,110.0,119,True,10.0
+taille,aléatoire,50,0.25,False,10,Anytime (50 ms),14.510833333436798,100.0,1230,True,0.0
+taille,aléatoire,50,0.25,False,11,BFS,10.690066666787365,98.0,1836,True,0.0
+taille,aléatoire,50,0.25,False,11,Dijkstra,17.688800000087213,98.0,1836,True,0.0
+taille,aléatoire,50,0.25,False,11,A*,3.374366666776041,98.0,223,True,0.0
+taille,aléatoire,50,0.25,False,11,A* pondéré (w=2),1.8983999999970063,114.0,189,True,16.326531
+taille,aléatoire,50,0.25,False,11,Anytime (50 ms),8.490033333449295,98.0,763,True,0.0
+taille,aléatoire,50,0.25,False,12,BFS,7.372866666628397,98.0,1832,True,0.0
+taille,aléatoire,50,0.25,False,12,Dijkstra,18.05513333329145,98.0,1832,True,0.0
+taille,aléatoire,50,0.25,False,12,A*,1.316933333328052,98.0,149,True,0.0
+taille,aléatoire,50,0.25,False,12,A* pondéré (w=2),1.01376666680153,106.0,153,True,8.163265
+taille,aléatoire,50,0.25,False,12,Anytime (50 ms),4.496766666761687,98.0,586,True,0.0
+taille,aléatoire,50,0.25,False,13,BFS,7.938833333507016,98.0,1831,True,0.0
+taille,aléatoire,50,0.25,False,13,Dijkstra,17.98553333340654,98.0,1831,True,0.0
+taille,aléatoire,50,0.25,False,13,A*,2.066499999879549,98.0,218,True,0.0
+taille,aléatoire,50,0.25,False,13,A* pondéré (w=2),1.1806666666416277,110.0,133,True,12.244898
+taille,aléatoire,50,0.25,False,13,Anytime (50 ms),8.047999999992802,98.0,628,True,0.0
+taille,aléatoire,50,0.25,False,14,BFS,7.213733333477042,98.0,1874,True,0.0
+taille,aléatoire,50,0.25,False,14,Dijkstra,13.780799999949522,98.0,1874,True,0.0
+taille,aléatoire,50,0.25,False,14,A*,1.72870000005787,98.0,178,True,0.0
+taille,aléatoire,50,0.25,False,14,A* pondéré (w=2),1.4343666665202666,112.0,140,True,14.285714
+taille,aléatoire,50,0.25,False,14,Anytime (50 ms),6.648299999900094,98.0,596,True,0.0
+taille,aléatoire,50,0.25,False,15,BFS,9.157499999976912,98.0,1860,True,0.0
+taille,aléatoire,50,0.25,False,15,Dijkstra,14.529566666775887,98.0,1860,True,0.0
+taille,aléatoire,50,0.25,False,15,A*,1.3521333333604464,98.0,168,True,0.0
+taille,aléatoire,50,0.25,False,15,A* pondéré (w=2),1.5300666668736085,100.0,167,True,2.040816
+taille,aléatoire,50,0.25,False,15,Anytime (50 ms),8.526766666667148,98.0,658,True,0.0
+taille,aléatoire,50,0.25,False,16,BFS,9.9196999999549,98.0,1864,True,0.0
+taille,aléatoire,50,0.25,False,16,Dijkstra,14.800300000085068,98.0,1864,True,0.0
+taille,aléatoire,50,0.25,False,16,A*,1.5503666665305598,98.0,206,True,0.0
+taille,aléatoire,50,0.25,False,16,A* pondéré (w=2),1.7430333333929109,104.0,199,True,6.122449
+taille,aléatoire,50,0.25,False,16,Anytime (50 ms),7.936033333256394,98.0,808,True,0.0
+taille,aléatoire,50,0.25,False,17,BFS,10.442866666683889,102.0,1841,True,0.0
+taille,aléatoire,50,0.25,False,17,Dijkstra,14.023033333463294,102.0,1841,True,0.0
+taille,aléatoire,50,0.25,False,17,A*,6.672700000005231,102.0,591,True,0.0
+taille,aléatoire,50,0.25,False,17,A* pondéré (w=2),1.9297666666110065,108.0,155,True,5.882353
+taille,aléatoire,50,0.25,False,17,Anytime (50 ms),9.396533333377496,102.0,1105,True,0.0
+taille,aléatoire,50,0.25,False,18,BFS,10.104933333423105,98.0,1828,True,0.0
+taille,aléatoire,50,0.25,False,18,Dijkstra,15.637933333285522,98.0,1828,True,0.0
+taille,aléatoire,50,0.25,False,18,A*,7.402466666765879,98.0,755,True,0.0
+taille,aléatoire,50,0.25,False,18,A* pondéré (w=2),1.8153333332217396,120.0,161,True,22.44898
+taille,aléatoire,50,0.25,False,18,Anytime (50 ms),13.805533333349254,98.0,1238,True,0.0
+taille,aléatoire,50,0.25,False,19,BFS,7.714866666447051,98.0,1899,True,0.0
+taille,aléatoire,50,0.25,False,19,Dijkstra,14.064733333422433,98.0,1899,True,0.0
+taille,aléatoire,50,0.25,False,19,A*,1.4979999999316835,98.0,181,True,0.0
+taille,aléatoire,50,0.25,False,19,A* pondéré (w=2),1.2518333334507286,104.0,135,True,6.122449
+taille,aléatoire,50,0.25,False,19,Anytime (50 ms),6.586333333264823,98.0,607,True,0.0
+taille,aléatoire,50,0.25,False,20,BFS,9.061133333185959,102.0,1883,True,0.0
+taille,aléatoire,50,0.25,False,20,Dijkstra,19.032000000000455,102.0,1883,True,0.0
+taille,aléatoire,50,0.25,False,20,A*,13.206199999937477,102.0,1320,True,0.0
+taille,aléatoire,50,0.25,False,20,A* pondéré (w=2),1.0465000000294822,112.0,135,True,9.803922
+taille,aléatoire,50,0.25,False,20,Anytime (50 ms),13.208099999853099,102.0,1735,True,0.0
+taille,aléatoire,50,0.25,False,21,BFS,12.711766666598123,98.0,1920,True,0.0
+taille,aléatoire,50,0.25,False,21,Dijkstra,16.78323333332325,98.0,1920,True,0.0
+taille,aléatoire,50,0.25,False,21,A*,2.1215666665739263,98.0,181,True,0.0
+taille,aléatoire,50,0.25,False,21,A* pondéré (w=2),2.2017999999661697,114.0,189,True,16.326531
+taille,aléatoire,50,0.25,False,21,Anytime (50 ms),8.047799999834146,98.0,724,True,0.0
+taille,aléatoire,50,0.25,False,22,BFS,9.3294999999974,98.0,1851,True,0.0
+taille,aléatoire,50,0.25,False,22,Dijkstra,16.403966666681907,98.0,1851,True,0.0
+taille,aléatoire,50,0.25,False,22,A*,2.1825666666093944,98.0,279,True,0.0
+taille,aléatoire,50,0.25,False,22,A* pondéré (w=2),5.509100000229712,112.0,161,True,14.285714
+taille,aléatoire,50,0.25,False,22,Anytime (50 ms),7.92919999988347,98.0,774,True,0.0
+taille,aléatoire,50,0.25,False,23,BFS,8.68896666679575,98.0,1905,True,0.0
+taille,aléatoire,50,0.25,False,23,Dijkstra,15.552466666576947,98.0,1905,True,0.0
+taille,aléatoire,50,0.25,False,23,A*,2.972366666805707,98.0,304,True,0.0
+taille,aléatoire,50,0.25,False,23,A* pondéré (w=2),1.5398666667654954,118.0,147,True,20.408163
+taille,aléatoire,50,0.25,False,23,Anytime (50 ms),9.47333333321391,98.0,760,True,0.0
+taille,aléatoire,50,0.25,False,24,BFS,7.455300000098457,100.0,1827,True,0.0
+taille,aléatoire,50,0.25,False,24,Dijkstra,12.773966666524453,100.0,1827,True,0.0
+taille,aléatoire,50,0.25,False,24,A*,3.817699999672186,100.0,806,True,0.0
+taille,aléatoire,50,0.25,False,24,A* pondéré (w=2),1.0738333332180143,106.0,138,True,6.0
+taille,aléatoire,50,0.25,False,24,Anytime (50 ms),12.028133333236232,100.0,1223,True,0.0
+taille,aléatoire,50,0.25,False,25,BFS,7.300533333364001,98.0,1871,True,0.0
+taille,aléatoire,50,0.25,False,25,Dijkstra,17.97250000011748,98.0,1871,True,0.0
+taille,aléatoire,50,0.25,False,25,A*,3.4398999999514976,98.0,364,True,0.0
+taille,aléatoire,50,0.25,False,25,A* pondéré (w=2),1.1387333333914285,112.0,147,True,14.285714
+taille,aléatoire,50,0.25,False,25,Anytime (50 ms),6.744733333410598,98.0,826,True,0.0
+taille,aléatoire,50,0.25,False,26,BFS,8.981200000107492,98.0,1828,True,0.0
+taille,aléatoire,50,0.25,False,26,Dijkstra,13.743166666851417,98.0,1828,True,0.0
+taille,aléatoire,50,0.25,False,26,A*,2.60396666650801,98.0,249,True,0.0
+taille,aléatoire,50,0.25,False,26,A* pondéré (w=2),1.1986333332364059,106.0,159,True,8.163265
+taille,aléatoire,50,0.25,False,26,Anytime (50 ms),6.742366666458111,98.0,719,True,0.0
+taille,aléatoire,50,0.25,False,27,BFS,15.911566666394114,98.0,1840,True,0.0
+taille,aléatoire,50,0.25,False,27,Dijkstra,13.886366666914304,98.0,1840,True,0.0
+taille,aléatoire,50,0.25,False,27,A*,2.197166666519479,98.0,284,True,0.0
+taille,aléatoire,50,0.25,False,27,A* pondéré (w=2),0.9363999997731298,106.0,145,True,8.163265
+taille,aléatoire,50,0.25,False,27,Anytime (50 ms),6.918500000059187,98.0,710,True,0.0
+taille,aléatoire,50,0.25,False,28,BFS,7.736066666439001,98.0,1845,True,0.0
+taille,aléatoire,50,0.25,False,28,Dijkstra,12.579299999894525,98.0,1845,True,0.0
+taille,aléatoire,50,0.25,False,28,A*,2.7628999999554558,98.0,273,True,0.0
+taille,aléatoire,50,0.25,False,28,A* pondéré (w=2),1.131466666720371,104.0,134,True,6.122449
+taille,aléatoire,50,0.25,False,28,Anytime (50 ms),6.770166666531925,98.0,690,True,0.0
+taille,aléatoire,50,0.25,False,29,BFS,7.558466666675183,98.0,1870,True,0.0
+taille,aléatoire,50,0.25,False,29,Dijkstra,13.317500000236274,98.0,1870,True,0.0
+taille,aléatoire,50,0.25,False,29,A*,2.876600000035978,98.0,323,True,0.0
+taille,aléatoire,50,0.25,False,29,A* pondéré (w=2),2.5125333333259428,110.0,299,True,12.244898
+taille,aléatoire,50,0.25,False,29,Anytime (50 ms),13.651833333218141,98.0,1187,True,0.0
+taille,aléatoire,100,0.25,False,0,BFS,37.71586666653093,198.0,7447,True,0.0
+taille,aléatoire,100,0.25,False,0,Dijkstra,61.8496666666033,198.0,7447,True,0.0
+taille,aléatoire,100,0.25,False,0,A*,5.46336666654194,198.0,607,True,0.0
+taille,aléatoire,100,0.25,False,0,A* pondéré (w=2),2.2970333332826463,216.0,287,True,9.090909
+taille,aléatoire,100,0.25,False,0,Anytime (50 ms),17.01879999988402,198.0,1484,True,0.0
+taille,aléatoire,100,0.25,False,1,BFS,33.76969999999346,198.0,7466,True,0.0
+taille,aléatoire,100,0.25,False,1,Dijkstra,61.79393333347131,198.0,7466,True,0.0
+taille,aléatoire,100,0.25,False,1,A*,6.632133333368984,198.0,684,True,0.0
+taille,aléatoire,100,0.25,False,1,A* pondéré (w=2),2.373666666395972,218.0,264,True,10.10101
+taille,aléatoire,100,0.25,False,1,Anytime (50 ms),14.69056666655888,198.0,1492,True,0.0
+taille,aléatoire,100,0.25,False,2,BFS,38.345433333233814,198.0,7460,True,0.0
+taille,aléatoire,100,0.25,False,2,Dijkstra,66.18349999992763,198.0,7460,True,0.0
+taille,aléatoire,100,0.25,False,2,A*,4.429466666654965,198.0,471,True,0.0
+taille,aléatoire,100,0.25,False,2,A* pondéré (w=2),3.5284333331825715,224.0,381,True,13.131313
+taille,aléatoire,100,0.25,False,2,Anytime (50 ms),17.45519999985845,198.0,1627,True,0.0
+taille,aléatoire,100,0.25,False,3,BFS,33.31049999997049,198.0,7367,True,0.0
+taille,aléatoire,100,0.25,False,3,Dijkstra,63.53789999987688,198.0,7367,True,0.0
+taille,aléatoire,100,0.25,False,3,A*,5.1928666666754,198.0,475,True,0.0
+taille,aléatoire,100,0.25,False,3,A* pondéré (w=2),4.9370666665708995,238.0,340,True,20.20202
+taille,aléatoire,100,0.25,False,3,Anytime (50 ms),15.555000000100941,198.0,1483,True,0.0
+taille,aléatoire,100,0.25,False,4,BFS,31.936733333168377,198.0,7401,True,0.0
+taille,aléatoire,100,0.25,False,4,Dijkstra,61.09133333332769,198.0,7401,True,0.0
+taille,aléatoire,100,0.25,False,4,A*,6.56656666675796,198.0,675,True,0.0
+taille,aléatoire,100,0.25,False,4,A* pondéré (w=2),3.380799999983234,226.0,373,True,14.141414
+taille,aléatoire,100,0.25,False,4,Anytime (50 ms),19.660033333517884,198.0,1741,True,0.0
+taille,aléatoire,100,0.25,False,5,BFS,37.1178666666007,198.0,7478,True,0.0
+taille,aléatoire,100,0.25,False,5,Dijkstra,64.22066666679409,198.0,7478,True,0.0
+taille,aléatoire,100,0.25,False,5,A*,8.20326666659336,198.0,747,True,0.0
+taille,aléatoire,100,0.25,False,5,A* pondéré (w=2),4.256866666613253,228.0,434,True,15.151515
+taille,aléatoire,100,0.25,False,5,Anytime (50 ms),19.42390000006829,198.0,1932,True,0.0
+taille,aléatoire,100,0.25,False,6,BFS,34.52790000013314,198.0,7421,True,0.0
+taille,aléatoire,100,0.25,False,6,Dijkstra,66.8898666667701,198.0,7421,True,0.0
+taille,aléatoire,100,0.25,False,6,A*,5.314866666746336,198.0,601,True,0.0
+taille,aléatoire,100,0.25,False,6,A* pondéré (w=2),3.21429999985412,226.0,293,True,14.141414
+taille,aléatoire,100,0.25,False,6,Anytime (50 ms),14.943433333428402,198.0,1473,True,0.0
+taille,aléatoire,100,0.25,False,7,BFS,33.44733333339415,198.0,7455,True,0.0
+taille,aléatoire,100,0.25,False,7,Dijkstra,59.58323333334192,198.0,7455,True,0.0
+taille,aléatoire,100,0.25,False,7,A*,5.10930000003403,198.0,510,True,0.0
+taille,aléatoire,100,0.25,False,7,A* pondéré (w=2),2.0416333334954593,216.0,259,True,9.090909
+taille,aléatoire,100,0.25,False,7,Anytime (50 ms),14.250066666742592,198.0,1302,True,0.0
+taille,aléatoire,100,0.25,False,8,BFS,34.43236666665447,198.0,7414,True,0.0
+taille,aléatoire,100,0.25,False,8,Dijkstra,55.47993333342068,198.0,7414,True,0.0
+taille,aléatoire,100,0.25,False,8,A*,9.62943333312675,198.0,1018,True,0.0
+taille,aléatoire,100,0.25,False,8,A* pondéré (w=2),2.637200000208395,226.0,280,True,14.141414
+taille,aléatoire,100,0.25,False,8,Anytime (50 ms),19.157233333468564,198.0,1859,True,0.0
+taille,aléatoire,100,0.25,False,9,BFS,28.972066666786606,198.0,7402,True,0.0
+taille,aléatoire,100,0.25,False,9,Dijkstra,61.88650000012785,198.0,7402,True,0.0
+taille,aléatoire,100,0.25,False,9,A*,6.083533333367086,198.0,656,True,0.0
+taille,aléatoire,100,0.25,False,9,A* pondéré (w=2),3.6770000000008927,226.0,340,True,14.141414
+taille,aléatoire,100,0.25,False,9,Anytime (50 ms),19.69850000007985,198.0,1655,True,0.0
+taille,aléatoire,100,0.25,False,10,BFS,34.760733333466,198.0,7414,True,0.0
+taille,aléatoire,100,0.25,False,10,Dijkstra,63.39986666656235,198.0,7414,True,0.0
+taille,aléatoire,100,0.25,False,10,A*,4.6857333334931655,198.0,500,True,0.0
+taille,aléatoire,100,0.25,False,10,A* pondéré (w=2),3.133666666750893,226.0,318,True,14.141414
+taille,aléatoire,100,0.25,False,10,Anytime (50 ms),15.989333333133496,198.0,1479,True,0.0
+taille,aléatoire,100,0.25,False,11,BFS,34.15563333328464,198.0,7425,True,0.0
+taille,aléatoire,100,0.25,False,11,Dijkstra,63.31829999984014,198.0,7425,True,0.0
+taille,aléatoire,100,0.25,False,11,A*,6.2919333333108325,198.0,612,True,0.0
+taille,aléatoire,100,0.25,False,11,A* pondéré (w=2),2.4971666666715464,214.0,262,True,8.080808
+taille,aléatoire,100,0.25,False,11,Anytime (50 ms),15.472100000200347,198.0,1402,True,0.0
+taille,aléatoire,100,0.25,False,12,BFS,36.21653333342086,198.0,7459,True,0.0
+taille,aléatoire,100,0.25,False,12,Dijkstra,61.69586666677181,198.0,7459,True,0.0
+taille,aléatoire,100,0.25,False,12,A*,9.012966666887223,198.0,953,True,0.0
+taille,aléatoire,100,0.25,False,12,A* pondéré (w=2),2.9152333334726186,218.0,320,True,10.10101
+taille,aléatoire,100,0.25,False,12,Anytime (50 ms),19.508133333298854,198.0,1954,True,0.0
+taille,aléatoire,100,0.25,False,13,BFS,33.475166666600366,198.0,7383,True,0.0
+taille,aléatoire,100,0.25,False,13,Dijkstra,65.02659999978277,198.0,7383,True,0.0
+taille,aléatoire,100,0.25,False,13,A*,14.375399999911073,198.0,1302,True,0.0
+taille,aléatoire,100,0.25,False,13,A* pondéré (w=2),2.145900000111093,238.0,309,True,20.20202
+taille,aléatoire,100,0.25,False,13,Anytime (50 ms),22.39046666682043,198.0,2189,True,0.0
+taille,aléatoire,100,0.25,False,14,BFS,36.700699999983044,198.0,7464,True,0.0
+taille,aléatoire,100,0.25,False,14,Dijkstra,64.48139999990114,198.0,7464,True,0.0
+taille,aléatoire,100,0.25,False,14,A*,11.678033333434238,198.0,1161,True,0.0
+taille,aléatoire,100,0.25,False,14,A* pondéré (w=2),3.714033333229357,228.0,359,True,15.151515
+taille,aléatoire,100,0.25,False,14,Anytime (50 ms),25.268533333473897,198.0,2208,True,0.0
+taille,aléatoire,100,0.25,False,15,BFS,36.53746666653509,198.0,7468,True,0.0
+taille,aléatoire,100,0.25,False,15,Dijkstra,68.2459333334009,198.0,7468,True,0.0
+taille,aléatoire,100,0.25,False,15,A*,16.344300000127987,198.0,1397,True,0.0
+taille,aléatoire,100,0.25,False,15,A* pondéré (w=2),2.774066666612877,220.0,273,True,11.111111
+taille,aléatoire,100,0.25,False,15,Anytime (50 ms),26.98399999993247,198.0,2259,True,0.0
+taille,aléatoire,100,0.25,False,16,BFS,38.43606666669075,198.0,7375,True,0.0
+taille,aléatoire,100,0.25,False,16,Dijkstra,68.37223333316918,198.0,7375,True,0.0
+taille,aléatoire,100,0.25,False,16,A*,7.007800000034574,198.0,640,True,0.0
+taille,aléatoire,100,0.25,False,16,A* pondéré (w=2),4.968033333322334,224.0,489,True,13.131313
+taille,aléatoire,100,0.25,False,16,Anytime (50 ms),26.208866666517377,198.0,2134,True,0.0
+taille,aléatoire,100,0.25,False,17,BFS,33.969600000091305,198.0,7515,True,0.0
+taille,aléatoire,100,0.25,False,17,Dijkstra,65.59669999993882,198.0,7515,True,0.0
+taille,aléatoire,100,0.25,False,17,A*,4.988233333430496,198.0,532,True,0.0
+taille,aléatoire,100,0.25,False,17,A* pondéré (w=2),2.5192333332597627,220.0,264,True,11.111111
+taille,aléatoire,100,0.25,False,17,Anytime (50 ms),14.492266666669215,198.0,1352,True,0.0
+taille,aléatoire,100,0.25,False,18,BFS,36.58286666677668,198.0,7430,True,0.0
+taille,aléatoire,100,0.25,False,18,Dijkstra,59.27473333349553,198.0,7430,True,0.0
+taille,aléatoire,100,0.25,False,18,A*,7.5330333334022725,198.0,768,True,0.0
+taille,aléatoire,100,0.25,False,18,A* pondéré (w=2),5.716900000000654,244.0,504,True,23.232323
+taille,aléatoire,100,0.25,False,18,Anytime (50 ms),28.2420666667349,198.0,2118,True,0.0
+taille,aléatoire,100,0.25,False,19,BFS,36.976733333328106,198.0,7508,True,0.0
+taille,aléatoire,100,0.25,False,19,Dijkstra,80.88799999995899,198.0,7508,True,0.0
+taille,aléatoire,100,0.25,False,19,A*,5.844966666548619,198.0,485,True,0.0
+taille,aléatoire,100,0.25,False,19,A* pondéré (w=2),3.1468666666114586,216.0,371,True,9.090909
+taille,aléatoire,100,0.25,False,19,Anytime (50 ms),18.325466666586482,198.0,1639,True,0.0
+taille,aléatoire,100,0.25,False,20,BFS,32.733566666593106,198.0,7445,True,0.0
+taille,aléatoire,100,0.25,False,20,Dijkstra,68.55986666672227,198.0,7445,True,0.0
+taille,aléatoire,100,0.25,False,20,A*,7.319133333263987,198.0,659,True,0.0
+taille,aléatoire,100,0.25,False,20,A* pondéré (w=2),3.8973666664787743,226.0,369,True,14.141414
+taille,aléatoire,100,0.25,False,20,Anytime (50 ms),19.738100000116294,198.0,1724,True,0.0
+taille,aléatoire,100,0.25,False,21,BFS,35.564899999826594,198.0,7489,True,0.0
+taille,aléatoire,100,0.25,False,21,Dijkstra,66.70953333347522,198.0,7489,True,0.0
+taille,aléatoire,100,0.25,False,21,A*,11.18193333347032,198.0,1081,True,0.0
+taille,aléatoire,100,0.25,False,21,A* pondéré (w=2),3.5012666665655465,220.0,294,True,11.111111
+taille,aléatoire,100,0.25,False,21,Anytime (50 ms),28.719366666488593,198.0,2002,True,0.0
+taille,aléatoire,100,0.25,False,22,BFS,39.42723333314765,198.0,7471,True,0.0
+taille,aléatoire,100,0.25,False,22,Dijkstra,70.08390000009967,198.0,7471,True,0.0
+taille,aléatoire,100,0.25,False,22,A*,7.146933333388006,198.0,474,True,0.0
+taille,aléatoire,100,0.25,False,22,A* pondéré (w=2),3.436499999982819,222.0,301,True,12.121212
+taille,aléatoire,100,0.25,False,22,Anytime (50 ms),16.052633333098736,198.0,1387,True,0.0
+taille,aléatoire,100,0.25,False,23,BFS,27.863433333550347,198.0,7449,True,0.0
+taille,aléatoire,100,0.25,False,23,Dijkstra,42.843133333159734,198.0,7449,True,0.0
+taille,aléatoire,100,0.25,False,23,A*,22.814633333382517,198.0,1870,True,0.0
+taille,aléatoire,100,0.25,False,23,A* pondéré (w=2),5.8609999999437905,256.0,517,True,29.292929
+taille,aléatoire,100,0.25,False,23,Anytime (50 ms),35.925699999855475,198.0,3383,True,0.0
+taille,aléatoire,100,0.25,False,24,BFS,17.481400000178837,198.0,7447,True,0.0
+taille,aléatoire,100,0.25,False,24,Dijkstra,64.90860000000491,198.0,7447,True,0.0
+taille,aléatoire,100,0.25,False,24,A*,2.927166666722769,198.0,499,True,0.0
+taille,aléatoire,100,0.25,False,24,A* pondéré (w=2),2.236133333099133,210.0,336,True,6.060606
+taille,aléatoire,100,0.25,False,24,Anytime (50 ms),20.923099999739254,198.0,1536,True,0.0
+taille,aléatoire,100,0.25,False,25,BFS,35.38303333319467,198.0,7437,True,0.0
+taille,aléatoire,100,0.25,False,25,Dijkstra,104.94226666666388,198.0,7437,True,0.0
+taille,aléatoire,100,0.25,False,25,A*,7.088899999871501,198.0,588,True,0.0
+taille,aléatoire,100,0.25,False,25,A* pondéré (w=2),4.984466666731653,242.0,487,True,22.222222
+taille,aléatoire,100,0.25,False,25,Anytime (50 ms),19.02939999990849,198.0,2121,True,0.0
+taille,aléatoire,100,0.25,False,26,BFS,22.005766666552518,198.0,7398,True,0.0
+taille,aléatoire,100,0.25,False,26,Dijkstra,59.90753333344401,198.0,7398,True,0.0
+taille,aléatoire,100,0.25,False,26,A*,9.11843333339372,198.0,1031,True,0.0
+taille,aléatoire,100,0.25,False,26,A* pondéré (w=2),3.0006666664424606,226.0,312,True,14.141414
+taille,aléatoire,100,0.25,False,26,Anytime (50 ms),18.22126666653882,198.0,1999,True,0.0
+taille,aléatoire,100,0.25,False,27,BFS,25.881033333310672,198.0,7399,True,0.0
+taille,aléatoire,100,0.25,False,27,Dijkstra,66.929400000087,198.0,7399,True,0.0
+taille,aléatoire,100,0.25,False,27,A*,21.52176666671342,198.0,1235,True,0.0
+taille,aléatoire,100,0.25,False,27,A* pondéré (w=2),22.195466666744323,256.0,1018,True,29.292929
+taille,aléatoire,100,0.25,False,27,Anytime (50 ms),49.38746666660639,198.0,3934,True,0.0
+taille,aléatoire,100,0.25,False,28,BFS,30.67343333335278,198.0,7432,True,0.0
+taille,aléatoire,100,0.25,False,28,Dijkstra,46.533533333179854,198.0,7432,True,0.0
+taille,aléatoire,100,0.25,False,28,A*,10.120733333375634,198.0,1409,True,0.0
+taille,aléatoire,100,0.25,False,28,A* pondéré (w=2),3.2889666666354365,232.0,370,True,17.171717
+taille,aléatoire,100,0.25,False,28,Anytime (50 ms),23.368433333265177,198.0,2531,True,0.0
+taille,aléatoire,100,0.25,False,29,BFS,34.584633333300495,198.0,7529,True,0.0
+taille,aléatoire,100,0.25,False,29,Dijkstra,39.21503333337265,198.0,7529,True,0.0
+taille,aléatoire,100,0.25,False,29,A*,2.27126666671514,198.0,461,True,0.0
+taille,aléatoire,100,0.25,False,29,A* pondéré (w=2),1.6841999999996915,220.0,311,True,11.111111
+taille,aléatoire,100,0.25,False,29,Anytime (50 ms),7.744299999861444,198.0,1415,True,0.0
+taille,aléatoire,20,0.25,True,0,BFS,1.951599999908164,33.31370849898476,303,True,0.0
+taille,aléatoire,20,0.25,True,0,Dijkstra,3.154033333278979,33.31370849898477,303,True,0.0
+taille,aléatoire,20,0.25,True,0,A*,2.0074000002144508,33.31370849898477,170,True,0.0
+taille,aléatoire,20,0.25,True,0,A* pondéré (w=2),0.325799999851976,34.14213562373095,40,True,2.486745
+taille,aléatoire,20,0.25,True,0,Anytime (50 ms),2.886966666816685,33.31370849898477,290,True,0.0
+taille,aléatoire,20,0.25,True,1,BFS,1.2050333333111969,30.970562748477143,314,True,0.0
+taille,aléatoire,20,0.25,True,1,Dijkstra,1.930266666628692,30.970562748477146,314,True,0.0
+taille,aléatoire,20,0.25,True,1,A*,1.2388666667296395,30.970562748477146,137,True,0.0
+taille,aléatoire,20,0.25,True,1,A* pondéré (w=2),0.2695999998347058,30.970562748477146,32,True,0.0
+taille,aléatoire,20,0.25,True,1,Anytime (50 ms),1.7875000000155221,30.970562748477146,231,True,0.0
+taille,aléatoire,20,0.25,True,2,BFS,1.2186333333374932,32.14213562373095,320,True,0.0
+taille,aléatoire,20,0.25,True,2,Dijkstra,2.1905333333052113,32.14213562373095,320,True,0.0
+taille,aléatoire,20,0.25,True,2,A*,1.1252333332170867,32.14213562373095,154,True,0.0
+taille,aléatoire,20,0.25,True,2,A* pondéré (w=2),0.23986666656128364,32.14213562373095,31,True,0.0
+taille,aléatoire,20,0.25,True,2,Anytime (50 ms),1.8945333331430447,32.14213562373095,254,True,0.0
+taille,aléatoire,20,0.25,True,3,BFS,0.8118666667845295,43.31370849898476,218,True,0.0
+taille,aléatoire,20,0.25,True,3,Dijkstra,1.4255333332281832,43.31370849898475,227,True,0.0
+taille,aléatoire,20,0.25,True,3,A*,0.6064999999277157,43.31370849898475,82,True,0.0
+taille,aléatoire,20,0.25,True,3,A* pondéré (w=2),0.46113333352574654,43.31370849898475,75,True,0.0
+taille,aléatoire,20,0.25,True,3,Anytime (50 ms),2.1242999999534127,43.31370849898475,304,True,0.0
+taille,aléatoire,20,0.25,True,4,BFS,1.2561000001672558,40.48528137423857,295,True,0.0
+taille,aléatoire,20,0.25,True,4,Dijkstra,1.731033333423208,40.48528137423857,296,True,0.0
+taille,aléatoire,20,0.25,True,4,A*,0.8223666665495936,40.48528137423857,105,True,0.0
+taille,aléatoire,20,0.25,True,4,A* pondéré (w=2),0.7432333334994231,41.31370849898476,59,True,2.046243
+taille,aléatoire,20,0.25,True,4,Anytime (50 ms),2.13643333336222,40.48528137423857,292,True,0.0
+taille,aléatoire,20,0.25,True,5,BFS,1.0321999999784264,30.970562748477143,284,True,0.0
+taille,aléatoire,20,0.25,True,5,Dijkstra,1.7706333334596518,30.970562748477146,284,True,0.0
+taille,aléatoire,20,0.25,True,5,A*,0.5589333333470373,30.970562748477146,82,True,0.0
+taille,aléatoire,20,0.25,True,5,A* pondéré (w=2),0.2015999998548068,30.970562748477146,27,True,0.0
+taille,aléatoire,20,0.25,True,5,Anytime (50 ms),1.239466666750862,30.970562748477146,166,True,0.0
+taille,aléatoire,20,0.25,True,6,BFS,1.0382666666070388,35.31370849898476,275,True,0.0
+taille,aléatoire,20,0.25,True,6,Dijkstra,2.2742000001017004,35.31370849898476,276,True,0.0
+taille,aléatoire,20,0.25,True,6,A*,0.8679666666466801,35.31370849898476,130,True,0.0
+taille,aléatoire,20,0.25,True,6,A* pondéré (w=2),0.3678333334088772,37.55634918610404,57,True,6.350624
+taille,aléatoire,20,0.25,True,6,Anytime (50 ms),2.027766666590954,35.31370849898476,306,True,0.0
+taille,aléatoire,20,0.25,True,7,BFS,1.0103999998136715,34.14213562373095,262,True,0.0
+taille,aléatoire,20,0.25,True,7,Dijkstra,2.2646000002168876,34.14213562373095,266,True,0.0
+taille,aléatoire,20,0.25,True,7,A*,1.5402666666280613,34.14213562373095,141,True,0.0
+taille,aléatoire,20,0.25,True,7,A* pondéré (w=2),0.5604000001161088,37.55634918610405,73,True,10.0
+taille,aléatoire,20,0.25,True,7,Anytime (50 ms),2.927166666571187,34.14213562373095,376,True,0.0
+taille,aléatoire,20,0.25,True,8,BFS,1.201000000037311,31.556349186104047,300,True,0.0
+taille,aléatoire,20,0.25,True,8,Dijkstra,1.8423999999868101,31.55634918610405,301,True,0.0
+taille,aléatoire,20,0.25,True,8,A*,0.7695666666525843,31.55634918610405,112,True,0.0
+taille,aléatoire,20,0.25,True,8,A* pondéré (w=2),0.23166666657440751,32.14213562373095,31,True,1.856319
+taille,aléatoire,20,0.25,True,8,Anytime (50 ms),1.564066666560393,31.55634918610405,207,True,0.0
+taille,aléatoire,20,0.25,True,9,BFS,1.083100000111396,31.556349186104047,290,True,0.0
+taille,aléatoire,20,0.25,True,9,Dijkstra,1.8159000001105596,31.55634918610405,291,True,0.0
+taille,aléatoire,20,0.25,True,9,A*,0.8754666664572142,31.55634918610405,128,True,0.0
+taille,aléatoire,20,0.25,True,9,A* pondéré (w=2),0.269166666688155,32.14213562373096,35,True,1.856319
+taille,aléatoire,20,0.25,True,9,Anytime (50 ms),1.7659333331418263,31.55634918610405,231,True,0.0
+taille,aléatoire,20,0.25,True,10,BFS,1.737900000080117,33.31370849898476,298,True,0.0
+taille,aléatoire,20,0.25,True,10,Dijkstra,4.093933333327489,33.31370849898477,298,True,0.0
+taille,aléatoire,20,0.25,True,10,A*,2.4534333333576797,33.31370849898477,150,True,0.0
+taille,aléatoire,20,0.25,True,10,A* pondéré (w=2),1.9578333335630305,34.72792206135786,65,True,4.24514
+taille,aléatoire,20,0.25,True,10,Anytime (50 ms),8.387866666604774,33.31370849898477,364,True,0.0
+taille,aléatoire,20,0.25,True,11,BFS,4.354866666744783,32.72792206135786,281,True,0.0
+taille,aléatoire,20,0.25,True,11,Dijkstra,5.535666666673933,32.72792206135786,281,True,0.0
+taille,aléatoire,20,0.25,True,11,A*,1.3036333333123669,32.72792206135786,103,True,0.0
+taille,aléatoire,20,0.25,True,11,A* pondéré (w=2),1.0358000001057615,32.72792206135786,57,True,0.0
+taille,aléatoire,20,0.25,True,11,Anytime (50 ms),6.919966666676676,32.72792206135786,259,True,0.0
+taille,aléatoire,20,0.25,True,12,BFS,7.5227000000571325,30.970562748477143,317,True,0.0
+taille,aléatoire,20,0.25,True,12,Dijkstra,4.129133333359884,30.970562748477146,317,True,0.0
+taille,aléatoire,20,0.25,True,12,A*,2.7431000001646075,30.970562748477146,161,True,0.0
+taille,aléatoire,20,0.25,True,12,A* pondéré (w=2),0.4258666667737998,30.970562748477146,29,True,0.0
+taille,aléatoire,20,0.25,True,12,Anytime (50 ms),3.2223666665534743,30.970562748477146,255,True,0.0
+taille,aléatoire,20,0.25,True,13,BFS,2.3448666664383686,32.14213562373095,279,True,0.0
+taille,aléatoire,20,0.25,True,13,Dijkstra,4.51840000005177,32.14213562373095,278,True,0.0
+taille,aléatoire,20,0.25,True,13,A*,3.9894333335723786,32.14213562373095,151,True,0.0
+taille,aléatoire,20,0.25,True,13,A* pondéré (w=2),0.3987666667247443,32.72792206135786,34,True,1.822488
+taille,aléatoire,20,0.25,True,13,Anytime (50 ms),6.4213666666243325,32.14213562373095,260,True,0.0
+taille,aléatoire,20,0.25,True,14,BFS,1.821366666869532,30.38477631085024,292,True,0.0
+taille,aléatoire,20,0.25,True,14,Dijkstra,2.007333333343316,30.384776310850242,293,True,0.0
+taille,aléatoire,20,0.25,True,14,A*,0.5256999999498172,30.384776310850242,79,True,0.0
+taille,aléatoire,20,0.25,True,14,A* pondéré (w=2),0.2301333333889488,31.213203435596434,30,True,2.726455
+taille,aléatoire,20,0.25,True,14,Anytime (50 ms),1.426033333397451,30.384776310850242,168,True,0.0
+taille,aléatoire,20,0.25,True,15,BFS,1.212399999834209,31.556349186104047,307,True,0.0
+taille,aléatoire,20,0.25,True,15,Dijkstra,1.8086333332879196,31.55634918610405,307,True,0.0
+taille,aléatoire,20,0.25,True,15,A*,1.0509000000335316,31.55634918610405,115,True,0.0
+taille,aléatoire,20,0.25,True,15,A* pondéré (w=2),0.2862333332510995,32.38477631085024,35,True,2.625231
+taille,aléatoire,20,0.25,True,15,Anytime (50 ms),2.643099999810753,31.55634918610405,224,True,0.0
+taille,aléatoire,20,0.25,True,16,BFS,4.616000000017569,32.72792206135786,244,True,0.0
+taille,aléatoire,20,0.25,True,16,Dijkstra,3.6359666667825272,32.72792206135786,248,True,0.0
+taille,aléatoire,20,0.25,True,16,A*,1.3261666664827014,32.72792206135786,99,True,0.0
+taille,aléatoire,20,0.25,True,16,A* pondéré (w=2),0.4441666666631742,33.899494936611674,37,True,3.579735
+taille,aléatoire,20,0.25,True,16,Anytime (50 ms),4.51236666655556,32.72792206135786,218,True,0.0
+taille,aléatoire,20,0.25,True,17,BFS,3.6183666667663297,32.14213562373095,310,True,0.0
+taille,aléatoire,20,0.25,True,17,Dijkstra,5.504233333188798,32.14213562373095,310,True,0.0
+taille,aléatoire,20,0.25,True,17,A*,2.670666666896674,32.14213562373095,138,True,0.0
+taille,aléatoire,20,0.25,True,17,A* pondéré (w=2),0.46226666654547444,32.72792206135786,33,True,1.822488
+taille,aléatoire,20,0.25,True,17,Anytime (50 ms),4.792433333477675,32.14213562373095,238,True,0.0
+taille,aléatoire,20,0.25,True,18,BFS,2.212966666926756,32.72792206135786,292,True,0.0
+taille,aléatoire,20,0.25,True,18,Dijkstra,3.0543999999584535,32.72792206135786,304,True,0.0
+taille,aléatoire,20,0.25,True,18,A*,1.4293666667981597,32.72792206135786,104,True,0.0
+taille,aléatoire,20,0.25,True,18,A* pondéré (w=2),0.34939999992881593,34.38477631085024,44,True,5.06251
+taille,aléatoire,20,0.25,True,18,Anytime (50 ms),1.7345333333954234,32.72792206135786,225,True,0.0
+taille,aléatoire,20,0.25,True,19,BFS,1.5202999999625415,32.14213562373095,310,True,0.0
+taille,aléatoire,20,0.25,True,19,Dijkstra,2.0726666665116986,32.14213562373095,310,True,0.0
+taille,aléatoire,20,0.25,True,19,A*,1.7519666666885314,32.14213562373095,137,True,0.0
+taille,aléatoire,20,0.25,True,19,A* pondéré (w=2),0.5147000000154852,34.72792206135786,42,True,8.04485
+taille,aléatoire,20,0.25,True,19,Anytime (50 ms),5.3274666665856785,32.14213562373095,265,True,0.0
+taille,aléatoire,20,0.25,True,20,BFS,2.781466666723039,32.72792206135786,299,True,0.0
+taille,aléatoire,20,0.25,True,20,Dijkstra,4.460833333420548,32.72792206135786,299,True,0.0
+taille,aléatoire,20,0.25,True,20,A*,1.7106999997243595,32.72792206135786,120,True,0.0
+taille,aléatoire,20,0.25,True,20,A* pondéré (w=2),0.4445333332417552,32.72792206135786,31,True,0.0
+taille,aléatoire,20,0.25,True,20,Anytime (50 ms),2.0037666668031306,32.72792206135786,217,True,0.0
+taille,aléatoire,20,0.25,True,21,BFS,1.296466666493264,30.38477631085024,311,True,0.0
+taille,aléatoire,20,0.25,True,21,Dijkstra,2.008866666680357,30.384776310850242,311,True,0.0
+taille,aléatoire,20,0.25,True,21,A*,0.8107999998780239,30.384776310850242,110,True,0.0
+taille,aléatoire,20,0.25,True,21,A* pondéré (w=2),0.2253666665031536,30.384776310850242,27,True,0.0
+taille,aléatoire,20,0.25,True,21,Anytime (50 ms),1.5730333331399986,30.384776310850242,195,True,0.0
+taille,aléatoire,20,0.25,True,22,BFS,2.089333333212077,29.79898987322333,311,True,0.0
+taille,aléatoire,20,0.25,True,22,Dijkstra,8.11403333348911,29.798989873223338,314,True,0.0
+taille,aléatoire,20,0.25,True,22,A*,1.7137333332660394,29.798989873223338,91,True,0.0
+taille,aléatoire,20,0.25,True,22,A* pondéré (w=2),0.764900000073491,31.213203435596437,30,True,4.745844
+taille,aléatoire,20,0.25,True,22,Anytime (50 ms),4.301733333401596,29.798989873223338,196,True,0.0
+taille,aléatoire,20,0.25,True,23,BFS,1.5704999999191689,31.556349186104047,287,True,0.0
+taille,aléatoire,20,0.25,True,23,Dijkstra,1.9178666666448407,31.55634918610405,287,True,0.0
+taille,aléatoire,20,0.25,True,23,A*,0.8452000000337042,31.55634918610405,106,True,0.0
+taille,aléatoire,20,0.25,True,23,A* pondéré (w=2),0.23273333317774814,31.55634918610405,30,True,0.0
+taille,aléatoire,20,0.25,True,23,Anytime (50 ms),2.4159333333955146,31.55634918610405,198,True,0.0
+taille,aléatoire,20,0.25,True,24,BFS,3.6090000000209934,32.14213562373095,300,True,0.0
+taille,aléatoire,20,0.25,True,24,Dijkstra,4.676700000042426,32.14213562373096,301,True,0.0
+taille,aléatoire,20,0.25,True,24,A*,1.2362333333536906,32.14213562373096,74,True,0.0
+taille,aléatoire,20,0.25,True,24,A* pondéré (w=2),0.6755333332269705,32.14213562373096,30,True,0.0
+taille,aléatoire,20,0.25,True,24,Anytime (50 ms),4.414333333291627,32.14213562373096,163,True,0.0
+taille,aléatoire,20,0.25,True,25,BFS,1.9470666666165926,32.72792206135786,294,True,0.0
+taille,aléatoire,20,0.25,True,25,Dijkstra,3.5669999998996595,32.72792206135786,294,True,0.0
+taille,aléatoire,20,0.25,True,25,A*,1.5819999998711864,32.72792206135786,138,True,0.0
+taille,aléatoire,20,0.25,True,25,A* pondéré (w=2),0.5034333335061092,33.31370849898477,40,True,1.789867
+taille,aléatoire,20,0.25,True,25,Anytime (50 ms),4.288400000101926,32.72792206135786,259,True,0.0
+taille,aléatoire,20,0.25,True,26,BFS,1.7355666665631968,30.970562748477143,252,True,0.0
+taille,aléatoire,20,0.25,True,26,Dijkstra,2.991199999996752,30.970562748477146,253,True,0.0
+taille,aléatoire,20,0.25,True,26,A*,1.4373666666263791,30.970562748477146,98,True,0.0
+taille,aléatoire,20,0.25,True,26,A* pondéré (w=2),0.5379666666461466,32.38477631085024,29,True,4.566315
+taille,aléatoire,20,0.25,True,26,Anytime (50 ms),2.7474999998654916,30.970562748477146,191,True,0.0
+taille,aléatoire,20,0.25,True,27,BFS,2.171666666678599,32.72792206135786,314,True,0.0
+taille,aléatoire,20,0.25,True,27,Dijkstra,3.3213333332848074,32.72792206135786,314,True,0.0
+taille,aléatoire,20,0.25,True,27,A*,1.8911333333259488,32.72792206135786,158,True,0.0
+taille,aléatoire,20,0.25,True,27,A* pondéré (w=2),0.5167666668057791,32.72792206135786,33,True,0.0
+taille,aléatoire,20,0.25,True,27,Anytime (50 ms),3.923666666499533,32.72792206135786,257,True,0.0
+taille,aléatoire,20,0.25,True,28,BFS,3.619399999934103,35.89949493661167,303,True,0.0
+taille,aléatoire,20,0.25,True,28,Dijkstra,3.5440999998475795,35.89949493661166,303,True,0.0
+taille,aléatoire,20,0.25,True,28,A*,3.528000000036021,35.89949493661166,136,True,0.0
+taille,aléatoire,20,0.25,True,28,A* pondéré (w=2),0.6057333334865689,36.72792206135785,43,True,2.307629
+taille,aléatoire,20,0.25,True,28,Anytime (50 ms),3.6074000001159825,35.89949493661166,265,True,0.0
+taille,aléatoire,20,0.25,True,29,BFS,2.9394999999870683,33.31370849898476,267,True,0.0
+taille,aléatoire,20,0.25,True,29,Dijkstra,8.01526666676485,33.31370849898477,271,True,0.0
+taille,aléatoire,20,0.25,True,29,A*,2.0171000001028005,33.31370849898477,134,True,0.0
+taille,aléatoire,20,0.25,True,29,A* pondéré (w=2),0.5115333331862834,33.31370849898477,36,True,0.0
+taille,aléatoire,20,0.25,True,29,Anytime (50 ms),3.914533333348421,33.31370849898477,244,True,0.0
+taille,aléatoire,50,0.25,True,0,BFS,15.034466666596321,86.76955262170047,1850,True,0.0
+taille,aléatoire,50,0.25,True,0,Dijkstra,23.81383333325478,86.76955262170044,1850,True,0.0
+taille,aléatoire,50,0.25,True,0,A*,16.6746666667071,86.76955262170044,1158,True,0.0
+taille,aléatoire,50,0.25,True,0,A* pondéré (w=2),1.9088000000616983,89.69848480983498,129,True,3.37553
+taille,aléatoire,50,0.25,True,0,Anytime (50 ms),34.09989999984949,86.76955262170044,1556,True,0.0
+taille,aléatoire,50,0.25,True,1,BFS,15.82876666680022,85.35533905932738,1852,True,0.0
+taille,aléatoire,50,0.25,True,1,Dijkstra,30.63619999996566,85.35533905932732,1852,True,0.0
+taille,aléatoire,50,0.25,True,1,A*,10.455666666681887,85.35533905932733,725,True,0.0
+taille,aléatoire,50,0.25,True,1,A* pondéré (w=2),1.4530666667269543,93.11269837220806,117,True,9.088312
+taille,aléatoire,50,0.25,True,1,Anytime (50 ms),12.363866666722364,85.35533905932733,1107,True,0.0
+taille,aléatoire,50,0.25,True,2,BFS,13.487933333332572,78.08326112068524,1866,True,0.0
+taille,aléatoire,50,0.25,True,2,Dijkstra,24.928366666548147,78.08326112068518,1868,True,0.0
+taille,aléatoire,50,0.25,True,2,A*,7.822766666625587,78.0832611206852,522,True,0.0
+taille,aléatoire,50,0.25,True,2,A* pondéré (w=2),3.258733333344329,79.25483399593901,75,True,1.500415
+taille,aléatoire,50,0.25,True,2,Anytime (50 ms),18.620766666723892,78.0832611206852,750,True,0.0
+taille,aléatoire,50,0.25,True,3,BFS,19.358599999880727,88.2842712474619,1817,True,0.0
+taille,aléatoire,50,0.25,True,3,Dijkstra,29.839599999983573,88.28427124746187,1817,True,0.0
+taille,aléatoire,50,0.25,True,3,A*,24.86359999996542,88.28427124746187,1095,True,0.0
+taille,aléatoire,50,0.25,True,3,A* pondéré (w=2),8.880066666582328,92.28427124746187,158,True,4.530818
+taille,aléatoire,50,0.25,True,3,Anytime (50 ms),35.05539999999504,88.28427124746187,1632,True,0.0
+taille,aléatoire,50,0.25,True,4,BFS,18.827633333330596,80.42640687119285,1825,True,0.0
+taille,aléatoire,50,0.25,True,4,Dijkstra,33.6761666668887,80.42640687119281,1825,True,0.0
+taille,aléatoire,50,0.25,True,4,A*,14.636100000037308,80.42640687119281,620,True,0.0
+taille,aléatoire,50,0.25,True,4,A* pondéré (w=2),1.5233999999206087,87.35533905932735,101,True,8.615245
+taille,aléatoire,50,0.25,True,4,Anytime (50 ms),14.933933333243962,80.42640687119281,967,True,0.0
+taille,aléatoire,50,0.25,True,5,BFS,9.370633333219303,84.18376618407356,1846,True,0.99385
+taille,aléatoire,50,0.25,True,5,Dijkstra,16.205833333363746,83.35533905932733,1849,True,0.0
+taille,aléatoire,50,0.25,True,5,A*,5.9989333332547785,83.35533905932733,756,True,0.0
+taille,aléatoire,50,0.25,True,5,A* pondéré (w=2),0.7322999998298959,85.35533905932733,91,True,2.399366
+taille,aléatoire,50,0.25,True,5,Anytime (50 ms),9.017899999889778,83.35533905932733,1033,True,0.0
+taille,aléatoire,50,0.25,True,6,BFS,7.018333333235205,81.59797974644667,1805,True,0.0
+taille,aléatoire,50,0.25,True,6,Dijkstra,10.995866666538253,81.59797974644661,1809,True,0.0
+taille,aléatoire,50,0.25,True,6,A*,4.366999999850425,81.59797974644661,650,True,0.0
+taille,aléatoire,50,0.25,True,6,A* pondéré (w=2),0.6479333334633944,87.69848480983497,89,True,7.476294
+taille,aléatoire,50,0.25,True,6,Anytime (50 ms),6.829999999960516,81.59797974644661,936,True,0.0
+taille,aléatoire,50,0.25,True,7,BFS,7.5471333332946715,85.11269837220809,1852,True,0.0
+taille,aléatoire,50,0.25,True,7,Dijkstra,15.48640000009982,85.11269837220806,1852,True,0.0
+taille,aléatoire,50,0.25,True,7,A*,6.429033333309538,85.11269837220806,810,True,0.0
+taille,aléatoire,50,0.25,True,7,A* pondéré (w=2),1.8792333333597828,87.69848480983497,162,True,3.038074
+taille,aléatoire,50,0.25,True,7,Anytime (50 ms),22.123600000062044,85.11269837220806,1289,True,0.0
+taille,aléatoire,50,0.25,True,8,BFS,8.339199999985189,81.01219330881976,1837,True,0.0
+taille,aléatoire,50,0.25,True,8,Dijkstra,15.443733333389295,81.01219330881972,1837,True,0.0
+taille,aléatoire,50,0.25,True,8,A*,4.761933333308359,81.01219330881972,619,True,0.0
+taille,aléatoire,50,0.25,True,8,A* pondéré (w=2),0.8368666667593061,81.59797974644663,90,True,0.723084
+taille,aléatoire,50,0.25,True,8,Anytime (50 ms),24.13556666670047,81.59797974644663,873,True,0.723084
+taille,aléatoire,50,0.25,True,9,BFS,13.14876666674536,83.94112549695429,1879,True,0.0
+taille,aléatoire,50,0.25,True,9,Dijkstra,26.4145000002524,83.94112549695423,1879,True,0.0
+taille,aléatoire,50,0.25,True,9,A*,14.057066666585646,83.94112549695423,832,True,0.0
+taille,aléatoire,50,0.25,True,9,A* pondéré (w=2),1.630000000053163,87.35533905932733,93,True,4.067391
+taille,aléatoire,50,0.25,True,9,Anytime (50 ms),14.558333333297924,83.94112549695423,1125,True,0.0
+taille,aléatoire,50,0.25,True,10,BFS,7.355500000054842,86.5269119345812,1857,True,0.0
+taille,aléatoire,50,0.25,True,10,Dijkstra,14.177166666589377,86.52691193458114,1856,True,0.0
+taille,aléatoire,50,0.25,True,10,A*,15.465133333388318,86.52691193458114,1065,True,0.0
+taille,aléatoire,50,0.25,True,10,A* pondéré (w=2),1.3635000001765245,91.7989898732233,140,True,6.092992
+taille,aléatoire,50,0.25,True,10,Anytime (50 ms),22.990900000119534,86.52691193458114,1477,True,0.0
+taille,aléatoire,50,0.25,True,11,BFS,15.306499999951484,85.11269837220809,1836,True,0.0
+taille,aléatoire,50,0.25,True,11,Dijkstra,17.593133333472604,85.11269837220804,1836,True,0.0
+taille,aléatoire,50,0.25,True,11,A*,7.514366666782735,85.11269837220804,863,True,0.0
+taille,aléatoire,50,0.25,True,11,A* pondéré (w=2),0.8617999998629481,88.87005768508877,118,True,4.41457
+taille,aléatoire,50,0.25,True,11,Anytime (50 ms),9.159333333172981,85.11269837220804,1257,True,0.0
+taille,aléatoire,50,0.25,True,12,BFS,7.6134333333660225,85.698484809835,1832,True,0.0
+taille,aléatoire,50,0.25,True,12,Dijkstra,22.990700000112458,85.69848480983497,1832,True,0.0
+taille,aléatoire,50,0.25,True,12,A*,12.947466666597998,85.69848480983497,896,True,0.0
+taille,aléatoire,50,0.25,True,12,A* pondéré (w=2),1.7268999999942025,89.69848480983497,107,True,4.667527
+taille,aléatoire,50,0.25,True,12,Anytime (50 ms),19.990566666668503,85.69848480983497,1267,True,0.0
+taille,aléatoire,50,0.25,True,13,BFS,15.314600000086406,81.59797974644667,1831,True,0.0
+taille,aléatoire,50,0.25,True,13,Dijkstra,33.38580000005701,81.59797974644663,1831,True,0.0
+taille,aléatoire,50,0.25,True,13,A*,17.598200000065845,81.59797974644663,637,True,0.0
+taille,aléatoire,50,0.25,True,13,A* pondéré (w=2),1.964466666777298,82.76955262170043,93,True,1.435787
+taille,aléatoire,50,0.25,True,13,Anytime (50 ms),23.770333333231974,81.59797974644663,971,True,0.0
+taille,aléatoire,50,0.25,True,14,BFS,18.29433333326354,82.76955262170047,1874,True,0.0
+taille,aléatoire,50,0.25,True,14,Dijkstra,26.893400000062684,82.76955262170043,1874,True,0.0
+taille,aléatoire,50,0.25,True,14,A*,14.432199999949566,82.76955262170043,827,True,0.0
+taille,aléatoire,50,0.25,True,14,A* pondéré (w=2),2.055099999779486,83.35533905932733,87,True,0.707732
+taille,aléatoire,50,0.25,True,14,Anytime (50 ms),19.534099999873433,82.76955262170043,1102,True,0.0
+taille,aléatoire,50,0.25,True,15,BFS,19.74049999989802,83.94112549695429,1860,True,0.0
+taille,aléatoire,50,0.25,True,15,Dijkstra,25.487233333478798,83.94112549695424,1860,True,0.0
+taille,aléatoire,50,0.25,True,15,A*,13.011033333289864,83.94112549695424,939,True,0.0
+taille,aléatoire,50,0.25,True,15,A* pondéré (w=2),2.3173000001103596,89.69848480983497,102,True,6.858806
+taille,aléatoire,50,0.25,True,15,Anytime (50 ms),25.367200000043038,83.94112549695424,1253,True,0.0
+taille,aléatoire,50,0.25,True,16,BFS,13.757833333329472,83.94112549695429,1862,True,0.0
+taille,aléatoire,50,0.25,True,16,Dijkstra,25.431033333309944,83.94112549695424,1863,True,0.0
+taille,aléatoire,50,0.25,True,16,A*,7.822699999906035,83.94112549695424,621,True,0.0
+taille,aléatoire,50,0.25,True,16,A* pondéré (w=2),1.09416666676528,85.11269837220806,94,True,1.395708
+taille,aléatoire,50,0.25,True,16,Anytime (50 ms),15.875566666636587,83.94112549695424,915,True,0.0
+taille,aléatoire,50,0.25,True,17,BFS,8.22746666653984,91.94112549695429,1841,True,1.178681
+taille,aléatoire,50,0.25,True,17,Dijkstra,20.197199999832566,90.87005768508878,1841,True,0.0
+taille,aléatoire,50,0.25,True,17,A*,14.664800000142955,90.87005768508878,1131,True,0.0
+taille,aléatoire,50,0.25,True,17,A* pondéré (w=2),1.9867666666565735,95.69848480983495,128,True,5.313551
+taille,aléatoire,50,0.25,True,17,Anytime (50 ms),20.71596666686067,90.87005768508878,1591,True,0.0
+taille,aléatoire,50,0.25,True,18,BFS,15.773033333213485,84.42640687119285,1828,True,1.284942
+taille,aléatoire,50,0.25,True,18,Dijkstra,18.05793333339049,83.35533905932733,1828,True,0.0
+taille,aléatoire,50,0.25,True,18,A*,10.360666666808052,83.35533905932733,1023,True,0.0
+taille,aléatoire,50,0.25,True,18,A* pondéré (w=2),2.1074333332459596,91.01219330881973,147,True,9.185799
+taille,aléatoire,50,0.25,True,18,Anytime (50 ms),18.176533333492745,83.35533905932733,1605,True,0.0
+taille,aléatoire,50,0.25,True,19,BFS,10.653033333407317,84.76955262170047,1899,True,0.0
+taille,aléatoire,50,0.25,True,19,Dijkstra,17.3990999999963,84.76955262170043,1899,True,0.0
+taille,aléatoire,50,0.25,True,19,A*,10.97426666683532,84.76955262170043,843,True,0.0
+taille,aléatoire,50,0.25,True,19,A* pondéré (w=2),2.4977666665411866,88.0416305603426,129,True,3.859968
+taille,aléatoire,50,0.25,True,19,Anytime (50 ms),9.694566666591223,84.76955262170043,1259,True,0.0
+taille,aléatoire,50,0.25,True,20,BFS,9.352833333196031,86.18376618407356,1883,True,0.0
+taille,aléatoire,50,0.25,True,20,Dijkstra,15.038233333295162,86.18376618407352,1883,True,0.0
+taille,aléatoire,50,0.25,True,20,A*,9.864566666540972,86.18376618407352,1282,True,0.0
+taille,aléatoire,50,0.25,True,20,A* pondéré (w=2),1.006133333400309,94.76955262170043,155,True,9.962185
+taille,aléatoire,50,0.25,True,20,Anytime (50 ms),11.094366666687469,86.18376618407352,1799,True,0.0
+taille,aléatoire,50,0.25,True,21,BFS,6.280033333344666,78.66904755831214,1909,True,0.0
+taille,aléatoire,50,0.25,True,21,Dijkstra,11.926733333136022,78.66904755831207,1914,True,0.0
+taille,aléatoire,50,0.25,True,21,A*,3.1204333333031777,78.66904755831207,518,True,0.0
+taille,aléatoire,50,0.25,True,21,A* pondéré (w=2),0.611866666683151,79.254833995939,71,True,0.744621
+taille,aléatoire,50,0.25,True,21,Anytime (50 ms),5.921499999961573,78.66904755831207,730,True,0.0
+taille,aléatoire,50,0.25,True,22,BFS,6.709899999956785,81.01219330881976,1851,True,0.0
+taille,aléatoire,50,0.25,True,22,Dijkstra,13.344600000133747,81.01219330881972,1851,True,0.0
+taille,aléatoire,50,0.25,True,22,A*,6.569799999851966,81.01219330881972,635,True,0.0
+taille,aléatoire,50,0.25,True,22,A* pondéré (w=2),1.0620666666909528,83.0121933088197,89,True,2.468764
+taille,aléatoire,50,0.25,True,22,Anytime (50 ms),9.319199999936245,81.01219330881972,915,True,0.0
+taille,aléatoire,50,0.25,True,23,BFS,8.80506666680958,82.42640687119285,1904,True,0.295242
+taille,aléatoire,50,0.25,True,23,Dijkstra,15.35409999996773,82.18376618407353,1905,True,0.0
+taille,aléatoire,50,0.25,True,23,A*,7.466966666621981,82.18376618407353,848,True,0.0
+taille,aléatoire,50,0.25,True,23,A* pondéré (w=2),0.7998333333792592,88.76955262170043,106,True,8.013488
+taille,aléatoire,50,0.25,True,23,Anytime (50 ms),8.239866666675274,82.18376618407353,1189,True,0.0
+taille,aléatoire,50,0.25,True,24,BFS,15.178499999971487,85.01219330881976,1827,True,0.286236
+taille,aléatoire,50,0.25,True,24,Dijkstra,14.44280000002133,84.76955262170043,1827,True,0.0
+taille,aléatoire,50,0.25,True,24,A*,8.38103333323185,84.76955262170043,960,True,0.0
+taille,aléatoire,50,0.25,True,24,A* pondéré (w=2),0.7923333332655602,84.76955262170043,104,True,0.0
+taille,aléatoire,50,0.25,True,24,Anytime (50 ms),14.616166666655772,84.76955262170043,1304,True,0.0
+taille,aléatoire,50,0.25,True,25,BFS,7.850866666710014,81.01219330881976,1862,True,0.0
+taille,aléatoire,50,0.25,True,25,Dijkstra,16.25410000012077,81.01219330881972,1865,True,0.0
+taille,aléatoire,50,0.25,True,25,A*,6.772266666757787,81.01219330881972,738,True,0.0
+taille,aléatoire,50,0.25,True,25,A* pondéré (w=2),0.7603333333463524,83.01219330881972,79,True,2.468764
+taille,aléatoire,50,0.25,True,25,Anytime (50 ms),8.822999999817208,81.01219330881972,994,True,0.0
+taille,aléatoire,50,0.25,True,26,BFS,9.702666666726145,83.35533905932738,1829,True,0.0
+taille,aléatoire,50,0.25,True,26,Dijkstra,23.668900000150945,83.35533905932733,1829,True,0.0
+taille,aléatoire,50,0.25,True,26,A*,8.441433333397677,83.35533905932733,730,True,0.0
+taille,aléatoire,50,0.25,True,26,A* pondéré (w=2),1.8125666665582685,86.18376618407352,106,True,3.393217
+taille,aléatoire,50,0.25,True,26,Anytime (50 ms),15.770033333410538,83.35533905932733,1044,True,0.0
+taille,aléatoire,50,0.25,True,27,BFS,10.755233333232658,83.35533905932738,1839,True,0.0
+taille,aléatoire,50,0.25,True,27,Dijkstra,18.063666666572924,83.35533905932733,1839,True,0.0
+taille,aléatoire,50,0.25,True,27,A*,8.01503333347379,83.35533905932733,843,True,0.0
+taille,aléatoire,50,0.25,True,27,A* pondéré (w=2),2.54046666668728,85.11269837220806,97,True,2.108274
+taille,aléatoire,50,0.25,True,27,Anytime (50 ms),11.126000000028094,83.35533905932733,1147,True,0.0
+taille,aléatoire,50,0.25,True,28,BFS,7.6817666667921,88.2842712474619,1845,True,0.275598
+taille,aléatoire,50,0.25,True,28,Dijkstra,16.34866666684805,88.0416305603426,1845,True,0.0
+taille,aléatoire,50,0.25,True,28,A*,10.803966666571796,88.0416305603426,1167,True,0.0
+taille,aléatoire,50,0.25,True,28,A* pondéré (w=2),1.382233333364032,92.18376618407352,189,True,4.704747
+taille,aléatoire,50,0.25,True,28,Anytime (50 ms),17.223766666878266,88.0416305603426,1772,True,0.0
+taille,aléatoire,50,0.25,True,29,BFS,6.3981333334292385,84.18376618407356,1869,True,0.0
+taille,aléatoire,50,0.25,True,29,Dijkstra,15.460733333384269,84.18376618407352,1871,True,0.0
+taille,aléatoire,50,0.25,True,29,A*,9.057266666786745,84.18376618407352,849,True,0.0
+taille,aléatoire,50,0.25,True,29,A* pondéré (w=2),1.3278666666944143,89.11269837220806,108,True,5.854968
+taille,aléatoire,50,0.25,True,29,Anytime (50 ms),10.897599999983262,84.18376618407352,1176,True,0.0
+taille,aléatoire,100,0.25,True,0,BFS,33.84296666672526,166.36753236814712,7446,True,0.0
+taille,aléatoire,100,0.25,True,0,Dijkstra,60.530333333341936,166.3675323681472,7447,True,0.0
+taille,aléatoire,100,0.25,True,0,A*,29.3981333334159,166.3675323681472,3318,True,0.0
+taille,aléatoire,100,0.25,True,0,A* pondéré (w=2),1.9440333332264952,178.46803743153558,236,True,7.273357
+taille,aléatoire,100,0.25,True,0,Anytime (50 ms),41.81476666675129,166.3675323681472,4021,True,0.0
+taille,aléatoire,100,0.25,True,1,BFS,41.84096666676851,160.50966799187808,7466,True,0.0
+taille,aléatoire,100,0.25,True,1,Dijkstra,70.24286666652795,160.50966799187813,7466,True,0.0
+taille,aléatoire,100,0.25,True,1,A*,29.331300000042877,160.50966799187813,2594,True,0.0
+taille,aléatoire,100,0.25,True,1,A* pondéré (w=2),1.7053999999916414,163.09545442950503,169,True,1.610985
+taille,aléatoire,100,0.25,True,1,Anytime (50 ms),33.63709999985076,160.50966799187813,3194,True,0.0
+taille,aléatoire,100,0.25,True,2,BFS,36.30943333322042,169.4386001800126,7453,True,0.636149
+taille,aléatoire,100,0.25,True,2,Dijkstra,58.26963333341458,168.36753236814715,7460,True,0.0
+taille,aléatoire,100,0.25,True,2,A*,23.90156666645756,168.36753236814715,3767,True,0.0
+taille,aléatoire,100,0.25,True,2,A* pondéré (w=2),1.4694999999846914,176.36753236814724,197,True,4.75151
+taille,aléatoire,100,0.25,True,2,Anytime (50 ms),35.22026666663199,168.36753236814715,4376,True,0.0
+taille,aléatoire,100,0.25,True,3,BFS,36.1950333334183,166.95331880577405,7367,True,0.0
+taille,aléatoire,100,0.25,True,3,Dijkstra,66.68876666662982,166.95331880577413,7367,True,0.0
+taille,aléatoire,100,0.25,True,3,A*,26.69536666674806,166.95331880577413,3189,True,0.0
+taille,aléatoire,100,0.25,True,3,A* pondéré (w=2),2.2785666666701823,174.6101730552665,186,True,4.586225
+taille,aléatoire,100,0.25,True,3,Anytime (50 ms),37.36890000012257,166.95331880577413,3790,True,0.0
+taille,aléatoire,100,0.25,True,4,BFS,49.73313333327193,162.8528137423857,7398,True,0.0
+taille,aléatoire,100,0.25,True,4,Dijkstra,64.78326666668484,162.85281374238576,7399,True,0.0
+taille,aléatoire,100,0.25,True,4,A*,28.856499999922864,162.85281374238576,2627,True,0.0
+taille,aléatoire,100,0.25,True,4,A* pondéré (w=2),4.062266666702878,174.1248916810279,173,True,6.921635
+taille,aléatoire,100,0.25,True,4,Anytime (50 ms),40.16023333345705,162.85281374238576,3172,True,0.0
+taille,aléatoire,100,0.25,True,5,BFS,40.973233333109725,162.2670273047588,7477,True,0.0
+taille,aléatoire,100,0.25,True,5,Dijkstra,71.79989999985992,162.2670273047588,7477,True,0.0
+taille,aléatoire,100,0.25,True,5,A*,22.671200000180153,162.2670273047588,2654,True,0.0
+taille,aléatoire,100,0.25,True,5,A* pondéré (w=2),1.1987333333915255,166.36753236814718,158,True,2.527011
+taille,aléatoire,100,0.25,True,5,Anytime (50 ms),35.94809999988987,162.2670273047588,3151,True,0.0
+taille,aléatoire,100,0.25,True,6,BFS,42.79083333328041,169.78174593052023,7421,True,0.286646
+taille,aléatoire,100,0.25,True,6,Dijkstra,128.22060000022853,169.29646455628165,7421,True,0.0
+taille,aléatoire,100,0.25,True,6,A*,66.52433333313941,169.29646455628165,4167,True,0.0
+taille,aléatoire,100,0.25,True,6,A* pondéré (w=2),4.790833333421081,178.9533188057741,301,True,5.704109
+taille,aléatoire,100,0.25,True,6,Anytime (50 ms),52.355566666392406,177.53910524340097,2516,True,4.868761
+taille,aléatoire,100,0.25,True,7,BFS,73.37813333318384,163.4386001800126,7450,True,0.0
+taille,aléatoire,100,0.25,True,7,Dijkstra,133.7451999999454,163.43860018001263,7452,True,0.0
+taille,aléatoire,100,0.25,True,7,A*,44.19849999976577,163.43860018001263,2712,True,0.0
+taille,aléatoire,100,0.25,True,7,A* pondéré (w=2),3.2563666668465885,178.6101730552665,235,True,9.282735
+taille,aléatoire,100,0.25,True,7,Anytime (50 ms),50.71799999996074,175.53910524340102,2787,True,7.403701
+taille,aléatoire,100,0.25,True,8,BFS,88.37960000012875,169.4386001800126,7414,True,1.133762
+taille,aléatoire,100,0.25,True,8,Dijkstra,114.41569999988133,167.5391052434009,7414,True,0.0
+taille,aléatoire,100,0.25,True,8,A*,52.2377999999056,167.53910524340094,3745,True,0.0
+taille,aléatoire,100,0.25,True,8,A* pondéré (w=2),3.5135666668490253,179.43860018001266,200,True,7.102518
+taille,aléatoire,100,0.25,True,8,Anytime (50 ms),51.15366666662643,170.95331880577402,2894,True,2.037861
+taille,aléatoire,100,0.25,True,9,BFS,70.49799999989166,164.8528137423857,7402,True,0.505063
+taille,aléatoire,100,0.25,True,9,Dijkstra,125.71653333346451,164.02438661763952,7402,True,0.0
+taille,aléatoire,100,0.25,True,9,A*,47.560666666565034,164.02438661763955,2878,True,0.0
+taille,aléatoire,100,0.25,True,9,A* pondéré (w=2),3.1774999999167144,176.4680374315355,207,True,7.586464
+taille,aléatoire,100,0.25,True,9,Anytime (50 ms),51.14246666653344,170.12489168102795,2796,True,3.719267
+taille,aléatoire,100,0.25,True,10,BFS,64.32496666654212,166.36753236814712,7414,True,0.0
+taille,aléatoire,100,0.25,True,10,Dijkstra,113.49580000008548,166.36753236814718,7414,True,0.0
+taille,aléatoire,100,0.25,True,10,A*,49.65430000008079,166.36753236814718,2958,True,0.0
+taille,aléatoire,100,0.25,True,10,A* pondéré (w=2),3.2159000002138782,181.39696961967007,262,True,9.033876
+taille,aléatoire,100,0.25,True,10,Anytime (50 ms),50.85269999987455,177.74011537017768,3297,True,6.835819
+taille,aléatoire,100,0.25,True,11,BFS,66.95950000009059,163.4386001800126,7425,True,0.0
+taille,aléatoire,100,0.25,True,11,Dijkstra,110.17800000020846,163.43860018001266,7425,True,0.0
+taille,aléatoire,100,0.25,True,11,A*,47.15223333323593,163.43860018001266,2932,True,0.0
+taille,aléatoire,100,0.25,True,11,A* pondéré (w=2),5.316066666637198,174.36753236814724,194,True,6.686873
+taille,aléatoire,100,0.25,True,11,Anytime (50 ms),51.326366666671674,170.9533188057741,2793,True,4.597885
+taille,aléatoire,100,0.25,True,12,BFS,57.50896666662205,162.2670273047588,7456,True,0.0
+taille,aléatoire,100,0.25,True,12,Dijkstra,107.15963333329152,162.26702730475878,7458,True,0.0
+taille,aléatoire,100,0.25,True,12,A*,45.47966666647577,162.26702730475878,2728,True,0.0
+taille,aléatoire,100,0.25,True,12,A* pondéré (w=2),2.6961000000180015,170.8528137423858,190,True,5.291147
+taille,aléatoire,100,0.25,True,12,Anytime (50 ms),48.43353333323345,169.7817459305203,3246,True,4.631082
+taille,aléatoire,100,0.25,True,13,BFS,62.83676666665391,163.095454429505,7373,True,0.510533
+taille,aléatoire,100,0.25,True,13,Dijkstra,103.5722333334282,162.26702730475887,7380,True,0.0
+taille,aléatoire,100,0.25,True,13,A*,41.45053333346974,162.26702730475887,2509,True,0.0
+taille,aléatoire,100,0.25,True,13,A* pondéré (w=2),3.6602333331453942,170.12489168102795,243,True,4.842552
+taille,aléatoire,100,0.25,True,13,Anytime (50 ms),50.948666666499776,169.29646455628176,3250,True,4.332018
+taille,aléatoire,100,0.25,True,14,BFS,67.79069999993226,165.4386001800126,7462,True,0.146881
+taille,aléatoire,100,0.25,True,14,Dijkstra,108.6955333333511,165.1959594928934,7464,True,0.0
+taille,aléatoire,100,0.25,True,14,A*,54.618533333420295,165.1959594928934,3468,True,0.0
+taille,aléatoire,100,0.25,True,14,A* pondéré (w=2),3.680733333264167,170.9533188057741,195,True,3.48517
+taille,aléatoire,100,0.25,True,14,Anytime (50 ms),50.94693333330724,173.05382386916247,2933,True,4.756693
+taille,aléatoire,100,0.25,True,15,BFS,65.28600000001461,165.78174593052023,7460,True,0.0
+taille,aléatoire,100,0.25,True,15,Dijkstra,102.15336666669828,165.7817459305203,7463,True,0.0
+taille,aléatoire,100,0.25,True,15,A*,51.884733333281474,165.7817459305203,3392,True,0.0
+taille,aléatoire,100,0.25,True,15,A* pondéré (w=2),5.248333333232343,174.7106781186548,203,True,5.385956
+taille,aléatoire,100,0.25,True,15,Anytime (50 ms),50.95183333332898,173.05382386916244,2830,True,4.386537
+taille,aléatoire,100,0.25,True,16,BFS,60.92003333333196,166.02438661763952,7372,True,0.146362
+taille,aléatoire,100,0.25,True,16,Dijkstra,101.82243333338192,165.78174593052023,7374,True,0.0
+taille,aléatoire,100,0.25,True,16,A*,36.33126666666916,165.78174593052023,3315,True,0.0
+taille,aléatoire,100,0.25,True,16,A* pondéré (w=2),2.7295333332707137,169.7817459305203,213,True,2.412811
+taille,aléatoire,100,0.25,True,16,Anytime (50 ms),48.21783333348625,165.78174593052023,3994,True,0.0
+taille,aléatoire,100,0.25,True,17,BFS,72.11976666682556,160.50966799187808,7515,True,0.0
+taille,aléatoire,100,0.25,True,17,Dijkstra,110.42929999985063,160.50966799187816,7515,True,0.0
+taille,aléatoire,100,0.25,True,17,A*,38.37706666657444,160.50966799187816,2175,True,0.0
+taille,aléatoire,100,0.25,True,17,A* pondéré (w=2),4.4164666666498915,163.0954544295051,158,True,1.610985
+taille,aléatoire,100,0.25,True,17,Anytime (50 ms),51.296199999948534,162.26702730475893,2535,True,1.094862
+taille,aléatoire,100,0.25,True,18,BFS,69.87983333344043,163.4386001800126,7429,True,0.0
+taille,aléatoire,100,0.25,True,18,Dijkstra,103.38609999992816,163.43860018001266,7430,True,0.0
+taille,aléatoire,100,0.25,True,18,A*,34.56070000008064,163.43860018001268,2407,True,0.0
+taille,aléatoire,100,0.25,True,18,A* pondéré (w=2),2.5374000000131978,171.78174593052034,177,True,5.104758
+taille,aléatoire,100,0.25,True,18,Anytime (50 ms),46.14750000003672,167.53910524340105,2734,True,2.508896
+taille,aléatoire,100,0.25,True,19,BFS,64.62370000023536,161.6812408671319,7508,True,0.0
+taille,aléatoire,100,0.25,True,19,Dijkstra,111.50186666645823,161.6812408671319,7508,True,0.0
+taille,aléatoire,100,0.25,True,19,A*,48.96056666666482,161.6812408671319,3058,True,0.0
+taille,aléatoire,100,0.25,True,19,A* pondéré (w=2),2.88583333334221,166.26702730475887,169,True,2.836313
+taille,aléatoire,100,0.25,True,19,Anytime (50 ms),51.124533333374224,166.36753236814715,3211,True,2.898476
+taille,aléatoire,100,0.25,True,20,BFS,62.20906666673424,164.02438661763952,7446,True,0.0
+taille,aléatoire,100,0.25,True,20,Dijkstra,78.30833333355258,164.02438661763955,7446,True,0.0
+taille,aléatoire,100,0.25,True,20,A*,48.403533333536565,164.02438661763955,3270,True,0.0
+taille,aléatoire,100,0.25,True,20,A* pondéré (w=2),3.753233333403235,172.46803743153555,181,True,5.147802
+taille,aléatoire,100,0.25,True,20,Anytime (50 ms),51.09579999998459,169.29646455628176,3122,True,3.214204
+taille,aléatoire,100,0.25,True,21,BFS,65.06463333350136,165.78174593052023,7486,True,0.0
+taille,aléatoire,100,0.25,True,21,Dijkstra,104.25593333350965,165.78174593052026,7487,True,0.0
+taille,aléatoire,100,0.25,True,21,A*,53.467466666612985,165.78174593052026,3599,True,0.0
+taille,aléatoire,100,0.25,True,21,A* pondéré (w=2),2.9290000000704217,174.46803743153555,189,True,5.239595
+taille,aléatoire,100,0.25,True,21,Anytime (50 ms),50.55220000015955,173.05382386916244,2966,True,4.386537
+taille,aléatoire,100,0.25,True,22,BFS,59.250966666544024,166.02438661763952,7453,True,0.0
+taille,aléatoire,100,0.25,True,22,Dijkstra,133.40599999992264,166.02438661763955,7459,True,0.0
+taille,aléatoire,100,0.25,True,22,A*,70.01499999993636,166.02438661763955,3440,True,0.0
+taille,aléatoire,100,0.25,True,22,A* pondéré (w=2),3.0224999998912003,177.1959594928934,188,True,6.728875
+taille,aléatoire,100,0.25,True,22,Anytime (50 ms),55.2224666668432,171.2964645562817,3443,True,3.175484
+taille,aléatoire,100,0.25,True,23,BFS,70.89406666667249,168.95331880577405,7451,True,0.143821
+taille,aléatoire,100,0.25,True,23,Dijkstra,97.33026666663136,168.71067811865473,7452,True,0.0
+taille,aléatoire,100,0.25,True,23,A*,57.7320333334986,168.71067811865473,4092,True,0.0
+taille,aléatoire,100,0.25,True,23,A* pondéré (w=2),4.636633333423863,179.8822509939086,250,True,6.621734
+taille,aléatoire,100,0.25,True,23,Anytime (50 ms),50.99133333351347,176.56854249492383,3906,True,4.657598
+taille,aléatoire,100,0.25,True,24,BFS,41.20099999984935,168.36753236814712,7446,True,0.494468
+taille,aléatoire,100,0.25,True,24,Dijkstra,66.97763333340845,167.539105243401,7447,True,0.0
+taille,aléatoire,100,0.25,True,24,A*,37.828300000001036,167.539105243401,3482,True,0.0
+taille,aléatoire,100,0.25,True,24,A* pondéré (w=2),2.8381000001900247,181.29646455628182,242,True,8.211432
+taille,aléatoire,100,0.25,True,24,Anytime (50 ms),51.08553333351059,176.2253967444163,3797,True,5.184635
+taille,aléatoire,100,0.25,True,25,BFS,60.09009999994911,168.61017305526642,7436,True,0.639294
+taille,aléatoire,100,0.25,True,25,Dijkstra,104.63893333326268,167.53910524340102,7436,True,0.0
+taille,aléatoire,100,0.25,True,25,A*,58.932199999768876,167.53910524340102,3247,True,0.0
+taille,aléatoire,100,0.25,True,25,A* pondéré (w=2),3.1479666666503667,173.78174593052034,200,True,3.72608
+taille,aléatoire,100,0.25,True,25,Anytime (50 ms),50.79453333322211,169.88225099390868,3200,True,1.398566
+taille,aléatoire,100,0.25,True,26,BFS,62.680733333460616,166.61017305526642,7398,True,0.499709
+taille,aléatoire,100,0.25,True,26,Dijkstra,103.17319999997683,165.78174593052026,7398,True,0.0
+taille,aléatoire,100,0.25,True,26,A*,51.15006666680225,165.78174593052026,3248,True,0.0
+taille,aléatoire,100,0.25,True,26,A* pondéré (w=2),2.6012666667156736,173.43860018001268,191,True,4.618635
+taille,aléatoire,100,0.25,True,26,Anytime (50 ms),51.28893333327748,170.02438661763955,2813,True,2.559172
+taille,aléatoire,100,0.25,True,27,BFS,52.78119999972356,168.12489168102786,7406,True,0.0
+taille,aléatoire,100,0.25,True,27,Dijkstra,69.51663333347824,168.1248916810279,7404,True,0.0
+taille,aléatoire,100,0.25,True,27,A*,43.34976666677903,168.1248916810279,3893,True,0.0
+taille,aléatoire,100,0.25,True,27,A* pondéré (w=2),2.472733333282425,174.46803743153555,192,True,3.772877
+taille,aléatoire,100,0.25,True,27,Anytime (50 ms),48.14620000009503,168.1248916810279,4509,True,0.0
+taille,aléatoire,100,0.25,True,28,BFS,45.83586666649353,167.19595949289334,7427,True,0.49795
+taille,aléatoire,100,0.25,True,28,Dijkstra,83.29263333340957,166.36753236814724,7432,True,0.0
+taille,aléatoire,100,0.25,True,28,A*,39.39363333332343,166.36753236814724,3218,True,0.0
+taille,aléatoire,100,0.25,True,28,A* pondéré (w=2),3.19800000018707,175.53910524340105,239,True,5.512838
+taille,aléatoire,100,0.25,True,28,Anytime (50 ms),50.590566666566396,175.29646455628176,3893,True,5.366992
+taille,aléatoire,100,0.25,True,29,BFS,40.619000000030304,165.78174593052023,7529,True,0.0
+taille,aléatoire,100,0.25,True,29,Dijkstra,75.6643999999748,165.78174593052026,7529,True,0.0
+taille,aléatoire,100,0.25,True,29,A*,36.59736666668323,165.78174593052026,3278,True,0.0
+taille,aléatoire,100,0.25,True,29,A* pondéré (w=2),2.3317000000133703,171.29646455628176,206,True,3.326493
+taille,aléatoire,100,0.25,True,29,Anytime (50 ms),45.68603333336796,165.78174593052026,3999,True,0.0
+densité,aléatoire,50,0.1,True,0,BFS,13.467766666811562,75.15432893255071,2255,True,0.0
+densité,aléatoire,50,0.1,True,0,Dijkstra,26.188666666560795,75.15432893255064,2255,True,0.0
+densité,aléatoire,50,0.1,True,0,A*,7.0991666668002535,75.15432893255064,565,True,0.0
+densité,aléatoire,50,0.1,True,0,A* pondéré (w=2),0.8936666666462164,75.15432893255067,61,True,0.0
+densité,aléatoire,50,0.1,True,0,Anytime (50 ms),10.984166666730744,75.15432893255064,755,True,0.0
+densité,aléatoire,50,0.1,True,1,BFS,12.849699999909111,75.74011537017762,2270,True,0.0
+densité,aléatoire,50,0.1,True,1,Dijkstra,23.687166666604753,75.74011537017755,2270,True,0.0
+densité,aléatoire,50,0.1,True,1,A*,7.261266666622153,75.74011537017756,575,True,0.0
+densité,aléatoire,50,0.1,True,1,A* pondéré (w=2),0.9311999998923662,76.32590180780447,64,True,0.773416
+densité,aléatoire,50,0.1,True,1,Anytime (50 ms),8.979199999885168,75.74011537017756,771,True,0.0
+densité,aléatoire,50,0.1,True,2,BFS,11.224366666586624,72.8111831820431,2264,True,0.0
+densité,aléatoire,50,0.1,True,2,Dijkstra,21.390033333470154,72.81118318204304,2264,True,0.0
+densité,aléatoire,50,0.1,True,2,A*,4.017200000210626,72.81118318204304,322,True,0.0
+densité,aléatoire,50,0.1,True,2,A* pondéré (w=2),0.8076999999199567,72.81118318204304,57,True,0.0
+densité,aléatoire,50,0.1,True,2,Anytime (50 ms),4.899733333331824,72.81118318204304,495,True,0.0
+densité,aléatoire,50,0.1,True,3,BFS,13.485000000097594,74.5685424949238,2221,True,0.0
+densité,aléatoire,50,0.1,True,3,Dijkstra,16.731899999892146,74.56854249492375,2221,True,0.0
+densité,aléatoire,50,0.1,True,3,A*,3.714766666689684,74.56854249492376,439,True,0.0
+densité,aléatoire,50,0.1,True,3,A* pondéré (w=2),0.6097000000409025,77.15432893255065,68,True,3.467664
+densité,aléatoire,50,0.1,True,3,Anytime (50 ms),5.976800000098592,74.56854249492376,644,True,0.0
+densité,aléatoire,50,0.1,True,4,BFS,9.829966666681381,72.22539674441619,2221,True,0.0
+densité,aléatoire,50,0.1,True,4,Dijkstra,15.450699999898157,72.22539674441613,2221,True,0.0
+densité,aléatoire,50,0.1,True,4,A*,2.0280666666015654,72.22539674441613,240,True,0.0
+densité,aléatoire,50,0.1,True,4,A* pondéré (w=2),0.5747999998675368,72.81118318204304,58,True,0.811053
+densité,aléatoire,50,0.1,True,4,Anytime (50 ms),4.769033333407909,72.22539674441613,413,True,0.0
+densité,aléatoire,50,0.1,True,5,BFS,9.84503333347675,73.9827560572969,2253,True,0.0
+densité,aléatoire,50,0.1,True,5,Dijkstra,16.431533333161497,73.98275605729684,2253,True,0.0
+densité,aléatoire,50,0.1,True,5,A*,3.3630333335471128,73.98275605729684,371,True,0.0
+densité,aléatoire,50,0.1,True,5,A* pondéré (w=2),0.5752999998852223,74.81118318204302,61,True,1.119757
+densité,aléatoire,50,0.1,True,5,Anytime (50 ms),6.173166666637068,73.98275605729684,557,True,0.0
+densité,aléatoire,50,0.1,True,6,BFS,9.945633333397078,74.5685424949238,2231,True,0.0
+densité,aléatoire,50,0.1,True,6,Dijkstra,17.485700000027766,74.56854249492375,2232,True,0.0
+densité,aléatoire,50,0.1,True,6,A*,4.081300000052579,74.56854249492375,511,True,0.0
+densité,aléatoire,50,0.1,True,6,A* pondéré (w=2),0.8286666666208475,77.49747468305829,68,True,3.927839
+densité,aléatoire,50,0.1,True,6,Anytime (50 ms),6.852999999864551,74.56854249492375,717,True,0.0
+densité,aléatoire,50,0.1,True,7,BFS,10.382133333375046,74.5685424949238,2229,True,0.0
+densité,aléatoire,50,0.1,True,7,Dijkstra,15.958399999969211,74.56854249492373,2229,True,0.0
+densité,aléatoire,50,0.1,True,7,A*,3.91346666674508,74.56854249492373,457,True,0.0
+densité,aléatoire,50,0.1,True,7,A* pondéré (w=2),0.6667333333704543,75.15432893255065,63,True,0.785568
+densité,aléatoire,50,0.1,True,7,Anytime (50 ms),5.883466666697738,74.56854249492373,649,True,0.0
+densité,aléatoire,50,0.1,True,8,BFS,9.938099999847813,75.15432893255071,2237,True,0.0
+densité,aléatoire,50,0.1,True,8,Dijkstra,16.057666666711157,75.15432893255065,2237,True,0.0
+densité,aléatoire,50,0.1,True,8,A*,3.341966666691102,75.15432893255065,401,True,0.0
+densité,aléatoire,50,0.1,True,8,A* pondéré (w=2),0.904866666739205,75.15432893255065,62,True,0.0
+densité,aléatoire,50,0.1,True,8,Anytime (50 ms),5.750766666703082,75.15432893255065,596,True,0.0
+densité,aléatoire,50,0.1,True,9,BFS,10.514933333524823,74.5685424949238,2258,True,0.0
+densité,aléatoire,50,0.1,True,9,Dijkstra,16.726833333450486,74.56854249492375,2259,True,0.0
+densité,aléatoire,50,0.1,True,9,A*,5.671533333346209,74.56854249492375,522,True,0.0
+densité,aléatoire,50,0.1,True,9,A* pondéré (w=2),0.9833333332001833,77.49747468305829,68,True,3.927839
+densité,aléatoire,50,0.1,True,9,Anytime (50 ms),10.214800000085233,74.56854249492375,725,True,0.0
+densité,aléatoire,50,0.1,True,10,BFS,10.061066666670134,74.5685424949238,2262,True,0.0
+densité,aléatoire,50,0.1,True,10,Dijkstra,18.55629999984861,74.56854249492375,2262,True,0.0
+densité,aléatoire,50,0.1,True,10,A*,4.956500000086332,74.56854249492375,503,True,0.0
+densité,aléatoire,50,0.1,True,10,A* pondéré (w=2),1.0168333333240298,76.32590180780447,63,True,2.356703
+densité,aléatoire,50,0.1,True,10,Anytime (50 ms),7.97399999995226,74.56854249492375,697,True,0.0
+densité,aléatoire,50,0.1,True,11,BFS,15.691699999933917,73.9827560572969,2238,True,0.0
+densité,aléatoire,50,0.1,True,11,Dijkstra,21.44686666679263,73.98275605729684,2238,True,0.0
+densité,aléatoire,50,0.1,True,11,A*,4.024433333446116,73.98275605729684,392,True,0.0
+densité,aléatoire,50,0.1,True,11,A* pondéré (w=2),0.6096666666053352,73.98275605729685,60,True,0.0
+densité,aléatoire,50,0.1,True,11,Anytime (50 ms),7.413133333405615,73.98275605729684,581,True,0.0
+densité,aléatoire,50,0.1,True,12,BFS,14.56019999992956,73.9827560572969,2274,True,0.0
+densité,aléatoire,50,0.1,True,12,Dijkstra,22.293866666586837,73.98275605729684,2274,True,0.0
+densité,aléatoire,50,0.1,True,12,A*,4.209166666593471,73.98275605729684,335,True,0.0
+densité,aléatoire,50,0.1,True,12,A* pondéré (w=2),0.9009333331656914,78.08326112068518,68,True,5.542515
+densité,aléatoire,50,0.1,True,12,Anytime (50 ms),7.888866666538282,73.98275605729684,546,True,0.0
+densité,aléatoire,50,0.1,True,13,BFS,11.760233333461656,74.5685424949238,2207,True,0.0
+densité,aléatoire,50,0.1,True,13,Dijkstra,20.42246666678693,74.56854249492375,2207,True,0.0
+densité,aléatoire,50,0.1,True,13,A*,5.808933333355526,74.56854249492376,466,True,0.0
+densité,aléatoire,50,0.1,True,13,A* pondéré (w=2),0.8080666669532851,74.56854249492376,61,True,0.0
+densité,aléatoire,50,0.1,True,13,Anytime (50 ms),9.011333333395063,74.56854249492376,649,True,0.0
+densité,aléatoire,50,0.1,True,14,BFS,13.213866666774265,73.9827560572969,2255,True,0.0
+densité,aléatoire,50,0.1,True,14,Dijkstra,16.02756666670757,73.98275605729684,2255,True,0.0
+densité,aléatoire,50,0.1,True,14,A*,4.495033333417571,73.98275605729685,427,True,0.0
+densité,aléatoire,50,0.1,True,14,A* pondéré (w=2),0.5829666665704281,74.56854249492376,60,True,0.791788
+densité,aléatoire,50,0.1,True,14,Anytime (50 ms),5.688566666473586,73.98275605729685,609,True,0.0
+densité,aléatoire,50,0.1,True,15,BFS,9.51666666666521,75.15432893255071,2255,True,0.0
+densité,aléatoire,50,0.1,True,15,Dijkstra,16.821633333317248,75.15432893255065,2255,True,0.0
+densité,aléatoire,50,0.1,True,15,A*,3.7753999999949883,75.15432893255065,446,True,0.0
+densité,aléatoire,50,0.1,True,15,A* pondéré (w=2),0.5871333331318359,75.74011537017756,61,True,0.779445
+densité,aléatoire,50,0.1,True,15,Anytime (50 ms),6.044966666801581,75.15432893255065,635,True,0.0
+densité,aléatoire,50,0.1,True,16,BFS,12.871800000084477,73.9827560572969,2244,True,0.0
+densité,aléatoire,50,0.1,True,16,Dijkstra,15.938000000005559,73.98275605729683,2246,True,0.0
+densité,aléatoire,50,0.1,True,16,A*,1.5762000001207828,73.98275605729684,194,True,0.0
+densité,aléatoire,50,0.1,True,16,A* pondéré (w=2),0.5550000000766886,73.98275605729684,60,True,0.0
+densité,aléatoire,50,0.1,True,16,Anytime (50 ms),3.8192000000284074,73.98275605729684,382,True,0.0
+densité,aléatoire,50,0.1,True,17,BFS,10.166733333335287,72.8111831820431,2264,True,0.0
+densité,aléatoire,50,0.1,True,17,Dijkstra,18.83086666687935,72.81118318204302,2264,True,0.0
+densité,aléatoire,50,0.1,True,17,A*,1.844599999761461,72.81118318204304,220,True,0.0
+densité,aléatoire,50,0.1,True,17,A* pondéré (w=2),0.5450666665941147,72.81118318204304,57,True,0.0
+densité,aléatoire,50,0.1,True,17,Anytime (50 ms),4.7653666667126044,72.81118318204304,394,True,0.0
+densité,aléatoire,50,0.1,True,18,BFS,11.678933333466071,72.8111831820431,2259,True,0.0
+densité,aléatoire,50,0.1,True,18,Dijkstra,19.948133333552203,72.81118318204304,2259,True,0.0
+densité,aléatoire,50,0.1,True,18,A*,2.936466666748553,72.81118318204304,329,True,0.0
+densité,aléatoire,50,0.1,True,18,A* pondéré (w=2),1.0868000000906857,73.39696961966995,58,True,0.804528
+densité,aléatoire,50,0.1,True,18,Anytime (50 ms),7.239599999896503,72.81118318204304,504,True,0.0
+densité,aléatoire,50,0.1,True,19,BFS,15.14673333334334,75.74011537017762,2253,True,0.0
+densité,aléatoire,50,0.1,True,19,Dijkstra,23.552166666528745,75.74011537017756,2253,True,0.0
+densité,aléatoire,50,0.1,True,19,A*,3.6885666668240447,75.74011537017756,436,True,0.0
+densité,aléatoire,50,0.1,True,19,A* pondéré (w=2),0.5747333332995671,75.74011537017756,62,True,0.0
+densité,aléatoire,50,0.1,True,19,Anytime (50 ms),5.640266666584163,75.74011537017756,631,True,0.0
+densité,aléatoire,50,0.1,True,20,BFS,10.402366666767193,74.5685424949238,2257,True,0.0
+densité,aléatoire,50,0.1,True,20,Dijkstra,17.88863333331392,74.56854249492376,2257,True,0.0
+densité,aléatoire,50,0.1,True,20,A*,3.892766666619233,74.56854249492376,486,True,0.0
+densité,aléatoire,50,0.1,True,20,A* pondéré (w=2),0.6279333333623072,76.91168824543138,71,True,3.142271
+densité,aléatoire,50,0.1,True,20,Anytime (50 ms),6.248600000162696,74.56854249492376,701,True,0.0
+densité,aléatoire,50,0.1,True,21,BFS,10.381166666623661,73.39696961967,2273,True,0.0
+densité,aléatoire,50,0.1,True,21,Dijkstra,15.513499999845711,73.39696961966995,2273,True,0.0
+densité,aléatoire,50,0.1,True,21,A*,3.55243333327356,73.39696961966995,402,True,0.0
+densité,aléatoire,50,0.1,True,21,A* pondéré (w=2),0.5813000000974474,74.56854249492375,61,True,1.596214
+densité,aléatoire,50,0.1,True,21,Anytime (50 ms),5.643199999970723,73.39696961966995,584,True,0.0
+densité,aléatoire,50,0.1,True,22,BFS,10.106066666594415,73.9827560572969,2280,True,0.0
+densité,aléatoire,50,0.1,True,22,Dijkstra,17.724733333579934,73.98275605729684,2280,True,0.0
+densité,aléatoire,50,0.1,True,22,A*,3.2929000000573674,73.98275605729684,402,True,0.0
+densité,aléatoire,50,0.1,True,22,A* pondéré (w=2),0.5625000000388051,74.56854249492375,61,True,0.791788
+densité,aléatoire,50,0.1,True,22,Anytime (50 ms),5.59736666673416,73.98275605729684,593,True,0.0
+densité,aléatoire,50,0.1,True,23,BFS,10.835466666624901,75.15432893255071,2263,True,0.0
+densité,aléatoire,50,0.1,True,23,Dijkstra,15.738600000076985,75.15432893255064,2263,True,0.0
+densité,aléatoire,50,0.1,True,23,A*,5.196033333504602,75.15432893255064,638,True,0.0
+densité,aléatoire,50,0.1,True,23,A* pondéré (w=2),0.8675666666325318,78.0832611206852,73,True,3.897224
+densité,aléatoire,50,0.1,True,23,Anytime (50 ms),7.971833333310012,75.15432893255064,852,True,0.0
+densité,aléatoire,50,0.1,True,24,BFS,10.612433333335503,74.5685424949238,2251,True,0.0
+densité,aléatoire,50,0.1,True,24,Dijkstra,15.541166666632003,74.56854249492375,2251,True,0.0
+densité,aléatoire,50,0.1,True,24,A*,4.80093333332358,74.56854249492375,521,True,0.0
+densité,aléatoire,50,0.1,True,24,A* pondéré (w=2),0.585966666828123,75.74011537017758,62,True,1.571136
+densité,aléatoire,50,0.1,True,24,Anytime (50 ms),6.404799999927491,74.56854249492375,707,True,0.0
+densité,aléatoire,50,0.1,True,25,BFS,11.80060000009083,73.9827560572969,2232,True,0.0
+densité,aléatoire,50,0.1,True,25,Dijkstra,15.752299999955236,73.98275605729684,2232,True,0.0
+densité,aléatoire,50,0.1,True,25,A*,2.1319999999226034,73.98275605729684,261,True,0.0
+densité,aléatoire,50,0.1,True,25,A* pondéré (w=2),0.6682000001395257,73.98275605729684,60,True,0.0
+densité,aléatoire,50,0.1,True,25,Anytime (50 ms),4.041400000005524,73.98275605729684,441,True,0.0
+densité,aléatoire,50,0.1,True,26,BFS,11.785600000015014,76.32590180780453,2244,True,0.0
+densité,aléatoire,50,0.1,True,26,Dijkstra,17.622766666590906,76.32590180780447,2244,True,0.0
+densité,aléatoire,50,0.1,True,26,A*,6.118766666683466,76.32590180780447,735,True,0.0
+densité,aléatoire,50,0.1,True,26,A* pondéré (w=2),0.6478999998762447,78.08326112068518,67,True,2.302442
+densité,aléatoire,50,0.1,True,26,Anytime (50 ms),8.618400000007872,76.32590180780447,950,True,0.0
+densité,aléatoire,50,0.1,True,27,BFS,9.631933333063595,73.9827560572969,2235,True,0.0
+densité,aléatoire,50,0.1,True,27,Dijkstra,15.651166666430072,73.98275605729684,2236,True,0.0
+densité,aléatoire,50,0.1,True,27,A*,3.200933333270465,73.98275605729685,406,True,0.0
+densité,aléatoire,50,0.1,True,27,A* pondéré (w=2),0.8420000000720999,75.74011537017758,67,True,2.375363
+densité,aléatoire,50,0.1,True,27,Anytime (50 ms),6.009599999894514,73.98275605729685,614,True,0.0
+densité,aléatoire,50,0.1,True,28,BFS,10.719000000032489,74.5685424949238,2270,True,0.0
+densité,aléatoire,50,0.1,True,28,Dijkstra,16.355566666637362,74.56854249492375,2270,True,0.0
+densité,aléatoire,50,0.1,True,28,A*,3.6147999999229796,74.56854249492375,446,True,0.0
+densité,aléatoire,50,0.1,True,28,A* pondéré (w=2),0.6017666666290703,75.98275605729684,64,True,1.896528
+densité,aléatoire,50,0.1,True,28,Anytime (50 ms),6.397466666688463,74.56854249492375,642,True,0.0
+densité,aléatoire,50,0.1,True,29,BFS,12.759266666913996,75.74011537017762,2250,True,0.0
+densité,aléatoire,50,0.1,True,29,Dijkstra,14.952266666872069,75.74011537017755,2250,True,0.0
+densité,aléatoire,50,0.1,True,29,A*,6.204366666679562,75.74011537017755,612,True,0.0
+densité,aléatoire,50,0.1,True,29,A* pondéré (w=2),0.6098333331768421,76.91168824543138,68,True,1.546833
+densité,aléatoire,50,0.1,True,29,Anytime (50 ms),7.396733333431864,75.74011537017755,819,True,0.0
+densité,aléatoire,50,0.25,True,0,BFS,9.670633333674536,86.76955262170047,1850,True,0.0
+densité,aléatoire,50,0.25,True,0,Dijkstra,14.669233333279408,86.76955262170044,1850,True,0.0
+densité,aléatoire,50,0.25,True,0,A*,8.207799999884932,86.76955262170044,1158,True,0.0
+densité,aléatoire,50,0.25,True,0,A* pondéré (w=2),0.8656666667169096,89.69848480983498,129,True,3.37553
+densité,aléatoire,50,0.25,True,0,Anytime (50 ms),13.6149666664096,86.76955262170044,1556,True,0.0
+densité,aléatoire,50,0.25,True,1,BFS,9.85256666672285,85.35533905932738,1852,True,0.0
+densité,aléatoire,50,0.25,True,1,Dijkstra,18.09030000003986,85.35533905932732,1852,True,0.0
+densité,aléatoire,50,0.25,True,1,A*,9.081900000031359,85.35533905932733,725,True,0.0
+densité,aléatoire,50,0.25,True,1,A* pondéré (w=2),0.8288333333439368,93.11269837220806,117,True,9.088312
+densité,aléatoire,50,0.25,True,1,Anytime (50 ms),11.373299999983525,85.35533905932733,1107,True,0.0
+densité,aléatoire,50,0.25,True,2,BFS,7.502799999959582,78.08326112068524,1866,True,0.0
+densité,aléatoire,50,0.25,True,2,Dijkstra,11.912333333233013,78.08326112068518,1868,True,0.0
+densité,aléatoire,50,0.25,True,2,A*,4.158966666636843,78.0832611206852,522,True,0.0
+densité,aléatoire,50,0.25,True,2,A* pondéré (w=2),0.6417999999636473,79.25483399593901,75,True,1.500415
+densité,aléatoire,50,0.25,True,2,Anytime (50 ms),7.024800000029548,78.0832611206852,750,True,0.0
+densité,aléatoire,50,0.25,True,3,BFS,6.966966666671699,88.2842712474619,1817,True,0.0
+densité,aléatoire,50,0.25,True,3,Dijkstra,11.145500000263079,88.28427124746187,1817,True,0.0
+densité,aléatoire,50,0.25,True,3,A*,8.985299999949348,88.28427124746187,1095,True,0.0
+densité,aléatoire,50,0.25,True,3,A* pondéré (w=2),1.194399999955446,92.28427124746187,158,True,4.530818
+densité,aléatoire,50,0.25,True,3,Anytime (50 ms),13.178066666569066,88.28427124746187,1632,True,0.0
+densité,aléatoire,50,0.25,True,4,BFS,7.4751000001924695,80.42640687119285,1825,True,0.0
+densité,aléatoire,50,0.25,True,4,Dijkstra,12.431999999989785,80.42640687119281,1825,True,0.0
+densité,aléatoire,50,0.25,True,4,A*,5.011066666763024,80.42640687119281,620,True,0.0
+densité,aléatoire,50,0.25,True,4,A* pondéré (w=2),1.1485333332833154,87.35533905932735,101,True,8.615245
+densité,aléatoire,50,0.25,True,4,Anytime (50 ms),8.225533333037069,80.42640687119281,967,True,0.0
+densité,aléatoire,50,0.25,True,5,BFS,7.935833333400903,84.18376618407356,1846,True,0.99385
+densité,aléatoire,50,0.25,True,5,Dijkstra,12.896166666754047,83.35533905932733,1849,True,0.0
+densité,aléatoire,50,0.25,True,5,A*,7.91356666665403,83.35533905932733,756,True,0.0
+densité,aléatoire,50,0.25,True,5,A* pondéré (w=2),0.8262000001195702,85.35533905932733,91,True,2.399366
+densité,aléatoire,50,0.25,True,5,Anytime (50 ms),8.316033333358064,83.35533905932733,1033,True,0.0
+densité,aléatoire,50,0.25,True,6,BFS,7.176600000093458,81.59797974644667,1805,True,0.0
+densité,aléatoire,50,0.25,True,6,Dijkstra,12.127266666539072,81.59797974644661,1809,True,0.0
+densité,aléatoire,50,0.25,True,6,A*,4.556066666737024,81.59797974644661,650,True,0.0
+densité,aléatoire,50,0.25,True,6,A* pondéré (w=2),0.7932666664297964,87.69848480983497,89,True,7.476294
+densité,aléatoire,50,0.25,True,6,Anytime (50 ms),8.916166666494973,81.59797974644661,936,True,0.0
+densité,aléatoire,50,0.25,True,7,BFS,7.872166666553919,85.11269837220809,1852,True,0.0
+densité,aléatoire,50,0.25,True,7,Dijkstra,11.852933333405721,85.11269837220806,1852,True,0.0
+densité,aléatoire,50,0.25,True,7,A*,5.843966666816414,85.11269837220806,810,True,0.0
+densité,aléatoire,50,0.25,True,7,A* pondéré (w=2),1.1097666665591532,87.69848480983497,162,True,3.038074
+densité,aléatoire,50,0.25,True,7,Anytime (50 ms),11.072933333404459,85.11269837220806,1289,True,0.0
+densité,aléatoire,50,0.25,True,8,BFS,8.132533333385558,81.01219330881976,1837,True,0.0
+densité,aléatoire,50,0.25,True,8,Dijkstra,11.984933333224035,81.01219330881972,1837,True,0.0
+densité,aléatoire,50,0.25,True,8,A*,4.421966666692849,81.01219330881972,619,True,0.0
+densité,aléatoire,50,0.25,True,8,A* pondéré (w=2),0.6976999999703063,81.59797974644663,90,True,0.723084
+densité,aléatoire,50,0.25,True,8,Anytime (50 ms),7.268633333145165,81.01219330881972,916,True,0.0
+densité,aléatoire,50,0.25,True,9,BFS,7.905733333397317,83.94112549695429,1879,True,0.0
+densité,aléatoire,50,0.25,True,9,Dijkstra,12.855933333412395,83.94112549695423,1879,True,0.0
+densité,aléatoire,50,0.25,True,9,A*,6.327766666648434,83.94112549695423,832,True,0.0
+densité,aléatoire,50,0.25,True,9,A* pondéré (w=2),0.847666666686564,87.35533905932733,93,True,4.067391
+densité,aléatoire,50,0.25,True,9,Anytime (50 ms),10.469633333286765,83.94112549695423,1125,True,0.0
+densité,aléatoire,50,0.25,True,10,BFS,10.05973333349175,86.5269119345812,1857,True,0.0
+densité,aléatoire,50,0.25,True,10,Dijkstra,14.115133333234553,86.52691193458114,1856,True,0.0
+densité,aléatoire,50,0.25,True,10,A*,10.989300000043537,86.52691193458114,1065,True,0.0
+densité,aléatoire,50,0.25,True,10,A* pondéré (w=2),1.47406666671183,91.7989898732233,140,True,6.092992
+densité,aléatoire,50,0.25,True,10,Anytime (50 ms),16.933766666776744,86.52691193458114,1477,True,0.0
+densité,aléatoire,50,0.25,True,11,BFS,7.251333333291162,85.11269837220809,1836,True,0.0
+densité,aléatoire,50,0.25,True,11,Dijkstra,15.149166666712214,85.11269837220804,1836,True,0.0
+densité,aléatoire,50,0.25,True,11,A*,6.891233333287043,85.11269837220804,863,True,0.0
+densité,aléatoire,50,0.25,True,11,A* pondéré (w=2),1.47526666645111,88.87005768508877,118,True,4.41457
+densité,aléatoire,50,0.25,True,11,Anytime (50 ms),14.58936666676891,85.11269837220804,1257,True,0.0
+densité,aléatoire,50,0.25,True,12,BFS,6.961633333503414,85.698484809835,1832,True,0.0
+densité,aléatoire,50,0.25,True,12,Dijkstra,11.888433333297144,85.69848480983497,1832,True,0.0
+densité,aléatoire,50,0.25,True,12,A*,6.546400000085366,85.69848480983497,896,True,0.0
+densité,aléatoire,50,0.25,True,12,A* pondéré (w=2),0.7722333333125183,89.69848480983497,107,True,4.667527
+densité,aléatoire,50,0.25,True,12,Anytime (50 ms),9.249500000199381,85.69848480983497,1267,True,0.0
+densité,aléatoire,50,0.25,True,13,BFS,7.490899999841834,81.59797974644667,1831,True,0.0
+densité,aléatoire,50,0.25,True,13,Dijkstra,12.449866666581025,81.59797974644663,1831,True,0.0
+densité,aléatoire,50,0.25,True,13,A*,4.563599999983126,81.59797974644663,637,True,0.0
+densité,aléatoire,50,0.25,True,13,A* pondéré (w=2),0.7145000001097893,82.76955262170043,93,True,1.435787
+densité,aléatoire,50,0.25,True,13,Anytime (50 ms),7.3490333334120805,81.59797974644663,971,True,0.0
+densité,aléatoire,50,0.25,True,14,BFS,8.355300000099911,82.76955262170047,1874,True,0.0
+densité,aléatoire,50,0.25,True,14,Dijkstra,14.288266666729518,82.76955262170043,1874,True,0.0
+densité,aléatoire,50,0.25,True,14,A*,6.015233333224994,82.76955262170043,827,True,0.0
+densité,aléatoire,50,0.25,True,14,A* pondéré (w=2),0.7004333333497925,83.35533905932733,87,True,0.707732
+densité,aléatoire,50,0.25,True,14,Anytime (50 ms),9.686133333313288,82.76955262170043,1102,True,0.0
+densité,aléatoire,50,0.25,True,15,BFS,7.515666666525552,83.94112549695429,1860,True,0.0
+densité,aléatoire,50,0.25,True,15,Dijkstra,11.56800000004902,83.94112549695424,1860,True,0.0
+densité,aléatoire,50,0.25,True,15,A*,7.352533333384296,83.94112549695424,939,True,0.0
+densité,aléatoire,50,0.25,True,15,A* pondéré (w=2),2.436799999941286,89.69848480983497,102,True,6.858806
+densité,aléatoire,50,0.25,True,15,Anytime (50 ms),11.193199999979697,83.94112549695424,1253,True,0.0
+densité,aléatoire,50,0.25,True,16,BFS,7.290533333161875,83.94112549695429,1862,True,0.0
+densité,aléatoire,50,0.25,True,16,Dijkstra,11.84940000014952,83.94112549695424,1863,True,0.0
+densité,aléatoire,50,0.25,True,16,A*,4.183500000029501,83.94112549695424,621,True,0.0
+densité,aléatoire,50,0.25,True,16,A* pondéré (w=2),0.8256999997987199,85.11269837220806,94,True,1.395708
+densité,aléatoire,50,0.25,True,16,Anytime (50 ms),7.034733333360539,83.94112549695424,915,True,0.0
+densité,aléatoire,50,0.25,True,17,BFS,6.992933333397862,91.94112549695429,1841,True,1.178681
+densité,aléatoire,50,0.25,True,17,Dijkstra,11.479766666525393,90.87005768508878,1841,True,0.0
+densité,aléatoire,50,0.25,True,17,A*,7.899399999890496,90.87005768508878,1131,True,0.0
+densité,aléatoire,50,0.25,True,17,A* pondéré (w=2),0.9392333333077355,95.69848480983495,128,True,5.313551
+densité,aléatoire,50,0.25,True,17,Anytime (50 ms),12.864899999992,90.87005768508878,1591,True,0.0
+densité,aléatoire,50,0.25,True,18,BFS,7.464933333267254,84.42640687119285,1828,True,1.284942
+densité,aléatoire,50,0.25,True,18,Dijkstra,11.602566666624625,83.35533905932733,1828,True,0.0
+densité,aléatoire,50,0.25,True,18,A*,7.706933333338384,83.35533905932733,1023,True,0.0
+densité,aléatoire,50,0.25,True,18,A* pondéré (w=2),1.007466666730276,91.01219330881973,147,True,9.185799
+densité,aléatoire,50,0.25,True,18,Anytime (50 ms),12.790533333221296,83.35533905932733,1605,True,0.0
+densité,aléatoire,50,0.25,True,19,BFS,7.527366666787809,84.76955262170047,1899,True,0.0
+densité,aléatoire,50,0.25,True,19,Dijkstra,12.185066666612935,84.76955262170043,1899,True,0.0
+densité,aléatoire,50,0.25,True,19,A*,5.759933333592926,84.76955262170043,843,True,0.0
+densité,aléatoire,50,0.25,True,19,A* pondéré (w=2),1.2399333333329803,88.0416305603426,129,True,3.859968
+densité,aléatoire,50,0.25,True,19,Anytime (50 ms),9.89496666670675,84.76955262170043,1259,True,0.0
+densité,aléatoire,50,0.25,True,20,BFS,7.687833333420713,86.18376618407356,1883,True,0.0
+densité,aléatoire,50,0.25,True,20,Dijkstra,11.797200000122151,86.18376618407352,1883,True,0.0
+densité,aléatoire,50,0.25,True,20,A*,10.160566666551555,86.18376618407352,1282,True,0.0
+densité,aléatoire,50,0.25,True,20,A* pondéré (w=2),1.0838333334201404,94.76955262170043,155,True,9.962185
+densité,aléatoire,50,0.25,True,20,Anytime (50 ms),13.666333333427852,86.18376618407352,1799,True,0.0
+densité,aléatoire,50,0.25,True,21,BFS,7.65529999989667,78.66904755831214,1909,True,0.0
+densité,aléatoire,50,0.25,True,21,Dijkstra,12.565666666735828,78.66904755831207,1914,True,0.0
+densité,aléatoire,50,0.25,True,21,A*,3.806333333159273,78.66904755831207,518,True,0.0
+densité,aléatoire,50,0.25,True,21,A* pondéré (w=2),0.5874666668811793,79.254833995939,71,True,0.744621
+densité,aléatoire,50,0.25,True,21,Anytime (50 ms),6.184466666733594,78.66904755831207,730,True,0.0
+densité,aléatoire,50,0.25,True,22,BFS,7.4214333333960285,81.01219330881976,1851,True,0.0
+densité,aléatoire,50,0.25,True,22,Dijkstra,11.75809999995181,81.01219330881972,1851,True,0.0
+densité,aléatoire,50,0.25,True,22,A*,5.130333333151309,81.01219330881972,635,True,0.0
+densité,aléatoire,50,0.25,True,22,A* pondéré (w=2),0.7562333333529144,83.0121933088197,89,True,2.468764
+densité,aléatoire,50,0.25,True,22,Anytime (50 ms),6.9178666664508155,81.01219330881972,915,True,0.0
+densité,aléatoire,50,0.25,True,23,BFS,8.262433333432758,82.42640687119285,1904,True,0.295242
+densité,aléatoire,50,0.25,True,23,Dijkstra,12.546500000098604,82.18376618407353,1905,True,0.0
+densité,aléatoire,50,0.25,True,23,A*,5.950133333499252,82.18376618407353,848,True,0.0
+densité,aléatoire,50,0.25,True,23,A* pondéré (w=2),0.8133666666860032,88.76955262170043,106,True,8.013488
+densité,aléatoire,50,0.25,True,23,Anytime (50 ms),8.912799999961862,82.18376618407353,1189,True,0.0
+densité,aléatoire,50,0.25,True,24,BFS,6.981733333153291,85.01219330881976,1827,True,0.286236
+densité,aléatoire,50,0.25,True,24,Dijkstra,11.923800000052628,84.76955262170043,1827,True,0.0
+densité,aléatoire,50,0.25,True,24,A*,8.386633333126762,84.76955262170043,960,True,0.0
+densité,aléatoire,50,0.25,True,24,A* pondéré (w=2),0.9830999999091242,84.76955262170043,104,True,0.0
+densité,aléatoire,50,0.25,True,24,Anytime (50 ms),10.376700000051642,84.76955262170043,1304,True,0.0
+densité,aléatoire,50,0.25,True,25,BFS,7.6460333334580355,81.01219330881976,1862,True,0.0
+densité,aléatoire,50,0.25,True,25,Dijkstra,13.409700000314237,81.01219330881972,1865,True,0.0
+densité,aléatoire,50,0.25,True,25,A*,5.485933333299424,81.01219330881972,738,True,0.0
+densité,aléatoire,50,0.25,True,25,A* pondéré (w=2),0.6203666666806384,83.01219330881972,79,True,2.468764
+densité,aléatoire,50,0.25,True,25,Anytime (50 ms),7.865833333350262,81.01219330881972,994,True,0.0
+densité,aléatoire,50,0.25,True,26,BFS,8.67593333335511,83.35533905932738,1829,True,0.0
+densité,aléatoire,50,0.25,True,26,Dijkstra,11.722500000208433,83.35533905932733,1829,True,0.0
+densité,aléatoire,50,0.25,True,26,A*,5.0904000001234335,83.35533905932733,730,True,0.0
+densité,aléatoire,50,0.25,True,26,A* pondéré (w=2),0.761899999815796,86.18376618407352,106,True,3.393217
+densité,aléatoire,50,0.25,True,26,Anytime (50 ms),8.999733333136342,83.35533905932733,1044,True,0.0
+densité,aléatoire,50,0.25,True,27,BFS,7.1844666666341555,83.35533905932738,1839,True,0.0
+densité,aléatoire,50,0.25,True,27,Dijkstra,14.302499999909438,83.35533905932733,1839,True,0.0
+densité,aléatoire,50,0.25,True,27,A*,6.356733333329127,83.35533905932733,843,True,0.0
+densité,aléatoire,50,0.25,True,27,A* pondéré (w=2),0.7797333334262172,85.11269837220806,97,True,2.108274
+densité,aléatoire,50,0.25,True,27,Anytime (50 ms),8.58833333328827,83.35533905932733,1147,True,0.0
+densité,aléatoire,50,0.25,True,28,BFS,12.937799999993635,88.2842712474619,1845,True,0.275598
+densité,aléatoire,50,0.25,True,28,Dijkstra,12.584233333351827,88.0416305603426,1845,True,0.0
+densité,aléatoire,50,0.25,True,28,A*,8.020833333072611,88.0416305603426,1167,True,0.0
+densité,aléatoire,50,0.25,True,28,A* pondéré (w=2),1.5557999997023824,92.18376618407352,189,True,4.704747
+densité,aléatoire,50,0.25,True,28,Anytime (50 ms),17.340133333163976,88.0416305603426,1772,True,0.0
+densité,aléatoire,50,0.25,True,29,BFS,7.307133333445866,84.18376618407356,1869,True,0.0
+densité,aléatoire,50,0.25,True,29,Dijkstra,11.840533333421869,84.18376618407352,1871,True,0.0
+densité,aléatoire,50,0.25,True,29,A*,5.9712666666200676,84.18376618407352,849,True,0.0
+densité,aléatoire,50,0.25,True,29,A* pondéré (w=2),1.017399999909685,89.11269837220806,108,True,5.854968
+densité,aléatoire,50,0.25,True,29,Anytime (50 ms),9.045700000115175,84.18376618407352,1176,True,0.0
+densité,aléatoire,50,0.4,True,0,BFS,4.937433333301063,116.62741699796952,1286,True,0.0
+densité,aléatoire,50,0.4,True,0,Dijkstra,7.930066666782902,116.62741699796948,1286,True,0.0
+densité,aléatoire,50,0.4,True,0,A*,6.097299999813306,116.62741699796949,927,True,0.0
+densité,aléatoire,50,0.4,True,0,A* pondéré (w=2),2.664166666818346,117.45584412271567,414,True,0.710319
+densité,aléatoire,50,0.4,True,0,Anytime (50 ms),15.74539999986276,116.62741699796949,2261,True,0.0
+densité,aléatoire,50,0.4,True,1,BFS,4.16210000018206,97.55634918610404,987,True,0.0
+densité,aléatoire,50,0.4,True,1,Dijkstra,5.9857999998106,97.55634918610403,987,True,0.0
+densité,aléatoire,50,0.4,True,1,A*,3.887166666875904,97.55634918610403,615,True,0.0
+densité,aléatoire,50,0.4,True,1,A* pondéré (w=2),1.685000000027988,102.04163056034258,272,True,4.597631
+densité,aléatoire,50,0.4,True,1,Anytime (50 ms),10.519900000114527,97.55634918610403,1540,True,0.0
+densité,aléatoire,50,0.4,True,2,BFS,3.728633333291024,99.21320343559643,1060,True,0.0
+densité,aléatoire,50,0.4,True,2,Dijkstra,5.950599999929788,99.2132034355964,1071,True,0.0
+densité,aléatoire,50,0.4,True,2,A*,3.8892333335146154,99.2132034355964,557,True,0.0
+densité,aléatoire,50,0.4,True,2,A* pondéré (w=2),1.359766666610085,100.04163056034258,223,True,0.834997
+densité,aléatoire,50,0.4,True,2,Anytime (50 ms),10.457800000040152,99.2132034355964,1232,True,0.0
+densité,aléatoire,50,0.4,True,3,BFS,3.5988999999669127,125.698484809835,972,True,0.0
+densité,aléatoire,50,0.4,True,3,Dijkstra,5.860733333217165,125.69848480983495,978,True,0.0
+densité,aléatoire,50,0.4,True,3,A*,3.7856999999045606,125.69848480983495,591,True,0.0
+densité,aléatoire,50,0.4,True,3,A* pondéré (w=2),2.422033333308112,127.11269837220804,397,True,1.125084
+densité,aléatoire,50,0.4,True,3,Anytime (50 ms),13.904499999929007,125.69848480983495,1823,True,0.0
+densité,aléatoire,50,0.4,True,4,BFS,6.183399999827088,127.45584412271572,1259,True,0.0
+densité,aléatoire,50,0.4,True,4,Dijkstra,8.452166666908548,127.45584412271567,1259,True,0.0
+densité,aléatoire,50,0.4,True,4,A*,7.169433333425938,127.45584412271567,1103,True,0.0
+densité,aléatoire,50,0.4,True,4,A* pondéré (w=2),5.280333333454716,129.11269837220806,793,True,1.299944
+densité,aléatoire,50,0.4,True,4,Anytime (50 ms),24.89843333326765,127.45584412271567,3473,True,0.0
+densité,aléatoire,50,0.4,True,5,BFS,4.877633333459623,138.76955262170048,1221,True,0.0
+densité,aléatoire,50,0.4,True,5,Dijkstra,7.73263333333792,138.76955262170048,1225,True,0.0
+densité,aléatoire,50,0.4,True,5,A*,5.935833333296614,138.76955262170048,976,True,0.0
+densité,aléatoire,50,0.4,True,5,A* pondéré (w=2),4.00596666668207,143.840620433566,622,True,3.654309
+densité,aléatoire,50,0.4,True,5,Anytime (50 ms),24.045399999977235,138.76955262170048,2928,True,0.0
+densité,aléatoire,50,0.4,True,6,BFS,3.733066666579058,97.11269837220809,898,True,0.0
+densité,aléatoire,50,0.4,True,6,Dijkstra,5.515733333292398,97.11269837220806,897,True,0.0
+densité,aléatoire,50,0.4,True,6,A*,4.530700000183667,97.11269837220806,687,True,0.0
+densité,aléatoire,50,0.4,True,6,A* pondéré (w=2),1.7135333334105478,106.28427124746186,264,True,9.444257
+densité,aléatoire,50,0.4,True,6,Anytime (50 ms),11.080133333355965,97.11269837220806,1508,True,0.0
+densité,aléatoire,50,0.4,True,7,BFS,3.3465333332666582,113.698484809835,768,True,0.733965
+densité,aléatoire,50,0.4,True,7,Dijkstra,5.540133333397534,112.87005768508877,766,True,0.0
+densité,aléatoire,50,0.4,True,7,A*,4.436633333322486,112.87005768508877,746,True,0.0
+densité,aléatoire,50,0.4,True,7,A* pondéré (w=2),2.812699999897935,114.52691193458114,408,True,1.467931
+densité,aléatoire,50,0.4,True,7,Anytime (50 ms),14.426666666774205,112.87005768508877,2097,True,0.0
+densité,aléatoire,50,0.4,True,8,BFS,3.673533333464244,96.97056274847714,964,True,0.0
+densité,aléatoire,50,0.4,True,8,Dijkstra,6.030866666757599,96.97056274847712,962,True,0.0
+densité,aléatoire,50,0.4,True,8,A*,4.341433333138411,96.97056274847712,582,True,0.0
+densité,aléatoire,50,0.4,True,8,A* pondéré (w=2),1.3571333332341358,103.2132034355964,200,True,6.437666
+densité,aléatoire,50,0.4,True,8,Anytime (50 ms),9.068633333299658,96.97056274847712,1272,True,0.0
+densité,aléatoire,50,0.4,True,9,BFS,3.109533333372383,130.2842712474619,854,True,0.0
+densité,aléatoire,50,0.4,True,9,Dijkstra,5.206799999844709,130.28427124746187,854,True,0.0
+densité,aléatoire,50,0.4,True,9,A*,4.975299999841809,130.28427124746187,648,True,0.0
+densité,aléatoire,50,0.4,True,9,A* pondéré (w=2),3.0409000000872766,133.69848480983498,464,True,2.620588
+densité,aléatoire,50,0.4,True,9,Anytime (50 ms),13.86733333341302,130.28427124746187,2091,True,0.0
+densité,aléatoire,50,0.4,True,10,BFS,2.7061333332009476,98.2842712474619,730,True,0.0
+densité,aléatoire,50,0.4,True,10,Dijkstra,4.8337666667066514,98.28427124746186,755,True,0.0
+densité,aléatoire,50,0.4,True,10,A*,3.1795666667070086,98.28427124746186,473,True,0.0
+densité,aléatoire,50,0.4,True,10,A* pondéré (w=2),1.6995666668056704,101.94112549695423,275,True,3.720691
+densité,aléatoire,50,0.4,True,10,Anytime (50 ms),8.73443333330215,98.28427124746186,1271,True,0.0
+densité,aléatoire,50,0.4,True,11,BFS,3.743599999931272,118.87005768508881,985,True,0.0
+densité,aléatoire,50,0.4,True,11,Dijkstra,6.063500000133597,118.87005768508878,984,True,0.0
+densité,aléatoire,50,0.4,True,11,A*,3.848833333601457,118.87005768508878,660,True,0.0
+densité,aléatoire,50,0.4,True,11,A* pondéré (w=2),2.620933333522165,121.94112549695423,382,True,2.58355
+densité,aléatoire,50,0.4,True,11,Anytime (50 ms),15.174466666546019,118.87005768508878,1852,True,0.0
+densité,aléatoire,50,0.4,True,12,BFS,5.660266666533668,126.2842712474619,1121,True,0.0
+densité,aléatoire,50,0.4,True,12,Dijkstra,7.930233333202826,126.28427124746186,1121,True,0.0
+densité,aléatoire,50,0.4,True,12,A*,5.214966666699183,126.28427124746186,850,True,0.0
+densité,aléatoire,50,0.4,True,12,A* pondéré (w=2),3.281699999964379,127.69848480983495,564,True,1.119865
+densité,aléatoire,50,0.4,True,12,Anytime (50 ms),20.24693333335866,126.28427124746186,2446,True,0.0
+densité,aléatoire,50,0.4,True,13,BFS,4.064666666787768,107.55634918610404,1002,True,0.0
+densité,aléatoire,50,0.4,True,13,Dijkstra,6.097899999834529,107.55634918610401,1003,True,0.0
+densité,aléatoire,50,0.4,True,13,A*,6.930433333309338,107.55634918610401,728,True,0.0
+densité,aléatoire,50,0.4,True,13,A* pondéré (w=2),2.87139999985205,107.55634918610401,264,True,0.0
+densité,aléatoire,50,0.4,True,13,Anytime (50 ms),13.739699999860022,107.55634918610401,1553,True,0.0
+densité,aléatoire,50,0.4,True,14,BFS,3.8933999999244406,111.55634918610404,1055,True,0.0
+densité,aléatoire,50,0.4,True,14,Dijkstra,6.239566666711956,111.55634918610401,1059,True,0.0
+densité,aléatoire,50,0.4,True,14,A*,3.456566666651876,111.55634918610401,504,True,0.0
+densité,aléatoire,50,0.4,True,14,A* pondéré (w=2),1.4019666665869106,115.21320343559638,241,True,3.278033
+densité,aléatoire,50,0.4,True,14,Anytime (50 ms),9.2376333335172,111.55634918610401,1253,True,0.0
+densité,aléatoire,50,0.4,True,15,BFS,3.2402333331447153,141.21320343559643,700,True,0.0
+densité,aléatoire,50,0.4,True,15,Dijkstra,4.258833333248428,141.21320343559643,694,True,0.0
+densité,aléatoire,50,0.4,True,15,A*,3.637566666687538,141.21320343559643,635,True,0.0
+densité,aléatoire,50,0.4,True,15,A* pondéré (w=2),2.919299999878907,143.698484809835,462,True,1.75995
+densité,aléatoire,50,0.4,True,15,Anytime (50 ms),12.710900000001857,141.21320343559643,1966,True,0.0
+densité,aléatoire,50,0.4,True,16,BFS,4.648166666659866,113.45584412271572,1265,True,0.0
+densité,aléatoire,50,0.4,True,16,Dijkstra,7.411433333345485,113.45584412271567,1262,True,0.0
+densité,aléatoire,50,0.4,True,16,A*,5.039666666713553,113.45584412271567,813,True,0.0
+densité,aléatoire,50,0.4,True,16,A* pondéré (w=2),3.5372333334938353,115.11269837220804,497,True,1.460352
+densité,aléatoire,50,0.4,True,16,Anytime (50 ms),17.043733333442407,113.45584412271567,2320,True,0.0
+densité,aléatoire,50,0.4,True,17,BFS,5.21863333354607,115.21320343559643,1236,True,0.211046
+densité,aléatoire,50,0.4,True,17,Dijkstra,7.803599999988364,114.97056274847712,1237,True,0.0
+densité,aléatoire,50,0.4,True,17,A*,6.658633333245234,114.97056274847712,1015,True,0.0
+densité,aléatoire,50,0.4,True,17,A* pondéré (w=2),2.9741333331306428,118.28427124746187,331,True,2.882223
+densité,aléatoire,50,0.4,True,17,Anytime (50 ms),15.392633333400832,114.97056274847712,2221,True,0.0
+densité,aléatoire,50,0.4,True,18,BFS,7.9244666665848245,118.2842712474619,1020,True,0.0
+densité,aléatoire,50,0.4,True,18,Dijkstra,5.944066666719057,118.28427124746187,1020,True,0.0
+densité,aléatoire,50,0.4,True,18,A*,5.035366666713041,118.28427124746187,852,True,0.0
+densité,aléatoire,50,0.4,True,18,A* pondéré (w=2),3.0423666667047655,118.28427124746187,513,True,0.0
+densité,aléatoire,50,0.4,True,18,Anytime (50 ms),18.96683333340358,118.28427124746187,2474,True,0.0
+densité,aléatoire,50,0.4,True,19,BFS,3.63950000019031,94.62741699796952,1025,True,0.0
+densité,aléatoire,50,0.4,True,19,Dijkstra,5.640199999864611,94.6274169979695,1025,True,0.0
+densité,aléatoire,50,0.4,True,19,A*,4.736700000194105,94.6274169979695,774,True,0.0
+densité,aléatoire,50,0.4,True,19,A* pondéré (w=2),1.2159666666775593,95.7989898732233,192,True,1.23809
+densité,aléatoire,50,0.4,True,19,Anytime (50 ms),9.907966666560242,94.6274169979695,1456,True,0.0
+densité,aléatoire,50,0.4,True,20,BFS,3.9658333333439564,104.87005768508881,1065,True,0.0
+densité,aléatoire,50,0.4,True,20,Dijkstra,6.164600000223193,104.87005768508878,1070,True,0.0
+densité,aléatoire,50,0.4,True,20,A*,4.379366666701874,104.87005768508878,735,True,0.0
+densité,aléatoire,50,0.4,True,20,A* pondéré (w=2),1.9888666665792698,106.52691193458115,318,True,1.579912
+densité,aléatoire,50,0.4,True,20,Anytime (50 ms),12.269999999868256,104.87005768508878,1857,True,0.0
+densité,aléatoire,50,0.4,True,21,BFS,3.86936666670105,107.79898987322333,968,True,0.0
+densité,aléatoire,50,0.4,True,21,Dijkstra,5.593633333470886,107.7989898732233,969,True,0.0
+densité,aléatoire,50,0.4,True,21,A*,4.541333333387835,107.7989898732233,674,True,0.0
+densité,aléatoire,50,0.4,True,21,A* pondéré (w=2),2.4065666668017607,111.69848480983495,251,True,3.617376
+densité,aléatoire,50,0.4,True,21,Anytime (50 ms),11.95373333318154,107.7989898732233,1496,True,0.0
+densité,aléatoire,50,0.4,True,22,BFS,5.009099999976267,110.38477631085024,1194,True,0.0
+densité,aléatoire,50,0.4,True,22,Dijkstra,7.388299999850763,110.38477631085021,1189,True,0.0
+densité,aléatoire,50,0.4,True,22,A*,4.110700000031405,110.38477631085021,674,True,0.0
+densité,aléatoire,50,0.4,True,22,A* pondéré (w=2),1.3400666666711913,112.04163056034258,180,True,1.500981
+densité,aléatoire,50,0.4,True,22,Anytime (50 ms),10.665666666530646,110.38477631085021,1378,True,0.0
+densité,aléatoire,50,0.4,True,23,BFS,3.8700333332902423,110.62741699796952,1037,True,0.0
+densité,aléatoire,50,0.4,True,23,Dijkstra,6.256600000142498,110.62741699796949,1037,True,0.0
+densité,aléatoire,50,0.4,True,23,A*,5.1708666666551535,110.62741699796949,795,True,0.0
+densité,aléatoire,50,0.4,True,23,A* pondéré (w=2),4.445533333485703,119.45584412271567,683,True,7.980325
+densité,aléatoire,50,0.4,True,23,Anytime (50 ms),21.878300000025774,110.62741699796949,2789,True,0.0
+densité,aléatoire,50,0.4,True,24,BFS,3.3886333332399468,107.21320343559643,889,True,0.0
+densité,aléatoire,50,0.4,True,24,Dijkstra,5.188866666685499,107.2132034355964,884,True,0.0
+densité,aléatoire,50,0.4,True,24,A*,3.3166999999896993,107.2132034355964,543,True,0.0
+densité,aléatoire,50,0.4,True,24,A* pondéré (w=2),1.904366666470499,115.45584412271567,293,True,7.688084
+densité,aléatoire,50,0.4,True,24,Anytime (50 ms),10.047566666647375,107.2132034355964,1486,True,0.0
+densité,aléatoire,50,0.4,True,25,BFS,5.896666666709886,99.55634918610404,1156,True,0.0
+densité,aléatoire,50,0.4,True,25,Dijkstra,6.807333333351077,99.55634918610403,1159,True,0.0
+densité,aléatoire,50,0.4,True,25,A*,3.088366666664418,99.55634918610403,535,True,0.0
+densité,aléatoire,50,0.4,True,25,A* pondéré (w=2),1.5066000000842905,99.55634918610403,241,True,0.0
+densité,aléatoire,50,0.4,True,25,Anytime (50 ms),8.785966666740327,99.55634918610403,1327,True,0.0
+densité,aléatoire,50,0.4,True,26,BFS,3.3375666665354706,112.62741699796952,935,True,0.0
+densité,aléatoire,50,0.4,True,26,Dijkstra,5.553433333261637,112.62741699796949,938,True,0.0
+densité,aléatoire,50,0.4,True,26,A*,3.5777000001265455,112.62741699796949,559,True,0.0
+densité,aléatoire,50,0.4,True,26,A* pondéré (w=2),1.7702666667294882,118.52691193458114,289,True,5.238063
+densité,aléatoire,50,0.4,True,26,Anytime (50 ms),11.973200000132541,112.62741699796949,1443,True,0.0
+densité,aléatoire,50,0.4,True,27,BFS,3.289766666663733,108.87005768508881,855,True,0.0
+densité,aléatoire,50,0.4,True,27,Dijkstra,4.99573333324103,108.87005768508877,862,True,0.0
+densité,aléatoire,50,0.4,True,27,A*,4.007066666872561,108.87005768508877,667,True,0.0
+densité,aléatoire,50,0.4,True,27,A* pondéré (w=2),1.9920666665408742,112.76955262170041,331,True,3.581788
+densité,aléatoire,50,0.4,True,27,Anytime (50 ms),12.552433333439694,108.87005768508877,1733,True,0.0
+densité,aléatoire,50,0.4,True,28,BFS,3.6208999999871594,94.38477631085024,948,True,0.0
+densité,aléatoire,50,0.4,True,28,Dijkstra,5.539500000092327,94.38477631085021,957,True,0.0
+densité,aléatoire,50,0.4,True,28,A*,2.6463666666434924,94.38477631085021,424,True,0.0
+densité,aléatoire,50,0.4,True,28,A* pondéré (w=2),1.0721333334610488,95.2132034355964,120,True,0.877713
+densité,aléatoire,50,0.4,True,28,Anytime (50 ms),6.236966666619992,94.38477631085021,801,True,0.0
+densité,aléatoire,50,0.4,True,29,BFS,4.650933333323337,94.38477631085024,948,True,0.0
+densité,aléatoire,50,0.4,True,29,Dijkstra,5.495266666760775,94.38477631085021,957,True,0.0
+densité,aléatoire,50,0.4,True,29,A*,2.4772666667255785,94.38477631085021,424,True,0.0
+densité,aléatoire,50,0.4,True,29,A* pondéré (w=2),0.743033333189184,95.2132034355964,120,True,0.877713
+densité,aléatoire,50,0.4,True,29,Anytime (50 ms),6.171366666573401,94.38477631085021,801,True,0.0
+environnement,aléatoire,51,0.25,False,0,BFS,6.08726666663036,100.0,1956,True,0.0
+environnement,aléatoire,51,0.25,False,0,Dijkstra,9.69549999975546,100.0,1956,True,0.0
+environnement,aléatoire,51,0.25,False,0,A*,2.507366666577582,100.0,379,True,0.0
+environnement,aléatoire,51,0.25,False,0,A* pondéré (w=2),0.5839666667573814,112.0,133,True,12.0
+environnement,aléatoire,51,0.25,False,0,Anytime (50 ms),4.614499999812931,100.0,778,True,0.0
+environnement,aléatoire,51,0.25,False,1,BFS,4.638366666767979,100.0,1903,True,0.0
+environnement,aléatoire,51,0.25,False,1,Dijkstra,10.088600000017323,100.0,1903,True,0.0
+environnement,aléatoire,51,0.25,False,1,A*,0.9191333333546936,100.0,197,True,0.0
+environnement,aléatoire,51,0.25,False,1,A* pondéré (w=2),0.6353999998888563,108.0,141,True,8.0
+environnement,aléatoire,51,0.25,False,1,Anytime (50 ms),3.0235999997785257,100.0,610,True,0.0
+environnement,aléatoire,51,0.25,False,2,BFS,4.440100000010716,100.0,1951,True,0.0
+environnement,aléatoire,51,0.25,False,2,Dijkstra,7.726733333280815,100.0,1951,True,0.0
+environnement,aléatoire,51,0.25,False,2,A*,2.2966333331169153,100.0,441,True,0.0
+environnement,aléatoire,51,0.25,False,2,A* pondéré (w=2),0.6059666666260455,112.0,134,True,12.0
+environnement,aléatoire,51,0.25,False,2,Anytime (50 ms),4.213133333299386,100.0,851,True,0.0
+environnement,aléatoire,51,0.25,False,3,BFS,4.410900000038964,100.0,1894,True,0.0
+environnement,aléatoire,51,0.25,False,3,Dijkstra,10.157766666755682,100.0,1894,True,0.0
+environnement,aléatoire,51,0.25,False,3,A*,1.3909000000846088,100.0,164,True,0.0
+environnement,aléatoire,51,0.25,False,3,A* pondéré (w=2),0.7291333333038589,108.0,140,True,8.0
+environnement,aléatoire,51,0.25,False,3,Anytime (50 ms),2.8702333335483368,100.0,588,True,0.0
+environnement,aléatoire,51,0.25,False,4,BFS,4.1760666666353545,100.0,1894,True,0.0
+environnement,aléatoire,51,0.25,False,4,Dijkstra,7.6566333333782195,100.0,1894,True,0.0
+environnement,aléatoire,51,0.25,False,4,A*,1.3567666668071372,100.0,185,True,0.0
+environnement,aléatoire,51,0.25,False,4,A* pondéré (w=2),1.4849666664910426,112.0,160,True,12.0
+environnement,aléatoire,51,0.25,False,4,Anytime (50 ms),3.7934333331577363,100.0,653,True,0.0
+environnement,aléatoire,51,0.25,False,5,BFS,4.792433333477675,102.0,1927,True,0.0
+environnement,aléatoire,51,0.25,False,5,Dijkstra,7.9793999999916805,102.0,1927,True,0.0
+environnement,aléatoire,51,0.25,False,5,A*,0.8566666668533193,102.0,194,True,0.0
+environnement,aléatoire,51,0.25,False,5,A* pondéré (w=2),0.6358000000545871,112.0,148,True,9.803922
+environnement,aléatoire,51,0.25,False,5,Anytime (50 ms),3.4503999998681443,102.0,652,True,0.0
+environnement,aléatoire,51,0.25,False,6,BFS,4.1830333334473835,100.0,1897,True,0.0
+environnement,aléatoire,51,0.25,False,6,Dijkstra,8.141466666529595,100.0,1897,True,0.0
+environnement,aléatoire,51,0.25,False,6,A*,2.0996333331216497,100.0,406,True,0.0
+environnement,aléatoire,51,0.25,False,6,A* pondéré (w=2),0.8114000000508289,112.0,154,True,12.0
+environnement,aléatoire,51,0.25,False,6,Anytime (50 ms),4.717233333394688,100.0,866,True,0.0
+environnement,aléatoire,51,0.25,False,7,BFS,5.083666666602464,100.0,1917,True,0.0
+environnement,aléatoire,51,0.25,False,7,Dijkstra,7.746533333374828,100.0,1917,True,0.0
+environnement,aléatoire,51,0.25,False,7,A*,1.8226666666123492,100.0,349,True,0.0
+environnement,aléatoire,51,0.25,False,7,A* pondéré (w=2),0.6290666665336175,110.0,145,True,10.0
+environnement,aléatoire,51,0.25,False,7,Anytime (50 ms),4.378066666655893,100.0,803,True,0.0
+environnement,aléatoire,51,0.25,False,8,BFS,5.34283333354324,100.0,1828,True,0.0
+environnement,aléatoire,51,0.25,False,8,Dijkstra,7.304566666637887,100.0,1828,True,0.0
+environnement,aléatoire,51,0.25,False,8,A*,1.4887333334930493,100.0,328,True,0.0
+environnement,aléatoire,51,0.25,False,8,A* pondéré (w=2),1.329000000017307,114.0,235,True,14.0
+environnement,aléatoire,51,0.25,False,8,Anytime (50 ms),5.301333333439591,100.0,1086,True,0.0
+environnement,aléatoire,51,0.25,False,9,BFS,4.856566666603612,100.0,1956,True,0.0
+environnement,aléatoire,51,0.25,False,9,Dijkstra,8.409066666748307,100.0,1956,True,0.0
+environnement,aléatoire,51,0.25,False,9,A*,2.145833333391541,100.0,454,True,0.0
+environnement,aléatoire,51,0.25,False,9,A* pondéré (w=2),1.4368666666086938,108.0,343,True,8.0
+environnement,aléatoire,51,0.25,False,9,Anytime (50 ms),7.313466666649522,100.0,1392,True,0.0
+environnement,aléatoire,51,0.25,False,10,BFS,5.582166666802853,100.0,1953,True,0.0
+environnement,aléatoire,51,0.25,False,10,Dijkstra,9.382033333167783,100.0,1953,True,0.0
+environnement,aléatoire,51,0.25,False,10,A*,0.7647666666343866,100.0,146,True,0.0
+environnement,aléatoire,51,0.25,False,10,A* pondéré (w=2),0.7839666667071773,104.0,129,True,4.0
+environnement,aléatoire,51,0.25,False,10,Anytime (50 ms),2.465099999881204,100.0,531,True,0.0
+environnement,aléatoire,51,0.25,False,11,BFS,4.631733333250547,100.0,1926,True,0.0
+environnement,aléatoire,51,0.25,False,11,Dijkstra,7.44000000001203,100.0,1926,True,0.0
+environnement,aléatoire,51,0.25,False,11,A*,1.7216333332423044,100.0,272,True,0.0
+environnement,aléatoire,51,0.25,False,11,A* pondéré (w=2),0.7264000000759552,104.0,165,True,4.0
+environnement,aléatoire,51,0.25,False,11,Anytime (50 ms),3.9457666668264815,100.0,775,True,0.0
+environnement,aléatoire,51,0.25,False,12,BFS,5.059966666673669,100.0,1960,True,0.0
+environnement,aléatoire,51,0.25,False,12,Dijkstra,9.122166666808576,100.0,1960,True,0.0
+environnement,aléatoire,51,0.25,False,12,A*,1.4327333333312708,100.0,301,True,0.0
+environnement,aléatoire,51,0.25,False,12,A* pondéré (w=2),0.7823666666505839,114.0,188,True,14.0
+environnement,aléatoire,51,0.25,False,12,Anytime (50 ms),5.740466666793509,100.0,925,True,0.0
+environnement,aléatoire,51,0.25,False,13,BFS,5.310433333458302,100.0,1872,True,0.0
+environnement,aléatoire,51,0.25,False,13,Dijkstra,8.042166666655248,100.0,1872,True,0.0
+environnement,aléatoire,51,0.25,False,13,A*,1.134133333380305,100.0,217,True,0.0
+environnement,aléatoire,51,0.25,False,13,A* pondéré (w=2),0.7848333333034437,108.0,180,True,8.0
+environnement,aléatoire,51,0.25,False,13,Anytime (50 ms),3.960300000017014,100.0,762,True,0.0
+environnement,aléatoire,51,0.25,False,14,BFS,4.74813333342657,100.0,1942,True,0.0
+environnement,aléatoire,51,0.25,False,14,Dijkstra,8.5012333333907,100.0,1942,True,0.0
+environnement,aléatoire,51,0.25,False,14,A*,1.1589333330448426,100.0,236,True,0.0
+environnement,aléatoire,51,0.25,False,14,A* pondéré (w=2),0.7149666666919074,112.0,153,True,12.0
+environnement,aléatoire,51,0.25,False,14,Anytime (50 ms),3.8206666667974787,100.0,716,True,0.0
+environnement,aléatoire,51,0.25,False,15,BFS,4.64606666673717,100.0,1931,True,0.0
+environnement,aléatoire,51,0.25,False,15,Dijkstra,9.3440666666235,100.0,1931,True,0.0
+environnement,aléatoire,51,0.25,False,15,A*,1.3737666666505295,100.0,170,True,0.0
+environnement,aléatoire,51,0.25,False,15,A* pondéré (w=2),0.6934000001213766,112.0,151,True,12.0
+environnement,aléatoire,51,0.25,False,15,Anytime (50 ms),3.270733333465614,100.0,663,True,0.0
+environnement,aléatoire,51,0.25,False,16,BFS,4.575699999956366,100.0,1938,True,0.0
+environnement,aléatoire,51,0.25,False,16,Dijkstra,7.7753666664648335,100.0,1938,True,0.0
+environnement,aléatoire,51,0.25,False,16,A*,1.16863333338794,100.0,205,True,0.0
+environnement,aléatoire,51,0.25,False,16,A* pondéré (w=2),0.8170666665137105,112.0,185,True,12.0
+environnement,aléatoire,51,0.25,False,16,Anytime (50 ms),4.046666666757422,100.0,783,True,0.0
+environnement,aléatoire,51,0.25,False,17,BFS,4.406399999879795,100.0,1931,True,0.0
+environnement,aléatoire,51,0.25,False,17,Dijkstra,8.047066666525401,100.0,1931,True,0.0
+environnement,aléatoire,51,0.25,False,17,A*,0.6524333333193985,100.0,135,True,0.0
+environnement,aléatoire,51,0.25,False,17,A* pondéré (w=2),0.5985333333834811,108.0,122,True,8.0
+environnement,aléatoire,51,0.25,False,17,Anytime (50 ms),2.4260333334495954,100.0,505,True,0.0
+environnement,aléatoire,51,0.25,False,18,BFS,4.3750999999853475,100.0,1898,True,0.0
+environnement,aléatoire,51,0.25,False,18,Dijkstra,7.167400000071211,100.0,1898,True,0.0
+environnement,aléatoire,51,0.25,False,18,A*,0.9574666666291402,100.0,214,True,0.0
+environnement,aléatoire,51,0.25,False,18,A* pondéré (w=2),0.6437333333148368,114.0,149,True,14.0
+environnement,aléatoire,51,0.25,False,18,Anytime (50 ms),3.86996666657069,100.0,707,True,0.0
+environnement,aléatoire,51,0.25,False,19,BFS,4.513266666738976,100.0,1973,True,0.0
+environnement,aléatoire,51,0.25,False,19,Dijkstra,8.98143333339855,100.0,1973,True,0.0
+environnement,aléatoire,51,0.25,False,19,A*,2.4093333333136493,100.0,455,True,0.0
+environnement,aléatoire,51,0.25,False,19,A* pondéré (w=2),0.8240333333257391,108.0,135,True,8.0
+environnement,aléatoire,51,0.25,False,19,Anytime (50 ms),4.575666666520799,100.0,863,True,0.0
+environnement,aléatoire,51,0.25,False,20,BFS,4.181733333249819,100.0,1913,True,0.0
+environnement,aléatoire,51,0.25,False,20,Dijkstra,7.810766666655884,100.0,1913,True,0.0
+environnement,aléatoire,51,0.25,False,20,A*,0.959933333282,100.0,210,True,0.0
+environnement,aléatoire,51,0.25,False,20,A* pondéré (w=2),0.6660333333456947,116.0,155,True,16.0
+environnement,aléatoire,51,0.25,False,20,Anytime (50 ms),4.066266666844361,100.0,688,True,0.0
+environnement,aléatoire,51,0.25,False,21,BFS,4.755633333388687,100.0,1988,True,0.0
+environnement,aléatoire,51,0.25,False,21,Dijkstra,8.245933333303887,100.0,1988,True,0.0
+environnement,aléatoire,51,0.25,False,21,A*,1.0255000000446064,100.0,192,True,0.0
+environnement,aléatoire,51,0.25,False,21,A* pondéré (w=2),0.6853999999899921,108.0,154,True,8.0
+environnement,aléatoire,51,0.25,False,21,Anytime (50 ms),3.1674333334497837,100.0,648,True,0.0
+environnement,aléatoire,51,0.25,False,22,BFS,4.5346666667380005,100.0,1969,True,0.0
+environnement,aléatoire,51,0.25,False,22,Dijkstra,7.764499999818024,100.0,1969,True,0.0
+environnement,aléatoire,51,0.25,False,22,A*,0.8743666667214711,100.0,188,True,0.0
+environnement,aléatoire,51,0.25,False,22,A* pondéré (w=2),0.6575666666321922,106.0,139,True,6.0
+environnement,aléatoire,51,0.25,False,22,Anytime (50 ms),3.038166666556208,100.0,606,True,0.0
+environnement,aléatoire,51,0.25,False,23,BFS,4.667133333290015,100.0,1920,True,0.0
+environnement,aléatoire,51,0.25,False,23,Dijkstra,7.7481999999993905,100.0,1920,True,0.0
+environnement,aléatoire,51,0.25,False,23,A*,0.707933333311909,100.0,156,True,0.0
+environnement,aléatoire,51,0.25,False,23,A* pondéré (w=2),0.6321666666432671,104.0,144,True,4.0
+environnement,aléatoire,51,0.25,False,23,Anytime (50 ms),3.2898666668188525,100.0,586,True,0.0
+environnement,aléatoire,51,0.25,False,24,BFS,4.862199999782509,100.0,1916,True,0.0
+environnement,aléatoire,51,0.25,False,24,Dijkstra,8.622833333295906,100.0,1916,True,0.0
+environnement,aléatoire,51,0.25,False,24,A*,0.7601666666232632,100.0,149,True,0.0
+environnement,aléatoire,51,0.25,False,24,A* pondéré (w=2),0.6752000000839568,118.0,142,True,18.0
+environnement,aléatoire,51,0.25,False,24,Anytime (50 ms),3.099833333484033,100.0,587,True,0.0
+environnement,aléatoire,51,0.25,False,25,BFS,4.193966666662163,100.0,1923,True,0.0
+environnement,aléatoire,51,0.25,False,25,Dijkstra,10.380100000171902,100.0,1923,True,0.0
+environnement,aléatoire,51,0.25,False,25,A*,1.6216666666271824,100.0,321,True,0.0
+environnement,aléatoire,51,0.25,False,25,A* pondéré (w=2),0.6983000001431113,116.0,149,True,16.0
+environnement,aléatoire,51,0.25,False,25,Anytime (50 ms),3.831933333306855,100.0,806,True,0.0
+environnement,aléatoire,51,0.25,False,26,BFS,4.421633333398252,100.0,1948,True,0.0
+environnement,aléatoire,51,0.25,False,26,Dijkstra,11.147100000016508,100.0,1948,True,0.0
+environnement,aléatoire,51,0.25,False,26,A*,1.227533333349129,100.0,214,True,0.0
+environnement,aléatoire,51,0.25,False,26,A* pondéré (w=2),1.47523333347029,118.0,175,True,18.0
+environnement,aléatoire,51,0.25,False,26,Anytime (50 ms),6.702466666562638,100.0,822,True,0.0
+environnement,aléatoire,51,0.25,False,27,BFS,6.6197000001011475,100.0,1897,True,0.0
+environnement,aléatoire,51,0.25,False,27,Dijkstra,10.410200000023906,100.0,1897,True,0.0
+environnement,aléatoire,51,0.25,False,27,A*,1.007300000158769,100.0,220,True,0.0
+environnement,aléatoire,51,0.25,False,27,A* pondéré (w=2),0.5858000001050337,108.0,135,True,8.0
+environnement,aléatoire,51,0.25,False,27,Anytime (50 ms),3.5752999998900727,100.0,631,True,0.0
+environnement,aléatoire,51,0.25,False,28,BFS,4.808033333574713,104.0,1933,True,0.0
+environnement,aléatoire,51,0.25,False,28,Dijkstra,10.710333333311914,104.0,1933,True,0.0
+environnement,aléatoire,51,0.25,False,28,A*,7.55909999998039,104.0,907,True,0.0
+environnement,aléatoire,51,0.25,False,28,A* pondéré (w=2),1.0728666666182107,112.0,151,True,7.692308
+environnement,aléatoire,51,0.25,False,28,Anytime (50 ms),10.33193333341842,104.0,1398,True,0.0
+environnement,aléatoire,51,0.25,False,29,BFS,4.265166666755249,100.0,1933,True,0.0
+environnement,aléatoire,51,0.25,False,29,Dijkstra,7.329433333476724,100.0,1933,True,0.0
+environnement,aléatoire,51,0.25,False,29,A*,1.0492000001249835,100.0,226,True,0.0
+environnement,aléatoire,51,0.25,False,29,A* pondéré (w=2),0.9665666666478501,110.0,164,True,10.0
+environnement,aléatoire,51,0.25,False,29,Anytime (50 ms),3.3536666666501938,100.0,706,True,0.0
+environnement,labyrinthe,51,0.25,False,0,BFS,1.8317333331954917,166.0,884,True,0.0
+environnement,labyrinthe,51,0.25,False,0,Dijkstra,3.5769333333822337,166.0,884,True,0.0
+environnement,labyrinthe,51,0.25,False,0,A*,2.6188999998642735,166.0,422,True,0.0
+environnement,labyrinthe,51,0.25,False,0,A* pondéré (w=2),1.2273666666260397,166.0,195,True,0.0
+environnement,labyrinthe,51,0.25,False,0,Anytime (50 ms),4.59880000001552,166.0,1070,True,0.0
+environnement,labyrinthe,51,0.25,False,1,BFS,2.772599999995388,316.0,1295,True,0.0
+environnement,labyrinthe,51,0.25,False,1,Dijkstra,4.820999999992637,316.0,1295,True,0.0
+environnement,labyrinthe,51,0.25,False,1,A*,5.2206666667492145,316.0,1295,True,0.0
+environnement,labyrinthe,51,0.25,False,1,A* pondéré (w=2),4.979533333274351,326.0,1154,True,3.164557
+environnement,labyrinthe,51,0.25,False,1,Anytime (50 ms),18.75026666660536,316.0,4566,True,0.0
+environnement,labyrinthe,51,0.25,False,2,BFS,1.6510666667575908,160.0,809,True,0.0
+environnement,labyrinthe,51,0.25,False,2,Dijkstra,4.778866666735364,160.0,809,True,0.0
+environnement,labyrinthe,51,0.25,False,2,A*,2.738866666883647,160.0,619,True,0.0
+environnement,labyrinthe,51,0.25,False,2,A* pondéré (w=2),1.7308999999841035,170.0,447,True,6.25
+environnement,labyrinthe,51,0.25,False,2,Anytime (50 ms),7.911133333285155,160.0,2027,True,0.0
+environnement,labyrinthe,51,0.25,False,3,BFS,2.6357666667233084,158.0,1216,True,0.0
+environnement,labyrinthe,51,0.25,False,3,Dijkstra,4.222266666753664,158.0,1216,True,0.0
+environnement,labyrinthe,51,0.25,False,3,A*,3.47256666661148,158.0,981,True,0.0
+environnement,labyrinthe,51,0.25,False,3,A* pondéré (w=2),1.9746000001153636,158.0,433,True,0.0
+environnement,labyrinthe,51,0.25,False,3,Anytime (50 ms),11.846499999895363,158.0,2377,True,0.0
+environnement,labyrinthe,51,0.25,False,4,BFS,2.3883000000447887,188.0,1120,True,0.0
+environnement,labyrinthe,51,0.25,False,4,Dijkstra,4.1647000001224415,188.0,1120,True,0.0
+environnement,labyrinthe,51,0.25,False,4,A*,1.3543999998546496,188.0,396,True,0.0
+environnement,labyrinthe,51,0.25,False,4,A* pondéré (w=2),1.0496333332715342,188.0,258,True,0.0
+environnement,labyrinthe,51,0.25,False,4,Anytime (50 ms),5.131633333348873,188.0,1196,True,0.0
+environnement,labyrinthe,51,0.25,False,5,BFS,2.3345333332448113,146.0,1117,True,0.0
+environnement,labyrinthe,51,0.25,False,5,Dijkstra,3.890233333398404,146.0,1117,True,0.0
+environnement,labyrinthe,51,0.25,False,5,A*,3.9907333331636132,146.0,983,True,0.0
+environnement,labyrinthe,51,0.25,False,5,A* pondéré (w=2),1.9524333332204453,146.0,523,True,0.0
+environnement,labyrinthe,51,0.25,False,5,Anytime (50 ms),9.489233333169977,146.0,2373,True,0.0
+environnement,labyrinthe,51,0.25,False,6,BFS,2.2001999999095765,228.0,1037,True,0.0
+environnement,labyrinthe,51,0.25,False,6,Dijkstra,3.603766666704663,228.0,1037,True,0.0
+environnement,labyrinthe,51,0.25,False,6,A*,1.9158000000061293,228.0,566,True,0.0
+environnement,labyrinthe,51,0.25,False,6,A* pondéré (w=2),1.6032333334502862,230.0,456,True,0.877193
+environnement,labyrinthe,51,0.25,False,6,Anytime (50 ms),7.58136666657568,228.0,1970,True,0.0
+environnement,labyrinthe,51,0.25,False,7,BFS,2.8591333334588853,130.0,1277,True,0.0
+environnement,labyrinthe,51,0.25,False,7,Dijkstra,6.615333333381083,130.0,1277,True,0.0
+environnement,labyrinthe,51,0.25,False,7,A*,3.5204333333543523,130.0,862,True,0.0
+environnement,labyrinthe,51,0.25,False,7,A* pondéré (w=2),0.8921000001767728,156.0,232,True,20.0
+environnement,labyrinthe,51,0.25,False,7,Anytime (50 ms),7.17796666670741,130.0,1726,True,0.0
+environnement,labyrinthe,51,0.25,False,8,BFS,2.5301666667777076,166.0,1192,True,0.0
+environnement,labyrinthe,51,0.25,False,8,Dijkstra,4.691066666661452,166.0,1192,True,0.0
+environnement,labyrinthe,51,0.25,False,8,A*,4.1652000001401275,166.0,982,True,0.0
+environnement,labyrinthe,51,0.25,False,8,A* pondéré (w=2),2.7569000000463952,176.0,811,True,6.024096
+environnement,labyrinthe,51,0.25,False,8,Anytime (50 ms),14.583566666715342,166.0,3215,True,0.0
+environnement,labyrinthe,51,0.25,False,9,BFS,2.5709999999889988,144.0,1189,True,0.0
+environnement,labyrinthe,51,0.25,False,9,Dijkstra,4.512233333268038,144.0,1189,True,0.0
+environnement,labyrinthe,51,0.25,False,9,A*,2.6592999999290137,144.0,759,True,0.0
+environnement,labyrinthe,51,0.25,False,9,A* pondéré (w=2),1.922799999798978,144.0,459,True,0.0
+environnement,labyrinthe,51,0.25,False,9,Anytime (50 ms),9.444600000127442,144.0,2334,True,0.0
+environnement,labyrinthe,51,0.25,False,10,BFS,3.2425333333776507,158.0,847,True,0.0
+environnement,labyrinthe,51,0.25,False,10,Dijkstra,6.372733333288731,158.0,847,True,0.0
+environnement,labyrinthe,51,0.25,False,10,A*,1.8997999998949429,158.0,333,True,0.0
+environnement,labyrinthe,51,0.25,False,10,A* pondéré (w=2),0.6535333332067239,162.0,187,True,2.531646
+environnement,labyrinthe,51,0.25,False,10,Anytime (50 ms),4.403266666637744,158.0,882,True,0.0
+environnement,labyrinthe,51,0.25,False,11,BFS,2.729833333281325,226.0,1190,True,0.0
+environnement,labyrinthe,51,0.25,False,11,Dijkstra,4.709233333414886,226.0,1190,True,0.0
+environnement,labyrinthe,51,0.25,False,11,A*,2.8734999999263287,226.0,709,True,0.0
+environnement,labyrinthe,51,0.25,False,11,A* pondéré (w=2),3.0151666668037556,230.0,586,True,1.769912
+environnement,labyrinthe,51,0.25,False,11,Anytime (50 ms),11.139066666601138,226.0,2403,True,0.0
+environnement,labyrinthe,51,0.25,False,12,BFS,2.5236333334153946,176.0,1244,True,0.0
+environnement,labyrinthe,51,0.25,False,12,Dijkstra,4.712666666667549,176.0,1244,True,0.0
+environnement,labyrinthe,51,0.25,False,12,A*,3.996033333351079,176.0,1071,True,0.0
+environnement,labyrinthe,51,0.25,False,12,A* pondéré (w=2),1.3823999997839564,176.0,399,True,0.0
+environnement,labyrinthe,51,0.25,False,12,Anytime (50 ms),10.947066666631144,176.0,2659,True,0.0
+environnement,labyrinthe,51,0.25,False,13,BFS,2.0366333331670226,152.0,1000,True,0.0
+environnement,labyrinthe,51,0.25,False,13,Dijkstra,3.9534000002277025,152.0,1000,True,0.0
+environnement,labyrinthe,51,0.25,False,13,A*,1.1943000001034914,152.0,345,True,0.0
+environnement,labyrinthe,51,0.25,False,13,A* pondéré (w=2),0.6815000001552107,152.0,201,True,0.0
+environnement,labyrinthe,51,0.25,False,13,Anytime (50 ms),3.9532666667885983,152.0,952,True,0.0
+environnement,labyrinthe,51,0.25,False,14,BFS,2.1705666666396914,290.0,909,True,0.0
+environnement,labyrinthe,51,0.25,False,14,Dijkstra,3.050366666532985,290.0,909,True,0.0
+environnement,labyrinthe,51,0.25,False,14,A*,2.465666666770024,290.0,624,True,0.0
+environnement,labyrinthe,51,0.25,False,14,A* pondéré (w=2),1.5983666665609537,290.0,482,True,0.0
+environnement,labyrinthe,51,0.25,False,14,Anytime (50 ms),7.639400000092185,290.0,2046,True,0.0
+environnement,labyrinthe,51,0.25,False,15,BFS,3.0586333333909956,288.0,1209,True,0.0
+environnement,labyrinthe,51,0.25,False,15,Dijkstra,4.492200000034548,288.0,1209,True,0.0
+environnement,labyrinthe,51,0.25,False,15,A*,3.675533333231821,288.0,1022,True,0.0
+environnement,labyrinthe,51,0.25,False,15,A* pondéré (w=2),3.4701333333941875,294.0,883,True,2.083333
+environnement,labyrinthe,51,0.25,False,15,Anytime (50 ms),14.448300000064288,288.0,3514,True,0.0
+environnement,labyrinthe,51,0.25,False,16,BFS,1.392900000003768,184.0,682,True,0.0
+environnement,labyrinthe,51,0.25,False,16,Dijkstra,2.8016999999636027,184.0,682,True,0.0
+environnement,labyrinthe,51,0.25,False,16,A*,2.1253333334243507,184.0,502,True,0.0
+environnement,labyrinthe,51,0.25,False,16,A* pondéré (w=2),1.413366666535391,198.0,416,True,7.608696
+environnement,labyrinthe,51,0.25,False,16,Anytime (50 ms),7.277633333463503,184.0,1726,True,0.0
+environnement,labyrinthe,51,0.25,False,17,BFS,1.7505333335066098,164.0,839,True,0.0
+environnement,labyrinthe,51,0.25,False,17,Dijkstra,3.5570000000006985,164.0,839,True,0.0
+environnement,labyrinthe,51,0.25,False,17,A*,2.167366666678087,164.0,559,True,0.0
+environnement,labyrinthe,51,0.25,False,17,A* pondéré (w=2),1.4919333334546536,164.0,299,True,0.0
+environnement,labyrinthe,51,0.25,False,17,Anytime (50 ms),7.0003333333564415,164.0,1407,True,0.0
+environnement,labyrinthe,51,0.25,False,18,BFS,2.0128333335378557,210.0,889,True,0.0
+environnement,labyrinthe,51,0.25,False,18,Dijkstra,3.52943333306636,210.0,889,True,0.0
+environnement,labyrinthe,51,0.25,False,18,A*,1.8270000000484288,210.0,534,True,0.0
+environnement,labyrinthe,51,0.25,False,18,A* pondéré (w=2),1.4308999999836185,214.0,423,True,1.904762
+environnement,labyrinthe,51,0.25,False,18,Anytime (50 ms),6.673766666760154,210.0,1802,True,0.0
+environnement,labyrinthe,51,0.25,False,19,BFS,2.6903999998163877,228.0,1255,True,0.0
+environnement,labyrinthe,51,0.25,False,19,Dijkstra,4.38720000011017,228.0,1255,True,0.0
+environnement,labyrinthe,51,0.25,False,19,A*,3.2092999998288483,228.0,844,True,0.0
+environnement,labyrinthe,51,0.25,False,19,A* pondéré (w=2),1.3129999997545383,228.0,384,True,0.0
+environnement,labyrinthe,51,0.25,False,19,Anytime (50 ms),8.9460333332075,228.0,2217,True,0.0
+environnement,labyrinthe,51,0.25,False,20,BFS,2.555166666449319,158.0,1150,True,0.0
+environnement,labyrinthe,51,0.25,False,20,Dijkstra,4.110100000010182,158.0,1150,True,0.0
+environnement,labyrinthe,51,0.25,False,20,A*,2.4127333334339105,158.0,662,True,0.0
+environnement,labyrinthe,51,0.25,False,20,A* pondéré (w=2),0.6187333331884778,158.0,181,True,0.0
+environnement,labyrinthe,51,0.25,False,20,Anytime (50 ms),4.881633333297941,158.0,1249,True,0.0
+environnement,labyrinthe,51,0.25,False,21,BFS,3.860233333398355,146.0,1263,True,0.0
+environnement,labyrinthe,51,0.25,False,21,Dijkstra,5.090266666835912,146.0,1263,True,0.0
+environnement,labyrinthe,51,0.25,False,21,A*,2.8217333331970926,146.0,728,True,0.0
+environnement,labyrinthe,51,0.25,False,21,A* pondéré (w=2),1.278333333326979,146.0,372,True,0.0
+environnement,labyrinthe,51,0.25,False,21,Anytime (50 ms),8.037966666658273,146.0,1968,True,0.0
+environnement,labyrinthe,51,0.25,False,22,BFS,2.78053333340722,182.0,1296,True,0.0
+environnement,labyrinthe,51,0.25,False,22,Dijkstra,4.758866666785859,182.0,1296,True,0.0
+environnement,labyrinthe,51,0.25,False,22,A*,3.0401333333429648,182.0,843,True,0.0
+environnement,labyrinthe,51,0.25,False,22,A* pondéré (w=2),2.0076000000699423,182.0,543,True,0.0
+environnement,labyrinthe,51,0.25,False,22,Anytime (50 ms),10.434433333557536,182.0,2604,True,0.0
+environnement,labyrinthe,51,0.25,False,23,BFS,1.7380333332160565,270.0,843,True,0.0
+environnement,labyrinthe,51,0.25,False,23,Dijkstra,3.750766666750375,270.0,843,True,0.0
+environnement,labyrinthe,51,0.25,False,23,A*,1.6801666667258057,270.0,417,True,0.0
+environnement,labyrinthe,51,0.25,False,23,A* pondéré (w=2),1.2235666667947953,270.0,351,True,0.0
+environnement,labyrinthe,51,0.25,False,23,Anytime (50 ms),5.372000000079424,270.0,1483,True,0.0
+environnement,labyrinthe,51,0.25,False,24,BFS,2.9666666666040933,108.0,1228,True,0.0
+environnement,labyrinthe,51,0.25,False,24,Dijkstra,4.692333333271866,108.0,1228,True,0.0
+environnement,labyrinthe,51,0.25,False,24,A*,1.9440000000940927,108.0,389,True,0.0
+environnement,labyrinthe,51,0.25,False,24,A* pondéré (w=2),0.503366666786557,108.0,130,True,0.0
+environnement,labyrinthe,51,0.25,False,24,Anytime (50 ms),3.836833333631754,108.0,782,True,0.0
+environnement,labyrinthe,51,0.25,False,25,BFS,2.77823333347745,162.0,1130,True,0.0
+environnement,labyrinthe,51,0.25,False,25,Dijkstra,4.470833333167927,162.0,1130,True,0.0
+environnement,labyrinthe,51,0.25,False,25,A*,1.741900000070018,162.0,505,True,0.0
+environnement,labyrinthe,51,0.25,False,25,A* pondéré (w=2),0.9759666665255887,162.0,272,True,0.0
+environnement,labyrinthe,51,0.25,False,25,Anytime (50 ms),5.6213666665219835,162.0,1403,True,0.0
+environnement,labyrinthe,51,0.25,False,26,BFS,1.4918999998675038,170.0,465,True,0.0
+environnement,labyrinthe,51,0.25,False,26,Dijkstra,1.7017333332963365,170.0,465,True,0.0
+environnement,labyrinthe,51,0.25,False,26,A*,1.6878666668465787,170.0,398,True,0.0
+environnement,labyrinthe,51,0.25,False,26,A* pondéré (w=2),1.466233333303535,170.0,264,True,0.0
+environnement,labyrinthe,51,0.25,False,26,Anytime (50 ms),5.966433333317885,170.0,1289,True,0.0
+environnement,labyrinthe,51,0.25,False,27,BFS,1.549599999786248,202.0,731,True,0.0
+environnement,labyrinthe,51,0.25,False,27,Dijkstra,3.15503333331435,202.0,731,True,0.0
+environnement,labyrinthe,51,0.25,False,27,A*,1.4134666666905105,202.0,422,True,0.0
+environnement,labyrinthe,51,0.25,False,27,A* pondéré (w=2),1.5896666667079746,214.0,379,True,5.940594
+environnement,labyrinthe,51,0.25,False,27,Anytime (50 ms),6.17523333327578,202.0,1495,True,0.0
+environnement,labyrinthe,51,0.25,False,28,BFS,2.7195999999397222,272.0,1211,True,0.0
+environnement,labyrinthe,51,0.25,False,28,Dijkstra,4.259866666567784,272.0,1211,True,0.0
+environnement,labyrinthe,51,0.25,False,28,A*,4.103299999921243,272.0,1140,True,0.0
+environnement,labyrinthe,51,0.25,False,28,A* pondéré (w=2),3.670833333368743,272.0,1040,True,0.0
+environnement,labyrinthe,51,0.25,False,28,Anytime (50 ms),17.56733333346953,272.0,4265,True,0.0
+environnement,labyrinthe,51,0.25,False,29,BFS,1.5248333334056952,140.0,752,True,0.0
+environnement,labyrinthe,51,0.25,False,29,Dijkstra,2.6063333334604977,140.0,752,True,0.0
+environnement,labyrinthe,51,0.25,False,29,A*,1.4262666665369277,140.0,357,True,0.0
+environnement,labyrinthe,51,0.25,False,29,A* pondéré (w=2),0.6811666667090321,140.0,198,True,0.0
+environnement,labyrinthe,51,0.25,False,29,Anytime (50 ms),4.186199999973421,140.0,1063,True,0.0
