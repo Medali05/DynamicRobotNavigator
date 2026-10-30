@@ -64,7 +64,7 @@ class Simulation:
         self.reset_robot()
 
     def clear(self):
-        keep = self._wall_cells() if self.doors_mode else set()
+        keep = self.wall_cells() if self.doors_mode else set()
         for r in range(self.rows):
             for c in range(self.cols):
                 self.grid.blocked[r][c] = (r, c) in keep
@@ -77,7 +77,7 @@ class Simulation:
                 protected.add((r, 1))
             for r in self.right_rows:
                 protected.add((r, self.cols - 2))
-        walls = self._wall_cells() if self.doors_mode else set()
+        walls = self.wall_cells() if self.doors_mode else set()
         lo, hi = (1, self.cols - 1) if self.doors_mode else (0, self.cols)
         for r in range(self.rows):
             for c in range(self.cols):
@@ -104,7 +104,7 @@ class Simulation:
         cell = (r, c)
         if not self.grid.in_bounds(r, c) or cell in (self.pos, self.goal, self.start):
             return False
-        if self.doors_mode and (cell in self._wall_cells() or cell in self._door_cells()):
+        if self.doors_mode and (cell in self.wall_cells() or cell in self.door_cells()):
             return False
         if self.level == 1 and self.status == "running":
             return False  # niveau 1 : édition ignorée pendant le déplacement
@@ -137,12 +137,12 @@ class Simulation:
     def _door_rows(self):
         return [int((i + 0.5) * self.rows / 5) for i in range(5)]
 
-    def _door_cells(self):
+    def door_cells(self):
         cells = {(r, 0) for r in self.left_rows}
         cells |= {(r, self.cols - 1) for r in self.right_rows}
         return cells
 
-    def _wall_cells(self):
+    def wall_cells(self):
         walls = set()
         for r in range(self.rows):
             if r not in self.left_rows:
@@ -261,8 +261,8 @@ class Simulation:
         rate = self.change_rate
         n = int(rate) + (1 if self.rng.random() < rate - int(rate) else 0)
         added = removed = 0
-        walls = self._wall_cells() if self.doors_mode else set()
-        doors = self._door_cells() if self.doors_mode else set()
+        walls = self.wall_cells() if self.doors_mode else set()
+        doors = self.door_cells() if self.doors_mode else set()
         near_doors = set()
         if self.doors_mode:
             near_doors = {(r, 1) for r in self.left_rows} | {(r, self.cols - 2) for r in self.right_rows}
@@ -338,16 +338,3 @@ class Simulation:
             else:
                 events.append("Arrivé à la destination")
         return events
-
-    # ------------------------------------------------------------------ comparaison
-    def compare(self, repeats: int = 3):
-        """Compare toutes les méthodes sur la situation actuelle (position du robot -> destination)."""
-        rows = []
-        for name in ALGO_NAMES:
-            times, res = [], None
-            for _ in range(repeats):
-                res = run_algorithm(name, self.grid, self.pos, self.goal, self.diagonals, self._budget())
-                times.append(res.time_ms)
-            rows.append({"algorithme": name, "trouve": res.found, "cout": res.cost,
-                         "explorees": res.explored, "temps_ms": sum(times) / len(times)})
-        return rows
