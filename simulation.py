@@ -2,21 +2,23 @@
 simulation.py - Logique de l'application (aucune dépendance à l'interface graphique).
 
 La classe Simulation gère : la grille, le robot, la destination, le chemin, les niveaux 1 à 3,
-les changements dynamiques et le mode « portes colorées ». main.py ne fait que l'afficher.
+les changements dynamiques et le mode « portes colorées ». ui/ ne fait que l'afficher.
 
-Niveau 1 : chemin valide sur obstacles fixes (les clics sont ignorés pendant le déplacement).
-Niveau 2 : obstacles qui apparaissent/disparaissent ; replanification quand le chemin devient impraticable.
-Niveau 3 : niveau 2 + chemin le plus court sous budget de temps ; on recalcule aussi quand un obstacle
-           disparaît et qu'un chemin plus court est possible.
+Un seul algorithme de recherche est utilisé partout : shortest_path (algorithms/shortest_path.py).
+
+Niveau 1 : le robot calcule le plus court chemin vers la cible et le suit (obstacles fixes, les clics
+           sont ignorés pendant le déplacement).
+Niveau 2 : des obstacles apparaissent et disparaissent, certains sur le trajet du robot, qui doit alors
+           chercher un autre chemin (on recalcule seulement quand le chemin devient impraticable).
+Niveau 3 : niveau 2 + calcul sous budget de temps (plan de repli si dépassé) + on recalcule aussi quand
+           un obstacle disparaît et qu'un chemin plus court est possible.
 """
 from __future__ import annotations
 
 import random
 
-from algorithms import (SQRT2, Grid, anytime_astar, astar, bfs, dijkstra, heuristic_for, maze_grid,
-                        path_cost)
+from algorithms import SQRT2, Grid, heuristic_for, maze_grid, path_cost, shortest_path
 
-ALGO_NAMES = ["A*", "Dijkstra", "BFS", "A* pondéré (w=2)", "Anytime (budget)"]
 
 DOOR_COLORS = ["rouge", "bleu", "vert", "jaune", "violet"]
 DOOR_SHAPES = ["cercle", "carré", "triangle", "étoile", "hexagone"]  # lisible par un daltonien
@@ -24,26 +26,13 @@ DOOR_SHAPES = ["cercle", "carré", "triangle", "étoile", "hexagone"]  # lisible
 SIZES = {"Petite (13×19)": (13, 19), "Moyenne (21×31)": (21, 31), "Grande (31×45)": (31, 45)}
 
 
-def run_algorithm(name: str, grid: Grid, s, t, diagonals: bool, budget_ms):
-    """Lance une méthode. budget_ms (niveau 3) borne le temps des méthodes à base d'A*."""
-    if name == "BFS":
-        return bfs(grid, s, t, diagonals)
-    if name == "Dijkstra":
-        return dijkstra(grid, s, t, diagonals, budget_ms=budget_ms)
-    if name == "A* pondéré (w=2)":
-        return astar(grid, s, t, diagonals, 2.0, budget_ms=budget_ms)
-    if name == "Anytime (budget)":
-        return anytime_astar(grid, s, t, diagonals, budget_ms if budget_ms else 50.0)
-    return astar(grid, s, t, diagonals, 1.0, budget_ms=budget_ms)
-
-
 class Simulation:
     def __init__(self, rows: int = 21, cols: int = 31, seed=None):
         self.rng = random.Random(seed)
         # paramètres réglables depuis l'interface
         self.level = 1
-        self.algo = "A*"
         self.diagonals = False
+        self.block_bias = 0.6       # part des nouveaux obstacles qui tombent sur le trajet du robot
         self.budget_ms = 50.0
         self.change_rate = 0.3      # cellules modifiées par pas (niveaux 2 et 3)
         self.door_rate = 0.03       # probabilité par pas que les portes de droite changent
@@ -161,6 +150,10 @@ class Simulation:
             for r in range(self.rows):
                 self.grid.blocked[r][0] = r not in self.left_rows
                 self.grid.blocked[r][self.cols - 1] = r not in self.right_rows
+            for r in self.left_rows:  # l'entrée de chaque porte reste dégagée
+                self.grid.blocked[r][1] = False
+            for r in self.right_rows:
+                self.grid.blocked[r][self.cols - 2] = False
             self._place_robot_at_door()
         else:
             for r in range(self.rows):
@@ -207,16 +200,21 @@ class Simulation:
         self.last_cost = 0.0
         self.total_ms = 0.0
         self.fallback = False
+        self.path_hits = []        # obstacles tombés sur le trajet pendant le dernier pas (pour l'affichage)
         self._pending_added = 0
         self._pending_removed = 0
         self.plan_preview()
+
+    @property
+    def use_diagonals(self) -> bool:
+        return self.diagonals
 
     def _budget(self):
         return self.budget_ms if self.level == 3 else None
 
     def plan(self, count: bool = True):
         """Calcule un chemin depuis la position actuelle du robot vers la destination."""
-        res = run_algorithm(self.algo, self.grid, self.pos, self.goal, self.diagonals, self._budget())
+        res = shortest_path(self.grid, self.pos, self.goal, self.use_diagonals, self._budget())
         self.last_ms, self.last_explored, self.last_cost = res.time_ms, res.explored, res.cost
         self.total_ms += res.time_ms
         self.visited = res.visited
@@ -252,26 +250,69 @@ class Simulation:
         for a, b in zip(remaining, remaining[1:]):
             if self.grid.blocked[b[0]][b[1]]:
                 return False
-            if self.diagonals and a[0] != b[0] and a[1] != b[1]:
+            if self.use_diagonals and a[0] != b[0] and a[1] != b[1]:
                 if self.grid.blocked[a[0]][b[1]] or self.grid.blocked[b[0]][a[1]]:
                     return False
+        return True
+
+    def _free_to_change(self, cell) -> bool:
+        if cell in (self.pos, self.goal):
+            return False
+        if self.doors_mode:
+            if cell in self.wall_cells() or cell in self.door_cells():
+                return False
+            if cell in {(r, 1) for r in self.left_rows} | {(r, self.cols - 2) for r in self.right_rows}:
+                return False
+        return True
+
+    def _drop_on_path(self):
+        """Fait tomber un obstacle sur le chemin restant (pas juste devant le robot). Refusé s'il coupe
+        toute route vers la destination : le robot doit pouvoir se détourner."""
+        ahead = [c for c in self.path[self.idx + 2:-1] if self._free_to_change(c)]
+        self.rng.shuffle(ahead)
+        for r, c in ahead[:6]:
+            if self.grid.blocked[r][c]:
+                continue
+            self.grid.blocked[r][c] = True
+            if shortest_path(self.grid, self.pos, self.goal, self.use_diagonals).found:
+                return (r, c)
+            self.grid.blocked[r][c] = False
+        return None
+
+    def _clear_near_path(self) -> bool:
+        """Retire un obstacle voisin du chemin : un raccourci peut apparaître."""
+        near = set()
+        for (pr, pc) in self.path[self.idx:]:
+            for dr in (-2, -1, 0, 1, 2):
+                for dc in (-2, -1, 0, 1, 2):
+                    near.add((pr + dr, pc + dc))
+        cands = [(r, c) for (r, c) in near if self.grid.in_bounds(r, c) and self.grid.blocked[r][c]
+                 and self._free_to_change((r, c))]
+        if not cands:
+            return False
+        r, c = self.rng.choice(cands)
+        self.grid.blocked[r][c] = False
         return True
 
     def _random_changes(self):
         rate = self.change_rate
         n = int(rate) + (1 if self.rng.random() < rate - int(rate) else 0)
         added = removed = 0
-        walls = self.wall_cells() if self.doors_mode else set()
-        doors = self.door_cells() if self.doors_mode else set()
-        near_doors = set()
-        if self.doors_mode:
-            near_doors = {(r, 1) for r in self.left_rows} | {(r, self.cols - 2) for r in self.right_rows}
         for _ in range(n):
             want_block = self.rng.random() < 0.5
+            targeted = self.rng.random() < self.block_bias and len(self.path) - self.idx > 3
+            if want_block and targeted:
+                cell = self._drop_on_path()
+                if cell:
+                    self.path_hits.append(cell)
+                    added += 1
+                    continue
+            if (not want_block) and targeted and self._clear_near_path():
+                removed += 1
+                continue
             for _try in range(80):
                 r, c = self.rng.randrange(self.rows), self.rng.randrange(self.cols)
-                cell = (r, c)
-                if cell in (self.pos, self.goal) or cell in walls or cell in doors or cell in near_doors:
+                if not self._free_to_change((r, c)):
                     continue
                 if want_block and not self.grid.blocked[r][c]:
                     self.grid.blocked[r][c] = True
@@ -291,6 +332,7 @@ class Simulation:
         if self.status == "no_path" and self.level == 1:
             return events
         self.status = "running"
+        self.path_hits = []
         added, removed = self._pending_added, self._pending_removed
         self._pending_added = self._pending_removed = 0
         target_moved = False
@@ -312,7 +354,7 @@ class Simulation:
         elif self.fallback:
             reason = "plan de repli : on poursuit la recherche"
         elif self.level == 3 and removed:
-            h = heuristic_for(self.diagonals)
+            h = heuristic_for(self.use_diagonals)
             if path_cost(remaining) > h(self.pos, self.goal) + 1e-9:
                 reason = "un obstacle a disparu : chemin plus court possible"
         if reason:

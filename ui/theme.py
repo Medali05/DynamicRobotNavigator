@@ -75,3 +75,52 @@ def draw_shape(surf, kind: str, center, r: float, color, outline=None, outline_w
         pygame.draw.polygon(surf, color, pts)
         if outline:
             pygame.draw.polygon(surf, outline, pts, outline_w)
+
+
+_grad_cache: dict = {}
+
+
+def vgrad(w: int, h: int, top, bottom, radius: int = 10) -> pygame.Surface:
+    """Rectangle arrondi avec un dégradé vertical (mis en cache)."""
+    key = (w, h, top, bottom, radius)
+    if key not in _grad_cache:
+        surf = pygame.Surface((w, h), pygame.SRCALPHA)
+        for y in range(h):
+            pygame.draw.line(surf, mix(top, bottom, y / max(1, h - 1)), (0, y), (w, y))
+        mask = pygame.Surface((w, h), pygame.SRCALPHA)
+        pygame.draw.rect(mask, (255, 255, 255, 255), (0, 0, w, h), border_radius=radius)
+        surf.blit(mask, (0, 0), special_flags=pygame.BLEND_RGBA_MIN)
+        _grad_cache[key] = surf
+    return _grad_cache[key]
+
+
+def draw_icon(surf, name: str, center, s: float, color, w: int = 2):
+    """Petites icônes dessinées en vectoriel. s = demi-taille en pixels."""
+    x, y = center
+    if name == "play":
+        pygame.draw.polygon(surf, color, [(x - s * 0.6, y - s), (x - s * 0.6, y + s), (x + s, y)])
+    elif name == "pause":
+        for dx in (-0.55, 0.55):
+            pygame.draw.rect(surf, color, (x + dx * s - s * 0.28, y - s, s * 0.56, 2 * s), border_radius=1)
+    elif name == "step":
+        pygame.draw.polygon(surf, color, [(x - s, y - s), (x - s, y + s), (x + s * 0.45, y)])
+        pygame.draw.rect(surf, color, (x + s * 0.62, y - s, s * 0.4, 2 * s))
+    elif name == "replan":
+        pygame.draw.arc(surf, color, (x - s, y - s, 2 * s, 2 * s), 0.7, 5.6, w)
+        pygame.draw.polygon(surf, color, [(x + s * 0.1, y - s * 1.35), (x + s * 1.15, y - s * 0.85),
+                                          (x + s * 0.3, y - s * 0.3)])
+    elif name == "home":
+        pygame.draw.polygon(surf, color, [(x - s * 1.15, y - s * 0.05), (x, y - s), (x + s * 1.15, y - s * 0.05)])
+        pygame.draw.rect(surf, color, (x - s * 0.75, y - s * 0.05, s * 1.5, s * 1.05))
+    elif name == "dice":
+        pygame.draw.rect(surf, color, (x - s, y - s, 2 * s, 2 * s), w, border_radius=3)
+        for dx, dy in ((-0.45, -0.45), (0, 0), (0.45, 0.45)):
+            pygame.draw.circle(surf, color, (x + dx * s, y + dy * s), max(1, s * 0.2))
+    elif name == "maze":
+        pygame.draw.rect(surf, color, (x - s, y - s, 2 * s, 2 * s), w, border_radius=2)
+        pygame.draw.lines(surf, color, False, [(x - s, y - s * 0.2), (x + s * 0.25, y - s * 0.2),
+                                               (x + s * 0.25, y + s * 0.55)], w)
+        pygame.draw.line(surf, color, (x - s * 0.5, y + s * 0.3), (x - s * 0.5, y + s), w)
+    elif name == "clear":
+        pygame.draw.line(surf, color, (x - s * 0.8, y - s * 0.8), (x + s * 0.8, y + s * 0.8), w + 1)
+        pygame.draw.line(surf, color, (x - s * 0.8, y + s * 0.8), (x + s * 0.8, y - s * 0.8), w + 1)

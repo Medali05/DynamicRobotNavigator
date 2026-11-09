@@ -31,9 +31,10 @@ def _clicked(w: Widget, e) -> bool:
 
 
 class Button(Widget):
-    def __init__(self, rect, text, on_click, style="ghost", text_fn=None, enabled_fn=None):
+    def __init__(self, rect, text, on_click, style="ghost", text_fn=None, enabled_fn=None, icon=None, size=14):
         super().__init__(rect, enabled_fn)
         self.text, self.on_click, self.style, self.text_fn = text, on_click, style, text_fn
+        self.icon, self.size = icon, size
 
     def event(self, e) -> bool:
         if _clicked(self, e):
@@ -43,16 +44,29 @@ class Button(Widget):
 
     def draw(self, surf, mouse):
         hot, on = self.hot(mouse), self.enabled
-        base = {"primary": theme.ACCENT, "danger": theme.BAD}.get(self.style, theme.CARD)
-        hover = {"primary": theme.ACCENT_HOVER, "danger": (250, 100, 100)}.get(self.style, theme.CARD_HOVER)
-        col = hover if hot else base
+        top, bot = {"primary": ((104, 160, 255), (62, 118, 238)),
+                    "danger": ((250, 100, 100), (214, 60, 60))}.get(self.style, ((40, 52, 78), (29, 38, 58)))
+        if hot:
+            top, bot = theme.mix(top, (255, 255, 255), 0.12), theme.mix(bot, (255, 255, 255), 0.12)
         if not on:
-            col = theme.mix(base, theme.PANEL, 0.6)
-        pygame.draw.rect(surf, col, self.rect, border_radius=10)
-        if self.style == "ghost":
-            pygame.draw.rect(surf, theme.LINE, self.rect, 1, border_radius=10)
+            top, bot = theme.mix(top, theme.PANEL, 0.65), theme.mix(bot, theme.PANEL, 0.65)
+        if self.style == "primary" and on:  # lueur sous le bouton principal
+            glow = self.rect.inflate(8, 8)
+            pygame.draw.rect(surf, theme.mix(theme.PANEL, theme.ACCENT, 0.28 if hot else 0.16), glow, border_radius=14)
+        surf.blit(theme.vgrad(self.rect.w, self.rect.h, top, bot, 10), self.rect.topleft)
+        edge = theme.mix(bot, (255, 255, 255), 0.25) if self.style != "ghost" else theme.LINE
+        pygame.draw.rect(surf, edge, self.rect, 1, border_radius=10)
+        color = theme.TEXT if on else theme.MUTE
         txt = self.text_fn() if self.text_fn else self.text
-        draw_text(surf, txt, self.rect.center, 14, theme.TEXT if on else theme.MUTE, True, "center")
+        img = theme.font(self.size, True).render(txt, True, color)
+        if self.icon:
+            s = max(5, self.size * 0.46)
+            total = int(2 * s + 7 + img.get_width())
+            x0 = self.rect.centerx - total // 2
+            theme.draw_icon(surf, self.icon, (x0 + s, self.rect.centery), s, color)
+            surf.blit(img, (x0 + 2 * s + 7, self.rect.centery - img.get_height() // 2))
+        else:
+            surf.blit(img, img.get_rect(center=self.rect.center))
 
 
 class Segmented(Widget):
@@ -99,8 +113,8 @@ class Choice(Widget):
         on = self.enabled
         pygame.draw.rect(surf, theme.CARD_HOVER if self.hot(mouse) else theme.CARD, self.rect, border_radius=10)
         pygame.draw.rect(surf, theme.LINE, self.rect, 1, border_radius=10)
-        draw_text(surf, self.label, (self.rect.centerx, self.rect.y + 7), 11, theme.MUTE, False, "midtop")
-        draw_text(surf, self.get(), (self.rect.centerx, self.rect.bottom - 7), 14, theme.TEXT if on else theme.MUTE,
+        draw_text(surf, self.label, (self.rect.centerx, self.rect.y + 4), 10, theme.MUTE, False, "midtop")
+        draw_text(surf, self.get(), (self.rect.centerx, self.rect.bottom - 4), 14, theme.TEXT if on else theme.MUTE,
                   True, "midbottom")
         cy = self.rect.centery
         for sign, x in ((-1, self.rect.x + 16), (1, self.rect.right - 16)):
