@@ -1,18 +1,18 @@
-"""Heuristiques admissibles et coût d'un chemin."""
+"""Heuristiques admissibles (la boussole) et coût d'un chemin, avec la même métrique que la recherche."""
 from __future__ import annotations
 
-from .grid import SQRT2
+from .grid import DIAG_COST
 
 
 def manhattan(a, b) -> float:
-    """Heuristique pour 4 directions."""
+    """Distance pour 4 directions."""
     return abs(a[0] - b[0]) + abs(a[1] - b[1])
 
 
 def octile(a, b) -> float:
-    """Heuristique pour 8 directions."""
+    """Distance pour 8 directions (diagonale = 1,4)."""
     dx, dy = abs(a[0] - b[0]), abs(a[1] - b[1])
-    return (dx + dy) + (SQRT2 - 2.0) * min(dx, dy)
+    return (dx + dy) + (DIAG_COST - 2.0) * min(dx, dy)
 
 
 def heuristic_for(diagonals: bool):
@@ -20,4 +20,4 @@ def heuristic_for(diagonals: bool):
 
 
 def path_cost(path: list) -> float:
-    return sum(SQRT2 if (a[0] != b[0] and a[1] != b[1]) else 1.0 for a, b in zip(path, path[1:]))
+    return sum(DIAG_COST if (a[0] != b[0] and a[1] != b[1]) else 1.0 for a, b in zip(path, path[1:]))

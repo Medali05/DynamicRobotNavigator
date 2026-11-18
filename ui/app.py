@@ -6,7 +6,6 @@ from __future__ import annotations
 
 import math
 import random
-import sys
 
 import pygame
 
@@ -17,15 +16,9 @@ from .sprites import Sprites, build_arena
 from .theme import draw_text
 from .widgets import Button, Chips, Choice, Segmented, Slider, Toggle
 
-W, H = 1280, 720            # taille MINIMALE de la fenêtre (la mise en page s'adapte au-delà)
-PANEL_W, PANEL_H = 300, 688
-
-if sys.platform == "win32":      # sinon Windows étire (et floute) la fenêtre sur les écrans réglés à 125 % / 150 %
-    try:
-        import ctypes
-        ctypes.windll.user32.SetProcessDPIAware()
-    except Exception:
-        pass
+W, H = 1280, 720
+ARENA_BOX = pygame.Rect(20, 20, 924, 636)
+PANEL = pygame.Rect(964, 16, 300, 688)
 PATH_BLUE = (79, 140, 255)
 PATH_AMBER = (245, 158, 11)
 STATUS = {"idle": ("Prêt", theme.MUTE), "running": ("En route", theme.GOOD),
@@ -56,15 +49,15 @@ class App:
     def __init__(self):
         pygame.init()
         pygame.display.set_caption("Robot Navigator - navigation intelligente dans un environnement dynamique")
-        self.screen = pygame.display.set_mode((W, H), pygame.RESIZABLE)   # pas de SCALED : pixels réels, rendu net
-        self.fullscreen = False
-        self.windowed_size = (W, H)
-        self.layout()
+        try:
+            self.screen = pygame.display.set_mode((W, H), pygame.RESIZABLE | pygame.SCALED)
+        except pygame.error:
+            self.screen = pygame.display.set_mode((W, H))
         self.clock = pygame.time.Clock()
         self.density = 20.0         # densité des obstacles (%)
-        self.sim = Simulation(21, 31, seed=7)
+        self.sim = Simulation(60, 60, seed=7)
         self.sim.random_obstacles(self.density / 100)
-        self.size_label = "Moyenne (21×31)"
+        self.size_label = "60 × 60"
         self.paused = False
         self.show_explored = False
         self.tool = 0
@@ -73,7 +66,7 @@ class App:
         self.step_timer = 0.0
         self.toasts: list = []
         self.fx: list = []
-        self.prev_blocked = None
+        self.prev_rows = None
         self.door_flash = -10.0
         self.painting = False
         self.paint_value = True
@@ -85,45 +78,21 @@ class App:
         self.sync_blocked(initial=True)
 
     # ------------------------------------------------------------------ carte
-    def layout(self):
-        """Calcule les zones selon la taille réelle de la fenêtre : le panneau reste à 1:1, l'arène prend la place."""
-        sw, sh = self.screen.get_size()
-        self.panel = pygame.Rect(sw - PANEL_W - 16, max(16, (sh - PANEL_H) // 2), PANEL_W, PANEL_H)
-        self.arena_box = pygame.Rect(20, 20, self.panel.x - 40, sh - 84)
-
-    def toggle_fullscreen(self):
-        self.fullscreen = not self.fullscreen
-        if self.fullscreen:
-            self.windowed_size = self.screen.get_size()
-            pygame.display.set_mode((0, 0), pygame.FULLSCREEN)           # résolution native de l'écran
-        else:
-            pygame.display.set_mode(self.windowed_size, pygame.RESIZABLE)
-        self.on_resize()
-
-    def on_resize(self):
-        self.screen = pygame.display.get_surface()
-        sw, sh = self.screen.get_size()
-        if (sw < W or sh < H) and not self.fullscreen:                    # taille minimale
-            self.screen = pygame.display.set_mode((max(sw, W), max(sh, H)), pygame.RESIZABLE)
-        self.layout()
-        self.rebuild_arena(reset=False)
-        self.build_ui()
-        self.parts, self.stamps, self.sparks_due, self.last_stamp = [], [], [], None
-        self.fxlayer = None
-
-    def rebuild_arena(self, reset: bool = True):
+    def rebuild_arena(self):
         s = self.sim
-        cs = max(12, min(self.arena_box.w // s.cols, self.arena_box.h // s.rows))
-        if reset or cs != getattr(self, "cs", None):                      # sprites refaits à la bonne taille
-            self.cs = cs
-            self.sprites = Sprites(cs)
-            self.floor = build_arena(s.cols, s.rows, cs)
-            self.layer = pygame.Surface((s.cols * cs, s.rows * cs), pygame.SRCALPHA)
-            self.explored_key = None
-        self.arena_rect = pygame.Rect(0, 0, s.cols * self.cs, s.rows * self.cs)
-        self.arena_rect.center = self.arena_box.center
-        if reset:
-            self.reset_visual()
+        self.cs = max(3, min(ARENA_BOX.w // s.cols, ARENA_BOX.h // s.rows))
+        self.vis = max(self.cs, 12)        # taille « visuelle » des effets sur de petites cases
+        self.flat = self.cs < 8            # petites cases : obstacles dessinés en aplat dans une image mise en cache
+        self.flat_surf, self.flat_dirty = None, True
+        self.prev_rows = None
+        self.sprites = Sprites(self.cs)
+        self.floor = build_arena(s.cols, s.rows, self.cs)
+        aw, ah = s.cols * self.cs, s.rows * self.cs
+        self.arena_rect = pygame.Rect(0, 0, aw, ah)
+        self.arena_rect.center = ARENA_BOX.center
+        self.layer = pygame.Surface((aw, ah), pygame.SRCALPHA)
+        self.explored_key = None
+        self.reset_visual()
 
     def reset_visual(self):
         s = self.sim
@@ -145,19 +114,37 @@ class App:
         return ((c + 0.5) * self.cs, (r + 0.5) * self.cs)
 
     def sync_blocked(self, initial: bool = False):
-        """Détecte les obstacles qui apparaissent ou disparaissent pour les animer."""
+        """Liste les obstacles par rangée, et détecte ceux qui apparaissent ou disparaissent pour les animer."""
         s = self.sim
-        walls = s.wall_cells() if s.doors_mode else set()
-        cur = {(r, c) for r in range(s.rows) for c in range(s.cols)
-               if s.grid.blocked[r][c] and (r, c) not in walls}
-        if self.prev_blocked is not None and not initial:
-            added, removed = cur - self.prev_blocked, self.prev_blocked - cur
-            if len(added) + len(removed) <= 40:
+        rows = []
+        for r in range(s.rows):
+            row = bytes(s.grid.blocked[r])
+            cols, i = [], row.find(1)
+            while i != -1:
+                cols.append(i)
+                i = row.find(1, i + 1)
+            if s.doors_mode:                       # colonnes de murs et de portes : dessinées à part
+                cols = [c for c in cols if 0 < c < s.cols - 1]
+            rows.append(cols)
+        prev = self.prev_rows
+        if prev is not None and not initial and len(prev) == len(rows):
+            added, removed = [], []
+            for r, (new, old) in enumerate(zip(rows, prev)):
+                if new != old:
+                    sn, so = set(new), set(old)
+                    added += [(r, c) for c in sn - so]
+                    removed += [(r, c) for c in so - sn]
+            if len(added) + len(removed) <= 40 and not self.flat:
                 for cell in added:
                     self.fx.append({"cell": cell, "kind": "in", "t0": self.time})
                 for cell in removed:
                     self.fx.append({"cell": cell, "kind": "out", "t0": self.time})
-        self.prev_blocked = cur
+            if added or removed:
+                self.flat_dirty = True
+        else:
+            self.flat_dirty = True
+        self.blocked_rows = rows
+        self.prev_rows = rows
 
     def toast(self, text: str, kind: str = "info"):
         if self.toasts and self.toasts[-1]["text"] == text and self.time - self.toasts[-1]["t0"] < 1.5:
@@ -212,7 +199,7 @@ class App:
         self.size_label = label
         self.sim.new_grid(rows, cols)
         self.sim.random_obstacles(self.density / 100)
-        self.prev_blocked = None
+        self.prev_rows = None
         self.fx.clear()
         self.rebuild_arena()
         self.sync_blocked(initial=True)
@@ -221,7 +208,10 @@ class App:
         if self.sim.status == "running":
             self.toast("Remets le robot au départ avant de modifier la carte")
             return
+        before = (self.sim.rows, self.sim.cols)
         fn()
+        if (self.sim.rows, self.sim.cols) != before:      # le labyrinthe impose des dimensions impaires
+            self.rebuild_arena()
         self.after_reset()
         self.toast(msg)
 
@@ -303,7 +293,7 @@ class App:
         if s.status == "arrived" and not self.victory_done:
             self.victory_done = True
             gx, gy = self.cell_center(*s.goal)
-            cs = self.cs
+            cs = self.vis
             self.burst(gx, gy, 70, theme.DOOR_RGB + [(255, 255, 255)], speed=cs * 7, life=1.5, rad=cs * 0.09,
                        gravity=cs * 8, angle=-math.pi / 2, spread=math.pi * 1.2, kind="confetti")
             for k in range(2):
@@ -313,11 +303,11 @@ class App:
 
     # ------------------------------------------------------------------ interface
     def build_ui(self):
-        s, x, w = self.sim, self.panel.x + 16, self.panel.w - 32
+        s, x, w = self.sim, PANEL.x + 16, PANEL.w - 32
         self.widgets, self.headers = [], []
         add = self.widgets.append
         lvl2 = lambda: s.level >= 2
-        y = self.panel.y + 60
+        y = PANEL.y + 60
         self.headers.append((y, "NIVEAU"))
         y += 16
         add(Segmented((x, y, w, 32), ["Niveau 1", "Niveau 2", "Niveau 3"], lambda: s.level - 1, self.on_level))
@@ -397,23 +387,15 @@ class App:
     def handle(self, e) -> bool:
         if e.type == pygame.QUIT:
             return False
-        if e.type == pygame.VIDEORESIZE:
-            self.on_resize()
-            return True
         if e.type == pygame.MOUSEMOTION:
             self.mouse = e.pos
         if e.type == pygame.KEYDOWN:
-            if e.key == pygame.K_F11:
-                self.toggle_fullscreen()
-            elif e.key == pygame.K_SPACE:
+            if e.key == pygame.K_SPACE:
                 self.on_start() if self.sim.status != "running" else self.toggle_pause()
             elif e.key == pygame.K_r:
                 self.on_reset()
             elif e.key == pygame.K_ESCAPE:
-                if self.fullscreen:
-                    self.toggle_fullscreen()
-                else:
-                    return False
+                return False
         for w in self.widgets:
             if w.event(e):
                 return True
@@ -477,7 +459,7 @@ class App:
                                "r": rad * random.uniform(0.6, 1.2), "g": gravity, "kind": kind})
 
     def update_effects(self, dt: float):
-        cs, s = self.cs, self.sim
+        cs, s = self.vis, self.sim
         for f in self.fx:                            # poussière quand un obstacle touche le sol
             if f["kind"] == "in" and not f.get("boom") and self.time - f["t0"] >= 0.364:
                 f["boom"] = True
@@ -525,7 +507,7 @@ class App:
 
     def draw_robot(self, scr, px, py):
         """Robot : faisceau des phares, balayage du lidar, sprite et voyant d'état clignotant."""
-        s, cs = self.sim, self.cs
+        s, cs = self.sim, self.vis
         R = int(cs * 2.6)
         tmp = pygame.Surface((2 * R, 2 * R), pygame.SRCALPHA)
         h = self.heading
@@ -642,7 +624,7 @@ class App:
         gx, gy = self.cell_center(*s.goal)
         pulse = 0.5 + 0.5 * math.sin(self.time * 3)
         goal_col = theme.DOOR_RGB[s.start_color] if s.doors_mode else theme.BAD
-        self.glow(scr, (gx, gy), cs * (1.0 + 0.35 * pulse), goal_col, 110)
+        self.glow(scr, (gx, gy), self.vis * (1.0 + 0.35 * pulse), goal_col, 110)
         if not s.doors_mode:
             scr.blit(sp.pad, sp.pad.get_rect(center=(gx, gy)))
 
@@ -662,11 +644,15 @@ class App:
 
         # obstacles en relief, triés par rangée avec le robot (le robot passe devant ou derrière)
         rr, rc = self.robot_cell_pos()
-        split = int(rr + 0.5) + 1
-        self.draw_obstacle_rows(scr, 0, split)
         px, py = self.cell_center(rr, rc)
-        self.draw_robot(scr, px, py)
-        self.draw_obstacle_rows(scr, split, s.rows)
+        if self.flat:
+            scr.blit(self.flat_surface(), ar.topleft)
+            self.draw_robot(scr, px, py)
+        else:
+            split = int(rr + 0.5) + 1
+            self.draw_obstacle_rows(scr, 0, split)
+            self.draw_robot(scr, px, py)
+            self.draw_obstacle_rows(scr, split, s.rows)
         self.draw_particles(scr)
 
         # bannière : aucun chemin
@@ -694,15 +680,22 @@ class App:
             scr.blit(tmp, box.topleft)
             ty += 36
 
+    def flat_surface(self):
+        """Obstacles dessinés en aplat dans une image réutilisée tant que la carte ne change pas."""
+        if self.flat_dirty or self.flat_surf is None:
+            cs, sp = self.cs, self.sprites
+            surf = pygame.Surface(self.arena_rect.size, pygame.SRCALPHA)
+            for r, cols in enumerate(self.blocked_rows):
+                for c in cols:
+                    pygame.draw.rect(surf, sp.flat_colors[sp.obstacle_index(r, c)], (c * cs, r * cs, cs - (cs > 3), cs - (cs > 3)))
+            self.flat_surf, self.flat_dirty = surf, False
+        return self.flat_surf
+
     def draw_obstacle_rows(self, scr, r0: int, r1: int):
         s, cs, sp, ar = self.sim, self.cs, self.sprites, self.arena_rect
-        walls = s.wall_cells() if s.doors_mode else set()
         fx_in = {f["cell"]: f for f in self.fx if f["kind"] == "in"}
         for r in range(r0, r1):
-            row = s.grid.blocked[r]
-            for c in range(s.cols):
-                if not row[c] or (r, c) in walls:
-                    continue
+            for c in self.blocked_rows[r]:
                 spr = sp.obstacle(r, c)
                 x, y = ar.x + c * cs, ar.y + (r + 1) * cs - sp.obs_h
                 f = fx_in.get((r, c))
@@ -735,22 +728,22 @@ class App:
                 scr.blit(tmp, (ar.x + c * cs, ar.y + (r + 1) * cs - sp.obs_h - k * cs * 0.6))
 
     def draw_panel(self, scr):
-        scr.blit(theme.vgrad(self.panel.w, self.panel.h, (24, 32, 52), (13, 18, 30), 18), self.panel.topleft)
-        pygame.draw.rect(scr, theme.LINE, self.panel, 1, border_radius=18)
+        scr.blit(theme.vgrad(PANEL.w, PANEL.h, (24, 32, 52), (13, 18, 30), 18), PANEL.topleft)
+        pygame.draw.rect(scr, theme.LINE, PANEL, 1, border_radius=18)
         # logo : petit robot sur une pastille
-        logo = pygame.Rect(self.panel.x + 16, self.panel.y + 14, 30, 30)
+        logo = pygame.Rect(PANEL.x + 16, PANEL.y + 14, 30, 30)
         scr.blit(theme.vgrad(30, 30, (110, 165, 255), (60, 114, 235), 9), logo.topleft)
         pygame.draw.rect(scr, (240, 245, 255), (logo.x + 7, logo.y + 10, 16, 11), border_radius=3)
         for dx in (10, 18):
             pygame.draw.circle(scr, (40, 70, 160), (logo.x + dx, logo.y + 15), 2)
         pygame.draw.line(scr, (240, 245, 255), (logo.centerx, logo.y + 10), (logo.centerx, logo.y + 6), 2)
         pygame.draw.circle(scr, (240, 245, 255), (logo.centerx, logo.y + 5), 2)
-        draw_text(scr, "ROBOT NAVIGATOR", (self.panel.x + 56, self.panel.y + 12), 18, theme.TEXT, True)
-        draw_text(scr, "Navigation intelligente", (self.panel.x + 56, self.panel.y + 33), 11, theme.MUTE)
+        draw_text(scr, "ROBOT NAVIGATOR", (PANEL.x + 56, PANEL.y + 12), 18, theme.TEXT, True)
+        draw_text(scr, "Navigation intelligente", (PANEL.x + 56, PANEL.y + 33), 11, theme.MUTE)
         for (hy, label) in self.headers:                       # titres de sections
-            r = draw_text(scr, label, (self.panel.x + 18, hy), 10, theme.MUTE, True)
-            pygame.draw.line(scr, theme.LINE, (r.right + 8, hy + 6), (self.panel.right - 16, hy + 6))
-        card = pygame.Rect(self.panel.x + 16, self.algo_card_y, self.panel.w - 32, 34)
+            r = draw_text(scr, label, (PANEL.x + 18, hy), 10, theme.MUTE, True)
+            pygame.draw.line(scr, theme.LINE, (r.right + 8, hy + 6), (PANEL.right - 16, hy + 6))
+        card = pygame.Rect(PANEL.x + 16, self.algo_card_y, PANEL.w - 32, 34)
         scr.blit(theme.vgrad(card.w, card.h, (34, 46, 74), (27, 37, 60), 10), card.topleft)
         pygame.draw.rect(scr, theme.LINE, card, 1, border_radius=10)
         draw_text(scr, "Algorithme", (card.x + 12, card.centery), 11, theme.MUTE, False, "midleft")
@@ -765,15 +758,15 @@ class App:
             label, col = "En pause", theme.WARN
         if s.status == "running" and s.fallback:
             label, col = "Plan de repli (budget dépassé)", theme.WARN
-        y = self.arena_box.bottom + 10
-        pill = pygame.Rect(self.arena_box.x, y, 12, 12)
+        y = ARENA_BOX.bottom + 10
+        pill = pygame.Rect(ARENA_BOX.x, y, 12, 12)
         pygame.draw.circle(scr, col, (pill.x + 6, y + 14), 6)
-        r = draw_text(scr, label, (self.arena_box.x + 20, y + 14), 14, theme.TEXT, True, "midleft")
+        r = draw_text(scr, label, (ARENA_BOX.x + 20, y + 14), 14, theme.TEXT, True, "midleft")
         left = max(0, len(s.path) - s.idx - 1)
         calc = f"Dernier calcul : {s.last_ms:.2f} ms"
         if s.level == 3:
             calc += f" / budget {s.budget_ms:.1f} ms"
         info = f"Chemin : {left} pas   |   Calculs : {s.replans}   |   {calc}"
         draw_text(scr, info, (r.right + 22, y + 14), 13, theme.MUTE, False, "midleft")
-        draw_text(scr, "Clic : obstacle   Clic droit : effacer   Espace : lancer / pause   R : au départ   F11 : plein écran",
-                  (self.arena_box.right, y + 14), 12, theme.MUTE, False, "midright")
+        draw_text(scr, "Clic : obstacle   Clic droit : effacer   Espace : lancer / pause   R : au départ",
+                  (ARENA_BOX.right, y + 14), 12, theme.MUTE, False, "midright")

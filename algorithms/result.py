@@ -1,28 +1,30 @@
-"""Résultat commun à tous les algorithmes de recherche."""
+"""Résultat commun d'une recherche."""
 from __future__ import annotations
 
 import time
-from dataclasses import dataclass, field
 
 
-@dataclass
 class SearchResult:
-    path: list              # liste de cases (ligne, colonne) du départ à l'arrivée
-    cost: float             # coût du chemin
-    explored: int           # nombre de cases développées
-    time_ms: float          # temps de calcul
-    found: bool             # le but a été atteint
-    timed_out: bool = False  # le budget de temps a coupé la recherche (chemin partiel éventuel)
-    visited: set = field(default_factory=set, repr=False)
+    """chemin, coût, nombre de cases développées, temps, drapeaux. Les cases explorées ne sont converties en
+    ensemble de (ligne, colonne) que si on les demande (affichage) : une recherche ne construit pas de tuples."""
 
+    def __init__(self, path, cost, explored, time_ms, found, timed_out=False, ids=None, width=0):
+        self.path = path
+        self.cost = cost
+        self.explored = explored
+        self.time_ms = time_ms
+        self.found = found
+        self.timed_out = timed_out
+        self._ids = ids
+        self._w = width
+        self._visited = None
 
-def build_path(parent: dict, node) -> list:
-    out = []
-    while node is not None:
-        out.append(node)
-        node = parent[node]
-    out.reverse()
-    return out
+    @property
+    def visited(self) -> set:
+        if self._visited is None:
+            w = self._w
+            self._visited = {(i // w - 1, i % w - 1) for i in self._ids} if self._ids is not None else set()
+        return self._visited
 
 
 def elapsed_ms(t0: float) -> float:

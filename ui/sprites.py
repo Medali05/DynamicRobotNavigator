@@ -405,9 +405,11 @@ def build_arena(cols: int, rows: int, cs: int) -> pygame.Surface:
             pygame.draw.line(surf, (150, 120, 36), (rect.right, yy), (rect.right, yy + cs // 6), 2)
     # joints : traits fins entre cases, joints marqués entre dalles
     for c in range(cols + 1):
-        pygame.draw.line(surf, (22, 28, 40) if c % 4 == 0 else (37, 47, 66), (c * cs, 0), (c * cs, h))
+        if c % 4 == 0 or cs >= 6:  # sur les petites cases, seuls les joints de dalles sont tracés
+            pygame.draw.line(surf, (22, 28, 40) if c % 4 == 0 else (37, 47, 66), (c * cs, 0), (c * cs, h))
     for r in range(rows + 1):
-        pygame.draw.line(surf, (22, 28, 40) if r % 4 == 0 else (37, 47, 66), (0, r * cs), (w, r * cs))
+        if r % 4 == 0 or cs >= 6:
+            pygame.draw.line(surf, (22, 28, 40) if r % 4 == 0 else (37, 47, 66), (0, r * cs), (w, r * cs))
     shine = _new(w, h)
     for i in range(0, h, 3):  # reflet diagonal léger
         a = int(14 * max(0.0, 1 - i / h))
@@ -441,9 +443,17 @@ class Sprites:
         self.wall = wall_block(cs)
         self.door_left = [door(cs, i, "L") for i in range(5)]
         self.door_right = [door(cs, i, "R") for i in range(5)]
-        self.pad = pad(cs)
-        self.dock = dock(cs)
-        self.robot = robot(cs)
+        big = max(cs, 16)     # sur de petites cases, robot et marqueurs restent lisibles (plus grands que la case)
+        self.pad = pad(max(cs, 14))
+        self.dock = dock(max(cs, 14))
+        self.robot = robot(big)
+        # couleurs des obstacles en affichage simplifié (cases de moins de 8 pixels), même ordre que self.obstacles
+        self.flat_colors = [theme.mix(c, (64, 74, 96), 0.5) for c in [(184, 130, 76), (178, 58, 50), (150, 158, 172), (205, 72, 52), (110, 118, 132),
+                            (170, 118, 68), (172, 126, 72), (46, 100, 164), (58, 112, 196), (160, 112, 66),
+                            (110, 118, 132), (255, 118, 28), (150, 158, 172), (54, 134, 92), (170, 118, 68)]]
+
+    def obstacle_index(self, r: int, c: int) -> int:
+        return (r * 7349 + c * 9151 + r * c) % len(self.obstacles)
 
     def obstacle(self, r: int, c: int) -> pygame.Surface:
-        return self.obstacles[(r * 7349 + c * 9151 + r * c) % len(self.obstacles)]
+        return self.obstacles[self.obstacle_index(r, c)]

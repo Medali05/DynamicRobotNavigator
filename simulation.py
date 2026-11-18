@@ -17,13 +17,14 @@ from __future__ import annotations
 
 import random
 
-from algorithms import SQRT2, Grid, heuristic_for, maze_grid, path_cost, shortest_path
+from algorithms import DIAG_COST, Grid, heuristic_for, maze_grid, path_cost, shortest_path
 
 
 DOOR_COLORS = ["rouge", "bleu", "vert", "jaune", "violet"]
 DOOR_SHAPES = ["cercle", "carré", "triangle", "étoile", "hexagone"]  # lisible par un daltonien
 
-SIZES = {"Petite (13×19)": (13, 19), "Moyenne (21×31)": (21, 31), "Grande (31×45)": (31, 45)}
+SIZES = {"Petite (13×19)": (13, 19), "Moyenne (21×31)": (21, 31), "Grande (31×45)": (31, 45),
+         "60 × 60": (60, 60), "100 × 100": (100, 100), "200 × 200": (200, 200)}
 
 
 class Simulation:
@@ -126,19 +127,26 @@ class Simulation:
     def _door_rows(self):
         return [int((i + 0.5) * self.rows / 5) for i in range(5)]
 
+    def _door_geometry(self):
+        """(portes, murs, entrées des portes), recalculé seulement si la carte ou les portes changent."""
+        key = (self.rows, self.cols, tuple(self.left_rows), tuple(self.right_rows))
+        if getattr(self, "_geo_key", None) != key:
+            doors = {(r, 0) for r in self.left_rows} | {(r, self.cols - 1) for r in self.right_rows}
+            walls = set()
+            for r in range(self.rows):
+                if r not in self.left_rows:
+                    walls.add((r, 0))
+                if r not in self.right_rows:
+                    walls.add((r, self.cols - 1))
+            near = {(r, 1) for r in self.left_rows} | {(r, self.cols - 2) for r in self.right_rows}
+            self._geo, self._geo_key = (doors, walls, near), key
+        return self._geo
+
     def door_cells(self):
-        cells = {(r, 0) for r in self.left_rows}
-        cells |= {(r, self.cols - 1) for r in self.right_rows}
-        return cells
+        return self._door_geometry()[0]
 
     def wall_cells(self):
-        walls = set()
-        for r in range(self.rows):
-            if r not in self.left_rows:
-                walls.add((r, 0))
-            if r not in self.right_rows:
-                walls.add((r, self.cols - 1))
-        return walls
+        return self._door_geometry()[1]
 
     def enable_doors(self, on: bool):
         """Active le mode portes : 5 portes colorées à gauche (fixes) et à droite (leurs couleurs changent)."""
@@ -190,7 +198,7 @@ class Simulation:
         self.pos = self.start
         self.path = []
         self.idx = 0
-        self.visited = set()
+        self._res = None
         self.status = "idle"      # idle | running | arrived | no_path
         self.replans = 0
         self.steps = 0
@@ -206,6 +214,11 @@ class Simulation:
         self.plan_preview()
 
     @property
+    def visited(self):
+        """Cases explorées par la dernière recherche (converties en (ligne, colonne) à la demande)."""
+        return self._res.visited if self._res is not None else set()
+
+    @property
     def use_diagonals(self) -> bool:
         return self.diagonals
 
@@ -217,7 +230,7 @@ class Simulation:
         res = shortest_path(self.grid, self.pos, self.goal, self.use_diagonals, self._budget())
         self.last_ms, self.last_explored, self.last_cost = res.time_ms, res.explored, res.cost
         self.total_ms += res.time_ms
-        self.visited = res.visited
+        self._res = res
         self.fallback = False
         if count:
             self.replans += 1
@@ -259,9 +272,8 @@ class Simulation:
         if cell in (self.pos, self.goal):
             return False
         if self.doors_mode:
-            if cell in self.wall_cells() or cell in self.door_cells():
-                return False
-            if cell in {(r, 1) for r in self.left_rows} | {(r, self.cols - 2) for r in self.right_rows}:
+            doors, walls, near = self._door_geometry()
+            if cell in walls or cell in doors or cell in near:
                 return False
         return True
 
@@ -270,7 +282,7 @@ class Simulation:
         toute route vers la destination : le robot doit pouvoir se détourner."""
         ahead = [c for c in self.path[self.idx + 2:-1] if self._free_to_change(c)]
         self.rng.shuffle(ahead)
-        for r, c in ahead[:6]:
+        for r, c in ahead[:3]:
             if self.grid.blocked[r][c]:
                 continue
             self.grid.blocked[r][c] = True
@@ -316,6 +328,10 @@ class Simulation:
                     continue
                 if want_block and not self.grid.blocked[r][c]:
                     self.grid.blocked[r][c] = True
+                    # jamais d'obstacle qui coupe toute route vers la destination : le robot peut toujours se détourner
+                    if not shortest_path(self.grid, self.pos, self.goal, self.use_diagonals).found:
+                        self.grid.blocked[r][c] = False
+                        continue
                     added += 1
                     break
                 if (not want_block) and self.grid.blocked[r][c]:
@@ -367,7 +383,7 @@ class Simulation:
                 return events
         if len(self.path) - self.idx > 1:
             nxt = self.path[self.idx + 1]
-            self.travelled += SQRT2 if (nxt[0] != self.pos[0] and nxt[1] != self.pos[1]) else 1.0
+            self.travelled += DIAG_COST if (nxt[0] != self.pos[0] and nxt[1] != self.pos[1]) else 1.0
             self.pos = nxt
             self.idx += 1
             self.steps += 1
