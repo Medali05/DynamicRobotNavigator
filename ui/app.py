@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import math
 import random
+from bisect import bisect_left
 
 import pygame
 
@@ -24,6 +25,9 @@ PATH_AMBER = (245, 158, 11)
 STATUS = {"idle": ("Prêt", theme.MUTE), "running": ("En route", theme.GOOD),
           "arrived": ("Arrivé", theme.ACCENT_HOVER), "no_path": ("Aucun chemin", theme.BAD)}
 
+
+ZOOM_MIN, ZOOM_MAX, ZOOM_DEFAULT = 24, 80, 44   # taille d'une case (pixels) en mode zoom
+ZOOM_BTN = pygame.Rect(20, 692, 270, 22)        # interrupteur « Zoom sur le robot » sous la carte
 
 DROP_T = 0.55   # durée de la chute d'un obstacle qui apparaît
 OUT_T = 0.35    # durée de la disparition
@@ -73,6 +77,18 @@ class App:
         self.mouse = (0, 0)
         self.explored_key = None
         self.explored_surf = None
+        # zoom caméra sur le robot (voir draw_world_zoom)
+        self.zoom_on = False          # option choisie par l'utilisateur (touche Z ou interrupteur)
+        self.zoom_active = False      # vrai quand la vue zoomée est réellement affichée
+        self.zoom_cs = ZOOM_DEFAULT
+        self._zspr = {}
+        self.zox = self.zoy = 0       # position à l'écran du coin haut-gauche de la carte, en vue zoomée
+        self.zrows = self.zcols = (0, 0)   # lignes et colonnes visibles : [début, fin[
+        self.zoom_fade = -10.0
+        self._zlast = None
+        self._zmask = self._zfade = self._zlayer = None
+        self._zov = {}
+        self.mini_surf, self.mini_key = None, None
         self.rebuild_arena()
         self.build_ui()
         self.sync_blocked(initial=True)
@@ -81,7 +97,7 @@ class App:
     def rebuild_arena(self):
         s = self.sim
         self.cs = max(3, min(ARENA_BOX.w // s.cols, ARENA_BOX.h // s.rows))
-        self.vis = max(self.cs, 12)        # taille « visuelle » des effets sur de petites cases
+        self._vis = max(self.cs, 12)       # taille « visuelle » des effets sur de petites cases
         self.flat = self.cs < 8            # petites cases : obstacles dessinés en aplat dans une image mise en cache
         self.flat_surf, self.flat_dirty = None, True
         self.prev_rows = None
@@ -93,6 +109,26 @@ class App:
         self.layer = pygame.Surface((aw, ah), pygame.SRCALPHA)
         self.explored_key = None
         self.reset_visual()
+
+    @property
+    def vis(self) -> int:
+        return self.zoom_cs if self.zoom_active else self._vis
+
+    @property
+    def zsprites(self) -> Sprites:
+        z = self.zoom_cs
+        if z not in self._zspr:
+            if len(self._zspr) > 4:
+                self._zspr.clear()
+            self._zspr[z] = Sprites(z)
+        return self._zspr[z]
+
+    def geo(self):
+        """(x, y, taille de case, sprites) de la vue affichée : vue d'ensemble ou vue zoomée."""
+        if self.zoom_active:
+            return self.zox, self.zoy, self.zoom_cs, self.zsprites
+        ar = self.arena_rect
+        return ar.x, ar.y, self.cs, self.sprites
 
     def reset_visual(self):
         s = self.sim
@@ -108,7 +144,8 @@ class App:
         self.victory_done = False
 
     def cell_center(self, r: float, c: float):
-        return (self.arena_rect.x + (c + 0.5) * self.cs, self.arena_rect.y + (r + 0.5) * self.cs)
+        ox, oy, cs, _ = self.geo()
+        return (ox + (c + 0.5) * cs, oy + (r + 0.5) * cs)
 
     def local_center(self, r: float, c: float):
         return ((c + 0.5) * self.cs, (r + 0.5) * self.cs)
@@ -134,7 +171,7 @@ class App:
                     sn, so = set(new), set(old)
                     added += [(r, c) for c in sn - so]
                     removed += [(r, c) for c in so - sn]
-            if len(added) + len(removed) <= 40 and not self.flat:
+            if len(added) + len(removed) <= 40 and (not self.flat or self.zoom_active):
                 for cell in added:
                     self.fx.append({"cell": cell, "kind": "in", "t0": self.time})
                 for cell in removed:
@@ -145,6 +182,7 @@ class App:
             self.flat_dirty = True
         self.blocked_rows = rows
         self.prev_rows = rows
+        self.mini_surf = None
 
     def toast(self, text: str, kind: str = "info"):
         if self.toasts and self.toasts[-1]["text"] == text and self.time - self.toasts[-1]["t0"] < 1.5:
@@ -203,6 +241,18 @@ class App:
         self.fx.clear()
         self.rebuild_arena()
         self.sync_blocked(initial=True)
+        if rows * cols >= 3600 and not self.zoom_on:
+            self.toast("Grande carte : touche Z pour zoomer sur le robot pendant le trajet")
+
+    def set_zoom(self, v: bool):
+        self.zoom_on = v
+        self.toast("Zoom sur le robot activé (molette : niveau de zoom)" if v else "Zoom désactivé")
+
+    def change_zoom(self, d: int):
+        z = max(ZOOM_MIN, min(ZOOM_MAX, self.zoom_cs + d))
+        if z != self.zoom_cs:
+            self.zoom_cs = z
+            self.parts, self.stamps, self.last_stamp = [], [], None
 
     def _edit(self, fn, msg: str):
         if self.sim.status == "running":
@@ -297,7 +347,7 @@ class App:
             self.burst(gx, gy, 70, theme.DOOR_RGB + [(255, 255, 255)], speed=cs * 7, life=1.5, rad=cs * 0.09,
                        gravity=cs * 8, angle=-math.pi / 2, spread=math.pi * 1.2, kind="confetti")
             for k in range(2):
-                self.parts.append({"x": gx, "y": gy, "vx": 0, "vy": 0, "t0": self.time + k * 0.25, "life": 0.9,
+                self.parts.append({"x": gx - self.geo()[0], "y": gy - self.geo()[1], "vx": 0, "vy": 0, "t0": self.time + k * 0.25, "life": 0.9,
                                    "c": theme.GOOD, "r": cs * 2.4, "g": 0, "kind": "ring"})
         self.sync_blocked()
 
@@ -371,6 +421,7 @@ class App:
         add(Button((x, y, bw, 28), "Pas à pas", self.on_step, icon="step", size=12))
         add(Button((x + bw + 4, y, bw, 28), "Replanifier", self.on_replan, icon="replan", size=12))
         add(Button((x + 2 * (bw + 4), y, bw, 28), "Au départ", self.on_reset, icon="home", size=12))
+        add(Toggle(ZOOM_BTN, "Zoom sur le robot (Z)", lambda: self.zoom_on, self.set_zoom))
 
     # ------------------------------------------------------------------ boucle
     def run(self):
@@ -394,21 +445,42 @@ class App:
                 self.on_start() if self.sim.status != "running" else self.toggle_pause()
             elif e.key == pygame.K_r:
                 self.on_reset()
+            elif e.key == pygame.K_z:
+                self.set_zoom(not self.zoom_on)
+            elif e.key in (pygame.K_PLUS, pygame.K_EQUALS, pygame.K_KP_PLUS):
+                self.change_zoom(4)
+            elif e.key in (pygame.K_MINUS, pygame.K_KP_MINUS):
+                self.change_zoom(-4)
             elif e.key == pygame.K_ESCAPE:
                 return False
+        if e.type == pygame.MOUSEWHEEL and self.zoom_on and ARENA_BOX.collidepoint(self.mouse):
+            self.change_zoom(4 * e.y)
+            return True
         for w in self.widgets:
             if w.event(e):
                 return True
-        if e.type == pygame.MOUSEBUTTONDOWN and e.button in (1, 3) and self.arena_rect.collidepoint(e.pos):
-            self.arena_click(e.pos, erase=e.button == 3)
-        elif e.type == pygame.MOUSEMOTION and self.painting and self.arena_rect.collidepoint(e.pos):
-            self.paint(self.cell_at(e.pos))
+        if e.type == pygame.MOUSEBUTTONDOWN and e.button in (1, 3):
+            if self.cell_hit(e.pos) is not None:
+                self.arena_click(e.pos, erase=e.button == 3)
+        elif e.type == pygame.MOUSEMOTION and self.painting:
+            cell = self.cell_hit(e.pos)
+            if cell is not None:
+                self.paint(cell)
         elif e.type == pygame.MOUSEBUTTONUP:
             self.painting = False
         return True
 
     def cell_at(self, pos):
-        return ((pos[1] - self.arena_rect.y) // self.cs, (pos[0] - self.arena_rect.x) // self.cs)
+        ox, oy, cs, _ = self.geo()
+        return ((pos[1] - oy) // cs, (pos[0] - ox) // cs)
+
+    def cell_hit(self, pos):
+        """Case sous la souris (vue d'ensemble ou zoomée), ou None si on est hors de la carte."""
+        area = ARENA_BOX if self.zoom_active else self.arena_rect
+        if not area.collidepoint(pos):
+            return None
+        r, c = self.cell_at(pos)
+        return (r, c) if 0 <= r < self.sim.rows and 0 <= c < self.sim.cols else None
 
     def arena_click(self, pos, erase: bool):
         s, cell = self.sim, self.cell_at(pos)
@@ -448,9 +520,40 @@ class App:
         self.heading += diff * min(1.0, dt * 14)
         self.fx = [f for f in self.fx if self.time - f["t0"] < 0.6]
         self.toasts = [t for t in self.toasts if self.time - t["t0"] < 3.6]
+        self.update_zoom()
         self.update_effects(dt)
 
+    def update_zoom(self):
+        """Zoom automatique : la vue se centre sur le robot dès qu'il part (et reste dessus à l'arrivée)."""
+        s = self.sim
+        want = self.zoom_on and s.status in ("running", "arrived")
+        if want != self.zoom_active:
+            self.zoom_active = want
+            self.parts, self.stamps, self.last_stamp = [], [], None   # leurs coordonnées dépendent de la vue
+            self.zoom_fade, self._zlast = self.time, None
+        if self.zoom_active:
+            self.update_camera()
+
+    def update_camera(self):
+        s, z, box = self.sim, self.zoom_cs, ARENA_BOX
+        rr, rc = self.robot_cell_pos()
+        if self._zlast is not None and math.hypot(rr - self._zlast[0], rc - self._zlast[1]) > 3:
+            self.zoom_fade = self.time                  # saut de la caméra (robot remis au départ) : fondu
+        self._zlast = (rr, rc)
+        pos = []
+        for centre, n, lo, size in ((rc, s.cols, box.x, box.w), (rr, s.rows, box.y, box.h)):
+            total = n * z
+            if total <= size:                            # carte plus petite que la vue : centrée
+                pos.append(lo + (size - total) // 2)
+            else:                                        # sinon la vue suit le robot sans sortir de la carte
+                pos.append(int(round(min(lo, max(lo + size - total, lo + size / 2 - (centre + 0.5) * z)))))
+        self.zox, self.zoy = pos
+        self.zcols = (max(0, (box.x - self.zox) // z), min(s.cols, (box.right - self.zox + z - 1) // z))
+        self.zrows = (max(0, (box.y - self.zoy) // z), min(s.rows, (box.bottom - self.zoy + z - 1) // z + 1))
+
     def burst(self, x, y, n, colors, speed, life, rad, gravity=0.0, angle=0.0, spread=2 * math.pi, kind="dust"):
+        ox, oy = self.geo()[:2]
+        x, y = x - ox, y - oy            # les particules vivent en coordonnées de la carte
         for _ in range(n):
             a = angle + random.uniform(-spread / 2, spread / 2)
             v = random.uniform(0.25, 1.0) * speed
@@ -475,10 +578,12 @@ class App:
                        kind="spark")
         rr, rc = self.robot_cell_pos()               # traces de chenilles et poussière derrière le robot
         px, py = self.cell_center(rr, rc)
+        gx0, gy0 = self.geo()[:2]
+        wx, wy = px - gx0, py - gy0
         if self.anim_t < 1.0 and self.anim_from != self.anim_to:
-            if self.last_stamp is None or math.hypot(px - self.last_stamp[0], py - self.last_stamp[1]) >= 0.24 * cs:
-                self.stamps.append((px, py, self.heading, self.time))
-                self.last_stamp = (px, py)
+            if self.last_stamp is None or math.hypot(wx - self.last_stamp[0], wy - self.last_stamp[1]) >= 0.24 * cs:
+                self.stamps.append((wx, wy, self.heading, self.time))
+                self.last_stamp = (wx, wy)
                 bx, by = px - math.cos(self.heading) * cs * 0.36, py - math.sin(self.heading) * cs * 0.36
                 self.burst(bx, by, 1, [(128, 138, 156)], speed=cs * 0.6, life=0.55, rad=cs * 0.07,
                            angle=self.heading + math.pi, spread=1.3, kind="dust")
@@ -523,7 +628,7 @@ class App:
         ring = (self.time * 0.9) % 1.0
         pygame.draw.circle(tmp, (110, 205, 255, int(70 * (1 - ring))), (R, R), int(cs * (0.5 + 1.8 * ring)), 2)
         scr.blit(tmp, (px - R, py - R))
-        img = pygame.transform.rotozoom(self.sprites.robot, -math.degrees(h), 1.0)
+        img = pygame.transform.rotozoom(self.geo()[3].robot, -math.degrees(h), 1.0)
         scr.blit(img, img.get_rect(center=(px, py)))
         # voyant d'état : vert en route, orange en pause ou repli, rouge sans chemin, bleu à l'arrivée
         if s.status == "running":
@@ -542,10 +647,12 @@ class App:
             self.glow(scr, (bx, by), cs * 0.5, col, 150)
         pygame.draw.circle(scr, col if on else theme.mix(col, (0, 0, 0), 0.6), (bx, by), max(2, int(cs * 0.07)))
 
-    def draw_particles(self, scr):
+    def draw_particles(self, scr, ar=None):
         if not self.parts:
             return
-        ar = self.arena_rect
+        if ar is None:
+            ar = self.arena_rect
+        gx0, gy0 = self.geo()[:2]
         if getattr(self, "fxlayer", None) is None or self.fxlayer.get_size() != ar.size:
             self.fxlayer = pygame.Surface(ar.size, pygame.SRCALPHA)
         fl = self.fxlayer
@@ -554,7 +661,7 @@ class App:
             u = (self.time - p["t0"]) / p["life"]
             if u < 0:
                 continue
-            x, y, c, k = p["x"] - ar.x, p["y"] - ar.y, p["c"], p["kind"]
+            x, y, c, k = p["x"] + gx0 - ar.x, p["y"] + gy0 - ar.y, p["c"], p["kind"]
             if k == "dust":
                 pygame.draw.circle(fl, (*c, int(120 * (1 - u))), (x, y), max(1, int(p["r"] * (1 + 1.6 * u))))
             elif k == "spark":
@@ -582,6 +689,14 @@ class App:
         return r, c
 
     def draw_arena(self, scr):
+        if self.zoom_active:
+            self.draw_world_zoom(scr)
+            self.draw_overlays(scr, ARENA_BOX)
+        else:
+            self.draw_world(scr)
+            self.draw_overlays(scr, self.arena_rect)
+
+    def draw_world(self, scr):
         s, cs, sp, ar = self.sim, self.cs, self.sprites, self.arena_rect
         pygame.draw.rect(scr, (0, 0, 0), ar.inflate(10, 10).move(0, 6), border_radius=22)
         pygame.draw.rect(scr, theme.LINE, ar.inflate(6, 6), border_radius=19)
@@ -600,7 +715,7 @@ class App:
             al = int(80 * (1 - (self.time - st0) / 7.0))
             nx, ny = -math.sin(sh), math.cos(sh)
             for sg in (-1, 1):
-                pygame.draw.circle(layer, (4, 6, 10, al), (sx - ar.x + sg * 0.21 * cs * nx, sy - ar.y + sg * 0.21 * cs * ny),
+                pygame.draw.circle(layer, (4, 6, 10, al), (sx + sg * 0.21 * cs * nx, sy + sg * 0.21 * cs * ny),
                                    max(1, int(cs * 0.06)))
         rr, rc = self.robot_cell_pos()
         remaining = s.path[s.idx + 1:] if s.path else []
@@ -655,6 +770,8 @@ class App:
             self.draw_obstacle_rows(scr, split, s.rows)
         self.draw_particles(scr)
 
+    def draw_overlays(self, scr, ar):
+        s = self.sim
         # bannière : aucun chemin
         if s.pos != s.goal and len(s.path) - s.idx < 2 and s.status in ("no_path", "running"):
             box = pygame.Rect(0, 0, 400, 56)
@@ -680,6 +797,180 @@ class App:
             scr.blit(tmp, box.topleft)
             ty += 36
 
+    # ------------------------------------------------------------------ vue zoomée
+    def draw_zoom_floor(self, scr):
+        """Sol dessiné uniquement pour les cases visibles (le sol complet d'une grande carte serait énorme)."""
+        s, z, ox, oy = self.sim, self.zoom_cs, self.zox, self.zoy
+        r0, r1 = self.zrows
+        c0, c1 = self.zcols
+        road = max(2, min(s.rows - 4, int(s.rows * 0.58)))
+        for r in range(r0, r1):
+            y = oy + r * z
+            for c in range(c0, c1):
+                j = ((r * 73856093) ^ (c * 19349663)) % 5 - 2
+                if road <= r < road + 2:
+                    col = (22 + j, 26 + j, 35 + j)
+                elif ((r // 4) + (c // 4)) % 2 == 0:
+                    col = (31 + j, 39 + j, 55 + j)
+                else:
+                    col = (27 + j, 34 + j, 49 + j)
+                scr.fill(col, (ox + c * z, y, z, z))
+        x0, x1, y0, y1 = ox + c0 * z, ox + c1 * z, oy + r0 * z, oy + r1 * z
+        for c in range(c0, c1 + 1):
+            pygame.draw.line(scr, (22, 28, 40) if c % 4 == 0 else (37, 47, 66), (ox + c * z, y0), (ox + c * z, y1))
+        for r in range(r0, r1 + 1):
+            pygame.draw.line(scr, (22, 28, 40) if r % 4 == 0 else (37, 47, 66), (x0, oy + r * z), (x1, oy + r * z))
+        if r0 <= road + 1 <= r1:                      # ligne jaune pointillée au milieu de la route
+            yy = oy + (road + 1) * z
+            for c in range(c0, c1):
+                x = ox + c * z
+                pygame.draw.line(scr, (176, 140, 40), (x + int(z * 0.15), yy), (x + int(z * 0.65), yy), max(2, z // 14))
+        pygame.draw.rect(scr, theme.LINE, (ox, oy, s.cols * z, s.rows * z), 2)     # bord de la carte
+
+    def draw_world_zoom(self, scr):
+        """Vue zoomée : la caméra suit le robot, cases et obstacles détaillés, seulement la partie visible."""
+        s, box, z, sp = self.sim, ARENA_BOX, self.zoom_cs, self.zsprites
+        ox, oy = self.zox, self.zoy
+        r0, r1 = self.zrows
+        c0, c1 = self.zcols
+        pygame.draw.rect(scr, (0, 0, 0), box.inflate(10, 10).move(0, 6), border_radius=22)
+        pygame.draw.rect(scr, theme.LINE, box.inflate(6, 6), border_radius=19)
+        old_clip = scr.get_clip()
+        scr.set_clip(box)
+        scr.fill((12, 15, 22), box)
+        self.draw_zoom_floor(scr)
+
+        if self.show_explored and s.visited:
+            if z not in self._zov:
+                ov = pygame.Surface((z - 1, z - 1), pygame.SRCALPHA)
+                ov.fill((79, 140, 255, 42))
+                self._zov = {z: ov}
+            seen = s.visited
+            for r in range(r0, r1):
+                for c in range(c0, c1):
+                    if (r, c) in seen:
+                        scr.blit(self._zov[z], (ox + c * z + 1, oy + r * z + 1))
+
+        # chemin, trace et chenilles (couche translucide de la taille de la vue)
+        if self._zlayer is None:
+            self._zlayer = pygame.Surface(box.size, pygame.SRCALPHA)
+        layer = self._zlayer
+        layer.fill((0, 0, 0, 0))
+        dx, dy = ox - box.x, oy - box.y                       # coordonnées carte -> coordonnées de la couche
+        lc = lambda r, c: ((c + 0.5) * z + dx, (r + 0.5) * z + dy)
+        for i, (r, c) in enumerate(self.trail[:-1]):
+            if i % 2 == 0 and r0 - 1 <= r <= r1 and c0 - 1 <= c <= c1:
+                pygame.draw.circle(layer, (60, 200, 140, 120), lc(r, c), max(3, z // 9))
+        for (sx, sy, sh, st0) in self.stamps:
+            al = int(80 * (1 - (self.time - st0) / 7.0))
+            nx, ny = -math.sin(sh), math.cos(sh)
+            for sg in (-1, 1):
+                pygame.draw.circle(layer, (4, 6, 10, al), (sx + dx + sg * 0.21 * z * nx, sy + dy + sg * 0.21 * z * ny),
+                                   max(1, int(z * 0.06)))
+        rr, rc = self.robot_cell_pos()
+        remaining = s.path[s.idx + 1:] if s.path else []
+        if remaining and s.pos != s.goal:
+            pts = [lc(rr, rc)] + [lc(r, c) for r, c in remaining]
+            col = PATH_AMBER if s.fallback else PATH_BLUE
+            pulse = 0.5 + 0.5 * math.sin(self.time * 4)
+            if len(pts) > 1:
+                pygame.draw.lines(layer, (*col, 50), False, pts, max(6, int(z * 0.62)))
+                pygame.draw.lines(layer, (*col, 120), False, pts, max(4, int(z * 0.30)))
+                pygame.draw.lines(layer, (200, 225, 255, 235), False, pts, max(2, int(z * 0.11)))
+                dot = int(self.time * 6) % max(1, len(pts) - 1)
+                pygame.draw.circle(layer, (255, 255, 255, int(150 + 100 * pulse)), pts[dot + 1], max(3, int(z * 0.14)))
+        scr.blit(layer, box.topleft)
+
+        # marqueurs de départ et de destination
+        near = lambda r, c: r0 - 2 <= r < r1 + 2 and c0 - 2 <= c < c1 + 2
+        if not s.doors_mode and near(*s.start):
+            scr.blit(sp.dock, sp.dock.get_rect(center=self.cell_center(*s.start)))
+        if near(*s.goal):
+            gx, gy = self.cell_center(*s.goal)
+            pulse = 0.5 + 0.5 * math.sin(self.time * 3)
+            goal_col = theme.DOOR_RGB[s.start_color] if s.doors_mode else theme.BAD
+            self.glow(scr, (gx, gy), z * (1.0 + 0.35 * pulse), goal_col, 110)
+            if not s.doors_mode:
+                scr.blit(sp.pad, sp.pad.get_rect(center=(gx, gy)))
+
+        # murs et portes (mode portes)
+        if s.doors_mode:
+            for (r, c) in s.wall_cells():
+                if r0 <= r < r1 and c0 <= c < c1:
+                    scr.blit(sp.wall, (ox + c * z, oy + r * z))
+            flash = max(0.0, 1.0 - (self.time - self.door_flash) / 0.8)
+            for slot, r in enumerate(s.left_rows):
+                if r0 <= r < r1 and c0 == 0:
+                    scr.blit(sp.door_left[slot], (ox, oy + r * z))
+            for slot, r in enumerate(s.right_rows):
+                if r0 <= r < r1 and c1 == s.cols:
+                    x = ox + (s.cols - 1) * z
+                    scr.blit(sp.door_right[s.right_colors[slot]], (x, oy + r * z))
+                    if flash > 0:
+                        f = pygame.Surface((z, z), pygame.SRCALPHA)
+                        f.fill((255, 255, 255, int(160 * flash)))
+                        scr.blit(f, (x, oy + r * z))
+
+        # obstacles en relief et robot, triés par rangée (le robot passe devant ou derrière)
+        px, py = self.cell_center(rr, rc)
+        split = max(r0, min(r1, int(rr + 0.5) + 1))
+        self.draw_obstacle_rows(scr, r0, split)
+        self.draw_robot(scr, px, py)
+        self.draw_obstacle_rows(scr, split, r1)
+        self.draw_particles(scr, box)
+
+        age = self.time - self.zoom_fade                    # fondu à l'entrée dans la vue zoomée
+        if age < 0.35:
+            if self._zfade is None:
+                self._zfade = pygame.Surface(box.size)
+                self._zfade.fill(theme.BG)
+            self._zfade.set_alpha(int(255 * (1 - age / 0.35)))
+            scr.blit(self._zfade, box.topleft)
+
+        self.draw_minimap(scr)
+        badge = "ZOOM  ·  molette : niveau  ·  Z : quitter"
+        img = theme.font(11, True).render(badge, True, theme.TEXT)
+        pill = pygame.Rect(box.x + 12, box.y + 12, img.get_width() + 20, 22)
+        tmp = pygame.Surface(pill.size, pygame.SRCALPHA)
+        pygame.draw.rect(tmp, (14, 19, 30, 200), tmp.get_rect(), border_radius=11)
+        scr.blit(tmp, pill.topleft)
+        scr.blit(img, (pill.x + 10, pill.centery - img.get_height() // 2))
+
+        if self._zmask is None:                              # coins arrondis, comme la vue d'ensemble
+            m = pygame.Surface(box.size, pygame.SRCALPHA)
+            m.fill((*theme.BG, 255))
+            pygame.draw.rect(m, (0, 0, 0, 0), m.get_rect(), border_radius=16)
+            self._zmask = m
+        scr.blit(self._zmask, box.topleft)
+        scr.set_clip(old_clip)
+
+    def draw_minimap(self, scr):
+        """Mini-carte en bas à droite : toute la carte, la zone visible, le robot et la destination."""
+        s, box = self.sim, ARENA_BOX
+        f = min(170 / s.cols, 120 / s.rows)
+        w, h = max(8, int(s.cols * f)), max(8, int(s.rows * f))
+        if self.mini_surf is None or self.mini_key != (s.rows, s.cols, w, h):
+            data = b"".join(bytes(s.grid.blocked[r]) for r in range(s.rows))
+            small = pygame.image.frombuffer(data, (s.cols, s.rows), "P")
+            small.set_palette([(20, 26, 38), (150, 162, 185)])
+            small = small.convert()
+            self.mini_surf = (pygame.transform.scale if f >= 1 else pygame.transform.smoothscale)(small, (w, h))
+            self.mini_key = (s.rows, s.cols, w, h)
+        rect = pygame.Rect(0, 0, w, h)
+        rect.bottomright = (box.right - 14, box.bottom - 14)
+        pygame.draw.rect(scr, (14, 19, 30), rect.inflate(8, 8), border_radius=8)
+        scr.blit(self.mini_surf, rect.topleft)
+        pygame.draw.rect(scr, theme.LINE, rect.inflate(8, 8), 1, border_radius=8)
+        kx, ky = w / s.cols, h / s.rows
+        z = self.zoom_cs
+        view = pygame.Rect(rect.x + (box.x - self.zox) / z * kx, rect.y + (box.y - self.zoy) / z * ky,
+                           box.w / z * kx, box.h / z * ky).clip(rect)
+        pygame.draw.rect(scr, (255, 255, 255), view, 1)
+        gr, gc = s.goal
+        pygame.draw.circle(scr, theme.BAD, (rect.x + (gc + 0.5) * kx, rect.y + (gr + 0.5) * ky), 3)
+        rr, rc = self.robot_cell_pos()
+        pygame.draw.circle(scr, theme.GOOD, (rect.x + (rc + 0.5) * kx, rect.y + (rr + 0.5) * ky), 3)
+
     def flat_surface(self):
         """Obstacles dessinés en aplat dans une image réutilisée tant que la carte ne change pas."""
         if self.flat_dirty or self.flat_surf is None:
@@ -692,12 +983,15 @@ class App:
         return self.flat_surf
 
     def draw_obstacle_rows(self, scr, r0: int, r1: int):
-        s, cs, sp, ar = self.sim, self.cs, self.sprites, self.arena_rect
+        s = self.sim
+        ox, oy, cs, sp = self.geo()
+        lo, hi = self.zcols if self.zoom_active else (0, s.cols)
         fx_in = {f["cell"]: f for f in self.fx if f["kind"] == "in"}
         for r in range(r0, r1):
-            for c in self.blocked_rows[r]:
+            cols = self.blocked_rows[r]
+            for c in cols[bisect_left(cols, lo):bisect_left(cols, hi)]:
                 spr = sp.obstacle(r, c)
-                x, y = ar.x + c * cs, ar.y + (r + 1) * cs - sp.obs_h
+                x, y = ox + c * cs, oy + (r + 1) * cs - sp.obs_h
                 f = fx_in.get((r, c))
                 if not f:
                     scr.blit(spr, (x, y))
@@ -716,7 +1010,7 @@ class App:
                     rx = int(cs * (0.35 + 0.55 * u))
                     ring = pygame.Surface((2 * rx + 4, rx + 4), pygame.SRCALPHA)
                     pygame.draw.ellipse(ring, (210, 220, 240, int(150 * (1 - u))), ring.get_rect(), 2)
-                    scr.blit(ring, ring.get_rect(center=(x + cs // 2, ar.y + (r + 1) * cs - cs * 0.15)))
+                    scr.blit(ring, ring.get_rect(center=(x + cs // 2, oy + (r + 1) * cs - cs * 0.15)))
         for f in self.fx:
             if f["kind"] != "out" or not (r0 <= f["cell"][0] < r1):
                 continue
@@ -725,7 +1019,7 @@ class App:
                 r, c = f["cell"]
                 tmp = sp.obstacle(r, c).copy()
                 tmp.set_alpha(int(255 * (1 - k)))
-                scr.blit(tmp, (ar.x + c * cs, ar.y + (r + 1) * cs - sp.obs_h - k * cs * 0.6))
+                scr.blit(tmp, (ox + c * cs, oy + (r + 1) * cs - sp.obs_h - k * cs * 0.6))
 
     def draw_panel(self, scr):
         scr.blit(theme.vgrad(PANEL.w, PANEL.h, (24, 32, 52), (13, 18, 30), 18), PANEL.topleft)
