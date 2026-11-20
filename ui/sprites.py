@@ -240,6 +240,98 @@ def cones(cs: int) -> pygame.Surface:
     return _finish(big, cs, ext)
 
 
+# --------------------------------------------------------------------------- grands obstacles (plusieurs cases)
+def _canvas_wh(cs: int, w: int, h: int):
+    ext = int(round(cs * EXT))
+    return ext, _new(w * cs * SS, (h * cs + ext) * SS)
+
+
+def _finish_wh(big: pygame.Surface, cs: int, w: int, h: int, ext: int) -> pygame.Surface:
+    return _shrink(big, w * cs, h * cs + ext)
+
+
+CONTAINER_COLORS = [(178, 58, 50), (46, 100, 164), (54, 134, 92), (206, 140, 40)]
+CARGO_COLORS = [(176, 124, 70), (74, 118, 170), (150, 96, 60)]
+
+
+def long_container(cs: int, w: int, color) -> pygame.Surface:
+    """Conteneur de w cases de long (1 case de large)."""
+    ext, big = _canvas_wh(cs, w, 1)
+    top_c = theme.mix(color, (255, 255, 255), 0.18)
+    tp, fr = _box(big, cs, ext, 0.06, w - 0.06, 0.32, 0.88, 0.34, top_c, color, radius=0.03)
+    dark = theme.mix(color, (0, 0, 0), 0.38)
+    light = theme.mix(color, (255, 255, 255), 0.30)
+    n = w * 5
+    for i in range(1, n):  # ondulations
+        x = tp.x + tp.w * i // n
+        pygame.draw.line(big, theme.mix(top_c, (0, 0, 0), 0.22), (x, tp.y + SS * 2), (x, tp.bottom - SS * 2), SS)
+        x = fr.x + fr.w * i // n
+        pygame.draw.line(big, dark, (x, fr.y + SS), (x, fr.bottom - SS), SS)
+        pygame.draw.line(big, light, (x + SS, fr.y + SS), (x + SS, fr.bottom - SS), SS)
+    for k in (0.10, 0.17):  # barres de verrouillage aux deux extrémités
+        for xx in (fr.x + int(cs * SS * k), fr.right - int(cs * SS * k)):
+            pygame.draw.rect(big, (206, 212, 224), (xx - SS, fr.y + SS * 2, SS * 2, fr.h - SS * 4))
+    pygame.draw.line(big, dark, (fr.centerx, fr.y), (fr.centerx, fr.bottom), SS * 2)
+    pygame.draw.rect(big, (240, 242, 248), (fr.x + int(cs * SS * 0.30), fr.y + int(fr.h * 0.28), int(cs * SS * 0.5),
+                                            int(fr.h * 0.26)))
+    pygame.draw.rect(big, dark, fr, SS, border_radius=SS * 2)
+    pygame.draw.rect(big, dark, tp, SS, border_radius=SS * 2)
+    return _finish_wh(big, cs, w, 1, ext)
+
+
+def long_wall(cs: int, h: int) -> pygame.Surface:
+    """Mur de barrières en béton de h cases (1 case de large), vu de dessus avec sa bande de danger."""
+    ext, big = _canvas_wh(cs, 1, h)
+    tp, fr = _box(big, cs, ext, 0.18, 0.82, 0.06, h - 0.10, 0.30, (176, 184, 198), (122, 131, 147), radius=0.05)
+    for i in range(1, h):  # jonctions entre éléments
+        y = tp.y + tp.h * i // h
+        pygame.draw.line(big, (112, 120, 136), (tp.x, y), (tp.right, y), SS * 2)
+    pygame.draw.line(big, (250, 204, 21), (tp.centerx, tp.y + SS * 3), (tp.centerx, tp.bottom - SS * 3), SS * 2)
+    band = pygame.Rect(fr.x, fr.y + int(fr.h * 0.18), fr.w, int(fr.h * 0.64))
+    layer = _new(band.w, band.h)
+    layer.fill((26, 28, 34))
+    step = int(cs * SS * 0.16)
+    for x in range(-band.h, band.w + band.h, step):
+        pygame.draw.polygon(layer, (250, 204, 21), [(x, band.h), (x + step // 2, band.h),
+                                                    (x + step // 2 + band.h, 0), (x + band.h, 0)])
+    big.blit(layer, band)
+    pygame.draw.rect(big, (206, 214, 226), (tp.x + SS, tp.y + SS, tp.w - SS * 2, SS * 2), border_radius=SS)
+    pygame.draw.rect(big, (70, 78, 94), tp, SS, border_radius=SS * 2)
+    pygame.draw.rect(big, (70, 78, 94), fr, SS, border_radius=SS * 2)
+    return _finish_wh(big, cs, 1, h, ext)
+
+
+def cargo_block(cs: int, w: int, h: int, wood) -> pygame.Surface:
+    """Cargaison de caisses : un bloc de h x w cases."""
+    ext, big = _canvas_wh(cs, w, h)
+    top_c = theme.mix(wood, (255, 255, 255), 0.18)
+    tp, fr = _box(big, cs, ext, 0.07, w - 0.07, 0.08, h - 0.10, 0.40, top_c, wood, radius=0.05)
+    dark = theme.mix(wood, (0, 0, 0), 0.45)
+    light = theme.mix(wood, (255, 255, 255), 0.28)
+    for i in range(1, w):  # une caisse par case
+        x = tp.x + tp.w * i // w
+        pygame.draw.line(big, dark, (x, tp.y), (x, tp.bottom), SS * 2)
+        x = fr.x + fr.w * i // w
+        pygame.draw.line(big, dark, (x, fr.y), (x, fr.bottom), SS * 2)
+    for j in range(1, h):
+        y = tp.y + tp.h * j // h
+        pygame.draw.line(big, dark, (tp.x, y), (tp.right, y), SS * 2)
+    for i in range(w):
+        for j in range(h):
+            x0, x1 = tp.x + tp.w * i // w, tp.x + tp.w * (i + 1) // w
+            y0, y1 = tp.y + tp.h * j // h, tp.y + tp.h * (j + 1) // h
+            pygame.draw.line(big, theme.mix(wood, (0, 0, 0), 0.25), (x0 + SS * 3, y0 + SS * 3), (x1 - SS * 3, y1 - SS * 3), SS)
+            pygame.draw.line(big, theme.mix(wood, (0, 0, 0), 0.25), (x1 - SS * 3, y0 + SS * 3), (x0 + SS * 3, y1 - SS * 3), SS)
+        x0, x1 = fr.x + fr.w * i // w, fr.x + fr.w * (i + 1) // w
+        pygame.draw.line(big, dark, (x0 + SS * 3, fr.y + SS * 3), (x1 - SS * 3, fr.bottom - SS * 3), SS * 2)
+        pygame.draw.line(big, dark, (x1 - SS * 3, fr.y + SS * 3), (x0 + SS * 3, fr.bottom - SS * 3), SS * 2)
+    pygame.draw.rect(big, light, (tp.x + SS, tp.y + SS, tp.w - SS * 2, SS * 2))
+    pygame.draw.rect(big, dark, tp, SS * 2, border_radius=SS * 3)
+    pygame.draw.rect(big, dark, fr, SS * 2, border_radius=SS * 3)
+    return _finish_wh(big, cs, w, h, ext)
+
+
+
 def wall_block(cs: int) -> pygame.Surface:
     S = cs * SS
     big = _new(S, S)
@@ -356,10 +448,11 @@ def build_arena(cols: int, rows: int, cs: int) -> pygame.Surface:
     """Sol de la carte : dalles de béton, route avec marquage, gravier, herbe, lignes jaunes, vignettage."""
     w, h = cols * cs, rows * cs
     rng = random.Random(11)
+    major = 10 if max(cols, rows) >= 40 else 4        # joints marqués tous les 10 cases sur les grandes cartes
     surf = pygame.Surface((w, h)).convert()
-    for r in range(rows):  # dalles de béton de 4 x 4 cases, en damier
+    for r in range(rows):  # dalles de béton en damier
         for c in range(cols):
-            base = (31, 39, 55) if ((r // 4) + (c // 4)) % 2 == 0 else (27, 34, 49)
+            base = (31, 39, 55) if ((r // major) + (c // major)) % 2 == 0 else (27, 34, 49)
             j = rng.randint(-2, 2)
             pygame.draw.rect(surf, (base[0] + j, base[1] + j, base[2] + j), (c * cs, r * cs, cs, cs))
     # route (asphalte) avec ligne centrale jaune pointillée
@@ -405,9 +498,21 @@ def build_arena(cols: int, rows: int, cs: int) -> pygame.Surface:
             pygame.draw.line(surf, (150, 120, 36), (rect.right, yy), (rect.right, yy + cs // 6), 2)
     # joints : traits fins entre cases, joints marqués entre dalles
     for c in range(cols + 1):
-        pygame.draw.line(surf, (22, 28, 40) if c % 4 == 0 else (37, 47, 66), (c * cs, 0), (c * cs, h))
+        if c % major == 0 or cs >= 6:  # sur les petites cases, seuls les joints de dalles sont tracés
+            pygame.draw.line(surf, (24, 31, 46) if c % major == 0 else (37, 47, 66), (c * cs, 0), (c * cs, h))
     for r in range(rows + 1):
-        pygame.draw.line(surf, (22, 28, 40) if r % 4 == 0 else (37, 47, 66), (0, r * cs), (w, r * cs))
+        if r % major == 0 or cs >= 6:
+            pygame.draw.line(surf, (24, 31, 46) if r % major == 0 else (37, 47, 66), (0, r * cs), (w, r * cs))
+    if cs >= 8:                                      # repères de coordonnées (colonnes en haut, lignes à gauche)
+        fnt = theme.font(max(9, min(13, cs // 2 + 3)))
+        for c in range(0, cols, major):
+            img = fnt.render(str(c), True, (118, 134, 168))
+            img.set_alpha(150)
+            surf.blit(img, (c * cs + 3, 2))
+        for r in range(major, rows, major):
+            img = fnt.render(str(r), True, (118, 134, 168))
+            img.set_alpha(150)
+            surf.blit(img, (3, r * cs + 2))
     shine = _new(w, h)
     for i in range(0, h, 3):  # reflet diagonal léger
         a = int(14 * max(0.0, 1 - i / h))
@@ -441,9 +546,40 @@ class Sprites:
         self.wall = wall_block(cs)
         self.door_left = [door(cs, i, "L") for i in range(5)]
         self.door_right = [door(cs, i, "R") for i in range(5)]
-        self.pad = pad(cs)
-        self.dock = dock(cs)
-        self.robot = robot(cs)
+        big = max(cs, 16)     # sur de petites cases, robot et marqueurs restent lisibles (plus grands que la case)
+        self.pad = pad(max(cs, 14))
+        self.dock = dock(max(cs, 14))
+        self.robot = robot(big)
+        # couleurs des obstacles en affichage simplifié (cases de moins de 8 pixels), même ordre que self.obstacles
+        self._parts = {}                     # sprites des grands obstacles, créés à la demande
+        self.flat_colors = [theme.mix(c, (64, 74, 96), 0.5) for c in [(184, 130, 76), (178, 58, 50), (150, 158, 172), (205, 72, 52), (110, 118, 132),
+                            (170, 118, 68), (172, 126, 72), (46, 100, 164), (58, 112, 196), (160, 112, 66),
+                            (110, 118, 132), (255, 118, 28), (150, 158, 172), (54, 134, 92), (170, 118, 68)]]
+
+    def part_sprite(self, h: int, w: int, variant: int) -> pygame.Surface:
+        """Sprite d'un rectangle de h x w cases : conteneur (horizontal), mur (vertical) ou cargaison (2 x 2 et plus)."""
+        key = (h, w, variant % 6)
+        if key not in self._parts:
+            if h == 1 and w >= 2:
+                spr = long_container(self.cs, w, CONTAINER_COLORS[variant % 4])
+            elif w == 1 and h >= 2:
+                spr = long_wall(self.cs, h)
+            else:
+                spr = cargo_block(self.cs, w, h, CARGO_COLORS[variant % 3])
+            self._parts[key] = spr
+        return self._parts[key]
+
+    def part_flat_color(self, h: int, w: int, variant: int):
+        if h == 1 and w >= 2:
+            col = CONTAINER_COLORS[variant % 4]
+        elif w == 1 and h >= 2:
+            col = (150, 158, 172)
+        else:
+            col = CARGO_COLORS[variant % 3]
+        return theme.mix(col, (64, 74, 96), 0.5)
+
+    def obstacle_index(self, r: int, c: int) -> int:
+        return (r * 7349 + c * 9151 + r * c) % len(self.obstacles)
 
     def obstacle(self, r: int, c: int) -> pygame.Surface:
-        return self.obstacles[(r * 7349 + c * 9151 + r * c) % len(self.obstacles)]
+        return self.obstacles[self.obstacle_index(r, c)]

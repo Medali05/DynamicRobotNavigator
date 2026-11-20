@@ -23,5 +23,9 @@ from .search import (AStar, Heuristic, PathManager, SearchResult, heuristic_for,
                      path_cost, shortest_path)
 from .world import Grid, Node, maze_grid, random_grid
 
+# Coût d'un déplacement diagonal (utilisé par simulation.py pour la distance parcourue)
+DIAG_COST = SQRT2
+
 __all__ = ["Grid", "Node", "Heuristic", "PathManager", "AStar", "SearchResult", "shortest_path",
-           "random_grid", "maze_grid", "manhattan", "octile", "heuristic_for", "path_cost", "SQRT2", "INF"]
+           "random_grid", "maze_grid", "manhattan", "octile", "heuristic_for", "path_cost",
+           "SQRT2", "DIAG_COST", "INF"]
